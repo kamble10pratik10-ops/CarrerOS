@@ -1,9 +1,11 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
 
 export default function ProfilePage() {
+  const { theme, toggleTheme } = useTheme();
   const [name, setName] = useState('');
   const [targetRole, setTargetRole] = useState('');
   const [resumeName, setResumeName] = useState('');
@@ -125,6 +127,26 @@ export default function ProfilePage() {
       <div>
         <h1 className="text-3xl font-extrabold text-on-surface tracking-tight">Profile & Settings</h1>
         <p className="text-on-surface-variant text-sm mt-1.5 font-medium">Manage your information. Your resume is stored once and used across all analyses.</p>
+      </div>
+
+      {/* Theme Toggle */}
+      <div className="space-y-2">
+        <label className="text-xs font-bold text-muted uppercase tracking-widest">Appearance</label>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={toggleTheme}
+            className="card-static px-4 py-2 flex items-center gap-2 hover:bg-surface-container/30 transition-all border-outline-variant/30 btn-hover cursor-pointer"
+          >
+            {theme === 'dark' ? (
+              <span className="material-symbols-outlined text-warning text-xl">light_mode</span>
+            ) : (
+              <span className="material-symbols-outlined text-secondary text-xl">dark_mode</span>
+            )}
+            <span className="text-sm font-bold text-on-surface">
+              {theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            </span>
+          </button>
+        </div>
       </div>
 
       {/* Name */}

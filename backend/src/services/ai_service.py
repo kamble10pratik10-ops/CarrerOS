@@ -118,7 +118,7 @@ CANDIDATE'S RESUME:
 Perform these tasks and return a structured JSON response matching the specifications:
 1. Identify the Company Name and Job Role. If not provided or unclear, extract them from the Job Description text.
 2. Compute the "Signal Score":
-   - "fitScore": A score from 0-100 indicating skills and experience overlap.
+   - "fitScore": A brutally honest, strictly calculated score from 0-100 indicating skills and experience overlap. CRITICAL: Do NOT default to generic 60-70 scores. If the candidate lacks the required degree, years of experience, or core tech stack mentioned in the JD, penalize heavily (e.g., 10-30). If they perfectly match the JD's requirements with strong projects/experience, score high (80-90+). Be extremely critical of the candidate's actual projects, skills, and knowledge claims vs what is strictly demanded in the JD.
    - "effort": A rating of "Easy", "Medium", or "High" indicating how much tailoring work is needed vs. the candidate's realistic shot.
    - "flag": "Green", "Yellow", or "Red" flag based on JD quality (e.g. Red for unrealistic qualifications, ghost posting indicators, or extremely vague JDs).
    - "flagReason": A brief 1-sentence reason justifying the flag.
@@ -320,6 +320,11 @@ The interview was for a role described by this Job Description:
 --- INTERVIEW TRANSCRIPT ---
 {history_text}
 ----------------------------
+
+CRITICAL INSTRUCTIONS FOR SCORING:
+- Be brutally honest. Do NOT inflate scores. 
+- If the candidate provided no answers, extremely short answers, or nonsensical answers, their scores MUST be 0. 
+- If the transcript shows the candidate didn't say anything, overallScore and confidenceScore MUST strictly be 0.
 
 Evaluate the candidate's performance and return a strict JSON object with the following structure:
 {{

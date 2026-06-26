@@ -560,7 +560,7 @@ export default function CareerTwinPage() {
 
       {/* AI MENTOR CHAT */}
       {activeTab === 'mentor' && (
-        <div className="page-transition flex flex-col space-y-4" style={{ height: 'calc(100vh - 280px)' }}>
+        <div className="page-transition flex flex-col space-y-4" style={{ height: '70vh', minHeight: '500px' }}>
           {/* Chat Context Banner */}
           <div className="card-static p-4 flex items-center gap-3.5 border-outline-variant/30 bg-surface-container/20">
             <span className="material-symbols-outlined text-secondary text-xl shrink-0">smart_toy</span>
@@ -649,7 +649,7 @@ export default function CareerTwinPage() {
 
       {/* RECRUITER SIMULATOR */}
       {activeTab === 'simulator' && (
-        <div className="page-transition flex flex-col space-y-4" style={{ height: 'calc(100vh - 280px)' }}>
+        <div className="page-transition flex flex-col space-y-4" style={{ height: '70vh', minHeight: '500px' }}>
           {!selectedJdId ? (
              <div className="space-y-4">
                 <h3 className="text-sm font-bold text-on-surface">Select a Job for the Mock Interview</h3>

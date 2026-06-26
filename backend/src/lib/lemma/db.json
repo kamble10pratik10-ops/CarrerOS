@@ -191,7 +191,7 @@
           "id": "app_1782453131392",
           "company": "Amazon",
           "role": "Sales Associate, Direct Sales Team",
-          "status": "Applied",
+          "status": "Rejected",
           "dateApplied": "2026-06-26T11:22:11.392001Z",
           "matchScore": 40,
           "effort": "High",
@@ -595,6 +595,79 @@
               "title": "Technical Interview Practice",
               "link": "https://practice.geeksforgeeks.org/courses/Technical-Courses",
               "description": "This platform offers a wide range of technical interview practice questions and problems, helping candidates prepare for common interview topics and improve their problem-solving skills."
+            }
+          ]
+        },
+        {
+          "id": "app_1782474312585",
+          "company": "DeepMind",
+          "role": "Senior Developer Relations Engineer",
+          "status": "Applied",
+          "dateApplied": "2026-06-26T17:15:12.585626Z",
+          "matchScore": 70,
+          "effort": "Medium",
+          "flag": "Green",
+          "flagReason": "The job description is detailed and realistic, with a clear understanding of the required skills and experience.",
+          "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n7 years of experience in a technical role (e.g., software engineering, AI engineering, solutions consultant, etc.) or equivalent technical experience.\n5 years of experience with machine learning algorithms and tools, artificial intelligence, deep learning or natural language processing.\nExperience coding in Python, TypeScript, or JavaScript.\n\nPreferred qualifications:\nStrong understanding of the developer ecosystem in India and prior engagement with it.\nAbility to produce excellent code samples, clear documentation, and effective how-to materials to enable developer success with technical offerings.\nAbility to navigate ambiguity in a fast paced environment.\nOwnership of problems end-to-end and a team player with a collaborative mindset.\nAbout the job\nDeepMind Developer Experience works at the intersection of Engineering, Product, and Community. We advocate developer success by delivering seamless experiences across our GenAI product suite. Through deep collaborations across Google, we empower developers by providing high-quality launch materials, education, technical outreach, and a supportive ecosystem for developers of all backgrounds.\n\nAs a Senior Developer Relations Engineer for DeepMind in India, you will operate at the intersection of Product, Engineering, Research, and one of the world's most dynamic developer communities. You will be a strategic leader, serving as the trusted Indian developer ecosystem inside DeepMind and the technical expert of our organization to the region.\n\nYour mission is to define the developer relations strategy for India, advocating developer success and driving the adoption of our models and tools. You will actively shape our global product and research direction based on regional insights, lead local launch strategies, and scale a thriving AI builders ecosystem.\n\nYou will require a unique blend of deep technical expertise, developer empathy, and strategic thinking to navigate the rapid evolution of foundational AI and developer needs in India. You will work with a passionate, cross-functional global team of engineers, researchers, and product managers who are dedicated to pushing the boundaries of what\u2019s possible. If you are excited to shape the developer experience for the world\u2019s most advanced AI and build a thriving ecosystem in a key growth market, this is your chance to be at the forefront of this technological revolution.\nArtificial intelligence will be one of humanity\u2019s most transformative inventions. At DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n\nWe are pushing the boundaries across multiple domains. Our global teams offer learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\nResponsibilities\nDefine and lead the technical go-to-market (GTM) strategy for AI models and tools (such as Gemini, Nano Banana, Google AI Studio), tailoring enablement and developer assets to the distinct needs of the Indian ecosystem (high-growth startups, developers, and enterprises).\nExecute strategic partnerships with regional developer platforms and startups in India, driving high-impact integrations that embed DeepMind technology into the local developer stack.\nLead DeepMind\u2019s regional technical strategy and advocacy, representing the organization at key developer events, steering the regional content and advocacy strategy to inspire the developer community.\nInfluence global product and model research roadmaps by synthesizing technical findings, local constraints, and Indian developer feedback.\nAct as a strategic zeroth customer for DeepMind technology, partnering with core engineering teams on early-stage API design, usability, and architecture to ensure new features are production-ready for real-world deployment.",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Developed an AI-powered knowledge management system utilizing LangChain and Llama 3, resulting in significant improvements to query resolution times and demonstrating expertise in integrating cutting-edge AI technologies into practical solutions.\", \"reason\": \"Highlighting the candidate's ability to apply AI technologies to real-world problems and improve processes.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Conducted in-depth research on graph neural networks for fraud detection, achieving high accuracy on a large-scale transaction network, showcasing the ability to work with complex data and advanced AI models.\", \"reason\": \"Emphasizing the candidate's research skills, particularly in applying AI to challenging problems like fraud detection.\"}, {\"original\": \"Designed a two-dashboard Tableau Story ('Ecosystem Overview' + 'Geography & Players') over 10-year funding data across 6,000+ rounds with nine analytical problem statements.\", \"tailored\": \"Created comprehensive data visualizations using Tableau to analyze the Indian startup ecosystem, covering funding trends and geographical distribution of startups, demonstrating data analysis and visualization skills.\", \"reason\": \"Highlighting the candidate's data analysis and visualization capabilities, relevant to understanding and engaging with the developer ecosystem in India.\"}]",
+          "outreachMessages": {
+            "confident": "I am excited to apply for the Senior Developer Relations Engineer role at DeepMind, bringing my technical expertise and passion for AI to drive developer success and ecosystem growth in India.",
+            "curious": "I've been following DeepMind's innovative approaches to AI development and their impact on global challenges. I'd love to discuss how my skills in machine learning and developer relations could contribute to the team's mission in the Indian market.",
+            "concise": "With a strong background in AI, machine learning, and developer relations, I am keen on the Senior Developer Relations Engineer position and look forward to exploring how I can support DeepMind's goals in India."
+          },
+          "interviewQuestions": [],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "The candidate lacks direct experience with machine learning algorithms and tools specifically mentioned in the job description, such as experience with foundational AI and developer needs in India."
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "The candidate has experience with some of the required programming languages, but there is limited evidence of strong understanding of the developer ecosystem in India and prior engagement with it."
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "There is an opportunity for the candidate to develop strategic partnerships with regional developer platforms and startups in India, which could enhance their skills and experience."
+            }
+          ],
+          "learningResources": [
+            {
+              "platform": "Coursera",
+              "title": "Machine Learning by Andrew Ng",
+              "link": "https://www.coursera.org/learn/machine-learning",
+              "description": "A foundational course in machine learning, covering the basics and applications of ML, highly relevant for understanding and working with AI technologies."
+            },
+            {
+              "platform": "freeCodeCamp",
+              "title": "Python for Everybody",
+              "link": "https://www.freecodecamp.org/learn/python",
+              "description": "A comprehensive introduction to Python programming, useful for developing skills in a key language required for the role."
+            },
+            {
+              "platform": "YouTube",
+              "title": "DeepMind's Official Channel",
+              "link": "https://www.youtube.com/channel/UCP7jMXSYhbhed2KpyoLY-Uw",
+              "description": "Stay updated with the latest developments and research from DeepMind, providing insights into the company's work and areas of focus."
+            },
+            {
+              "platform": "edX",
+              "title": "Artificial Intelligence (AI) by Microsoft",
+              "link": "https://www.edx.org/learn/artificial-intelligence",
+              "description": "A course that covers the principles of AI and its applications, useful for understanding the broader context of AI development and its potential impact."
+            },
+            {
+              "platform": "GeeksforGeeks",
+              "title": "Practice Problems for Machine Learning and AI",
+              "link": "https://practice.geeksforgeeks.org/courses/machine-learning",
+              "description": "A collection of practice problems to hone skills in machine learning and AI, essential for preparing for interviews and further learning."
+            },
+            {
+              "platform": "MDN Web Docs",
+              "title": "Web Development Documentation",
+              "link": "https://developer.mozilla.org/en-US/docs/Learn",
+              "description": "Comprehensive web development documentation, useful for understanding web technologies and developing skills in areas like JavaScript and TypeScript."
             }
           ]
         }
