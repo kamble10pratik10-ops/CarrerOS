@@ -19,7 +19,7 @@ from src.lib.lemma.datastore import (
     get_profile
 )
 from src.lib.lemma.workflows import trigger_application_workflow
-from src.services.ai_service import parse_file_with_gemini, chat_with_agent
+from src.services.ai_service import parse_file_with_gemini, chat_with_agent, chat_with_recruiter_agent, evaluate_interview_performance
 from src.lib.lemma.auth import create_access_token, verify_token
 from src.lib.lemma.auth_store import user_exists, get_user_by_email, create_user
 
@@ -60,6 +60,10 @@ class ChatRequest(BaseModel):
     message: str
     chatHistory: list | None = []
     resumeText: str | None = ""
+    currentJdText: str | None = ""
+
+class EvaluateRequest(BaseModel):
+    chatHistory: list | None = []
     currentJdText: str | None = ""
 
 # --- Auth Helper ---
@@ -321,6 +325,52 @@ async def chat(req: ChatRequest, email: str = Depends(get_current_user)):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=str(e) or "Failed to get response from AI chat"
         )
+
+# 7. Recruiter Simulator Chat Agent
+@app.post("/api/interview-chat")
+async def interview_chat(req: ChatRequest, email: str = Depends(get_current_user)):
+    try:
+        print(f"[Backend] Forwarding message to Recruiter Simulator for {email}...")
+        reply = await chat_with_recruiter_agent({
+            "message": req.message,
+            "chatHistory": req.chatHistory or [],
+            "resumeText": req.resumeText,
+            "currentJdText": req.currentJdText
+        })
+        
+        return {
+            "success": True,
+            "reply": reply
+        }
+    except Exception as e:
+        print(f"Error in interview chat API route: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=str(e) or "Failed to get response from Recruiter Simulator"
+        )
+
+# 8. Recruiter Simulator Interview Evaluator
+@app.post("/api/evaluate-interview")
+async def evaluate_interview(req: EvaluateRequest, email: str = Depends(get_current_user)):
+    try:
+        print(f"[Backend] Forwarding interview to Evaluator for {email}...")
+        evaluation = await evaluate_interview_performance({
+            "chatHistory": req.chatHistory or [],
+            "currentJdText": req.currentJdText
+        })
+        
+        return {
+            "success": True,
+            "evaluation": evaluation
+        }
+    except Exception as e:
+        print(f"Error in evaluate-interview API route: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=str(e) or "Failed to evaluate interview performance"
+        )
+
+
 
 if __name__ == "__main__":
     import uvicorn

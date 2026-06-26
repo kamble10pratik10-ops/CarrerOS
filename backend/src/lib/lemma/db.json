@@ -530,6 +530,73 @@
               "description": "Official Google Cloud documentation and tutorials provide valuable insights into cloud computing, which is relevant for managing global vendors and implementing strategic initiatives in a cloud-based environment."
             }
           ]
+        },
+        {
+          "id": "app_1782470934813",
+          "company": "Google",
+          "role": "Senior Silicon Implementation Technical Program Manager",
+          "status": "Applied",
+          "dateApplied": "2026-06-26T16:18:54.813274Z",
+          "matchScore": 60,
+          "effort": "High",
+          "flag": "Yellow",
+          "flagReason": "Lack of direct experience in silicon implementation and high-tech industry.",
+          "jdText": "Minimum qualifications:\nBachelor's degree in a technical field, or equivalent practical experience.\n5 years of experience in program management.\nExperience with chips and embedded systems used in mobile devices.\n\nPreferred qualifications:\n5 years of experience managing cross-functional or cross-team projects.\nExperience working in the consumer electronics industry specifically involves executing technical programs with external partnerships.\nHigh-tech industry experience with a track record of direct product development, program management, project management, professional services or engineering management.\nAbout the job\nA problem isn\u2019t truly solved until it\u2019s solved for all. That\u2019s why Googlers build products that help create opportunities for everyone, whether down the street or across the globe. As a Technical Program Manager at Google, you\u2019ll use your technical expertise to lead complex, multi-disciplinary projects from start to finish. You\u2019ll work with stakeholders to plan requirements, identify risks, manage project schedules, and communicate clearly with cross-functional partners across the company. You're equally comfortable explaining your team's analyses and recommendations to executives as you are discussing the technical tradeoffs in product development with engineers.\n\nAs Senior Silicon Implementation Technical Program Manager team, you will lead a team responsible for SoC development over the full product cycle from pre-silicon to commercialization. A strong understanding of IP and SoC delivery in a silicon team is a must. You bring a breadth of expertise across silicon Architecture, RTL, DV, PD, etc. to enable silicon productization. You will drive execution of multiple concurrent SoC projects, this includes coordination of deliverables across multiple geographies, managing overall program schedules at target Power Performance Area (PPA) and quality, negotiations with stakeholders and escalation when needed to get decisions made and dissemination of program status across the team. Excellent written and verbal communication skills and relationship building across stakeholders is essential.\n\nThe Platforms and Devices team encompasses Google's various computing software platforms across environments (desktop, mobile, applications), as well as our first party devices and services that combine the best of Google AI, software, and hardware. Teams across this area research, design, and develop new technologies to make our user's interaction with computing faster and more seamless, building innovative experiences for our users around the world.\n\nResponsibilities\nWork closely with engineering teams to develop and manage custom silicon projects.\nWork closely with partners on product development schedules, dependencies and budgets.\nIdentify risks, develop mitigation strategies and facilitate conflict resolution.\nInterface between partners and product engineering teams, setting and managing schedules and milestones. Travel and Google Video Conferencing (GVCs) required to coordinate with teams in Mountain View/APAC.\nDrive program reviews, build schedules cross-functionally, keep program milestones on track.",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Improved team efficiency by 38% through the development of an AI-powered knowledge assistant, demonstrating ability to drive process improvements and collaborate with teams.\", \"reason\": \"Emphasized the impact on team efficiency and collaboration to align with the job's requirements for program management and team leadership.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Applied machine learning expertise to drive innovation in complex problem-solving, with a proven track record of achieving high accuracy in large-scale data analysis.\", \"reason\": \"Highlighted the candidate's ability to apply technical skills to drive innovation and solve complex problems, relevant to the role's requirement for technical expertise.\"}, {\"original\": \"Developed FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\", \"tailored\": \"Designed and implemented scalable data processing solutions, utilizing technologies like FastAPI and Pinecone vector embedding to efficiently handle large volumes of data.\", \"reason\": \"Focused on the technical skills and scalability aspects of the project to demonstrate the candidate's capability in handling complex data processing tasks.\"}]",
+          "outreachMessages": {
+            "confident": "I am excited to apply for the Senior Silicon Implementation Technical Program Manager role at Google, bringing my strong technical background and experience in driving process improvements to contribute to the company's innovative products and services.",
+            "curious": "I came across the Senior Silicon Implementation Technical Program Manager role at Google and was impressed by the company's commitment to advancing technology and creating opportunities for everyone. I would love to learn more about the team's work and how my skills align with the position.",
+            "concise": "Hi, I'm Pratik Kamble, a computer engineering graduate with a strong background in software development and AI. I'm interested in the Senior Silicon Implementation Technical Program Manager role at Google and would appreciate the opportunity to discuss my application."
+          },
+          "interviewQuestions": [],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "No experience with SoC development or silicon team management mentioned in the resume."
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "The candidate's experience is more focused on software development and AI, whereas the job requires expertise in silicon implementation and technical program management."
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate's strong background in computer engineering and experience with various technologies could be an opportunity to learn and grow into the role with proper training and mentorship."
+            }
+          ],
+          "learningResources": [
+            {
+              "platform": "Coursera",
+              "title": "Technical Program Management",
+              "link": "https://www.coursera.org/specializations/technical-program-management",
+              "description": "This specialization provides a comprehensive introduction to technical program management, covering topics such as program planning, risk management, and stakeholder communication."
+            },
+            {
+              "platform": "edX",
+              "title": "Silicon Engineering",
+              "link": "https://www.edx.org/learn/silicon-engineering",
+              "description": "This course explores the fundamentals of silicon engineering, including semiconductor physics, device fabrication, and circuit design."
+            },
+            {
+              "platform": "YouTube",
+              "title": "Google Technical Program Management",
+              "link": "https://www.youtube.com/playlist?list=PLIivdWyY5sqJxnJ5Ql5L6BGk4oFmmdx5Q",
+              "description": "This playlist provides an overview of Google's technical program management practices, featuring talks from experienced program managers and industry experts."
+            },
+            {
+              "platform": "freeCodeCamp",
+              "title": "Project Management with Agile",
+              "link": "https://www.freecodecamp.org/learn/agile-project-management/",
+              "description": "This course introduces the principles and practices of agile project management, covering topics such as sprint planning, backlog management, and team collaboration."
+            },
+            {
+              "platform": "GeeksforGeeks",
+              "title": "Technical Interview Practice",
+              "link": "https://practice.geeksforgeeks.org/courses/Technical-Courses",
+              "description": "This platform offers a wide range of technical interview practice questions and problems, helping candidates prepare for common interview topics and improve their problem-solving skills."
+            }
+          ]
         }
       ],
       "profile": {

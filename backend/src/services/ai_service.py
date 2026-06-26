@@ -250,6 +250,123 @@ Instructions:
         print("[ai_service] Using Gemini API for chat...")
         return await chat_with_gemini(messages, gemini_client)
 
+async def chat_with_recruiter_agent(payload):
+    message = payload.get("message")
+    chat_history = payload.get("chatHistory") or []
+    resume_text = payload.get("resumeText")
+    current_jd_text = payload.get("currentJdText")
+    
+    system_prompt = f"""
+You are an expert AI Recruiter Simulator conducting a mock interview for the candidate.
+Your personality is professional, strict but fair, and observant. You are simulating a real interview environment.
+
+Candidate's Resume:
+{resume_text or 'No resume provided.'}
+
+Job Description they are interviewing for:
+{current_jd_text or 'No job description provided.'}
+
+Instructions:
+1. Speak as a recruiter. Ask ONE question at a time.
+2. Based on the candidate's answers, you can ask follow-up questions or move on to the next topic.
+3. Your interview should cover:
+   - Technical questions (development, CS fundamentals, backend/frontend, scalability, security) based on the JD.
+   - Behavioral / "Googliness" questions (teamwork, conflict resolution, leadership).
+   - Aptitude / Problem-solving questions.
+   - Resume-specific questions (diving deep into hackathons, projects, internships they mentioned).
+4. Judge their readiness and confidence implicitly through your responses.
+5. Keep your responses short and conversational, as if spoken aloud (no markdown formatting like bolding or bullet points).
+6. If the user asks for feedback or to end the interview, provide a comprehensive summary of their performance.
+"""
+
+    groq_client = get_groq_client()
+    gemini_client = get_gemini_client()
+    
+    messages = [{"role": "system", "content": system_prompt}]
+    for h in chat_history:
+        messages.append({"role": h.get("role"), "content": h.get("content")})
+    messages.append({"role": "user", "content": message})
+    
+    if groq_client:
+        try:
+            print("[ai_service] Using Groq API for recruiter chat...")
+            completion = groq_client.chat.completions.create(
+                messages=messages,
+                model="llama-3.3-70b-versatile"
+            )
+            return completion.choices[0].message.content
+        except Exception as e:
+            print(f"[ai_service] Groq Chat Error, falling back to Gemini: {e}")
+            return await chat_with_gemini(messages, gemini_client)
+    else:
+        print("[ai_service] Using Gemini API for recruiter chat...")
+        return await chat_with_gemini(messages, gemini_client)
+
+async def evaluate_interview_performance(payload):
+    chat_history = payload.get("chatHistory", [])
+    jd_text = payload.get("currentJdText", "")
+    
+    # Format chat history for the prompt
+    history_text = ""
+    for msg in chat_history:
+        role = "Recruiter" if msg.get("role") == "assistant" else "Candidate"
+        history_text += f"{role}: {msg.get('content')}\n\n"
+        
+    prompt = f"""
+You are an expert Interview Evaluator. Review the following mock interview transcript between an AI Recruiter and a Candidate.
+The interview was for a role described by this Job Description:
+{jd_text or 'No job description provided.'}
+
+--- INTERVIEW TRANSCRIPT ---
+{history_text}
+----------------------------
+
+Evaluate the candidate's performance and return a strict JSON object with the following structure:
+{{
+  "overallScore": <integer 0-100>,
+  "confidenceScore": <integer 0-100 based on conciseness and lack of hesitation>,
+  "toneAnalysis": "<Analyze the candidate's tone (e.g., nervous, anxious, confident, calm) based on sentence structure, hesitations, and filler words.>",
+  "technicalAccuracy": "<Provide a brief assessment of whether the candidate's answers were technically correct or if they made mistakes.>",
+  "fillerWords": {{
+    "count": <total number of filler words detected>,
+    "words": [<array of unique filler words used, e.g., "um", "uh", "like", "you know">]
+  }},
+  "recommendations": [
+    <exactly 3 string bullet points with actionable advice to improve>
+  ],
+  "qaReview": [
+    {{
+      "question": "<The recruiter's question>",
+      "answer": "<The candidate's exact answer>",
+      "feedback": "<1-2 sentences of specific feedback on this answer including whether it was correct>",
+      "score": <integer 0-100 for this specific answer>
+    }}
+  ]
+}}
+
+Ensure the output is ONLY valid JSON without any markdown formatting wrappers like ```json.
+"""
+    
+    groq_client = get_groq_client()
+    gemini_client = get_gemini_client()
+    
+    if groq_client:
+        try:
+            print("[ai_service] Using Groq API for interview evaluation...")
+            completion = groq_client.chat.completions.create(
+                messages=[{"role": "user", "content": prompt}],
+                model="llama-3.3-70b-versatile",
+                response_format={"type": "json_object"}
+            )
+            resp_text = completion.choices[0].message.content
+            return json.loads(clean_json_string(resp_text))
+        except Exception as e:
+            print(f"[ai_service] Groq Eval Error, falling back to Gemini: {e}")
+            return await generate_analysis_with_gemini(prompt, gemini_client)
+    else:
+        print("[ai_service] Using Gemini API for interview evaluation...")
+        return await generate_analysis_with_gemini(prompt, gemini_client)
+
 async def chat_with_gemini(messages, gemini_client):
     if not gemini_client:
         raise ValueError("No LLM client is available. Set GROQ_API_KEY or GOOGLE_API_KEY.")
