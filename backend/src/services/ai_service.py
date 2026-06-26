@@ -30,11 +30,57 @@ def clean_json_string(text):
     return text.strip()
 
 def parse_file_with_gemini(file_bytes, mime_type, file_name):
+    file_ext = (file_name.rsplit('.', 1)[-1] if '.' in file_name else '').lower()
+    
+    # --- Plain text files: just decode ---
+    if mime_type.startswith("text/") or file_ext in ("txt", "text", "csv", "md"):
+        try:
+            return file_bytes.decode("utf-8")
+        except UnicodeDecodeError:
+            return file_bytes.decode("latin-1")
+    
+    # --- DOCX: extract with python-docx (Gemini can't handle DOCX inline) ---
+    if file_ext in ("docx",) or mime_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+        try:
+            import docx
+            import io
+            doc = docx.Document(io.BytesIO(file_bytes))
+            paragraphs = [p.text for p in doc.paragraphs if p.text.strip()]
+            extracted = "\n".join(paragraphs)
+            if extracted.strip():
+                return extracted
+            # If paragraphs are empty, try tables
+            table_text = []
+            for table in doc.tables:
+                for row in table.rows:
+                    row_data = [cell.text.strip() for cell in row.cells if cell.text.strip()]
+                    if row_data:
+                        table_text.append(" | ".join(row_data))
+            return "\n".join(table_text) if table_text else "Could not extract text from this DOCX file."
+        except ImportError:
+            raise ValueError("python-docx is not installed. Run: pip install python-docx")
+        except Exception as e:
+            raise ValueError(f"Failed to parse DOCX file: {e}")
+    
+    # --- Old .doc format: try textract-like fallback ---
+    if file_ext == "doc" or mime_type == "application/msword":
+        # .doc is a legacy binary format — try to decode as text, or advise to convert
+        try:
+            text = file_bytes.decode("utf-8", errors="ignore")
+            # Strip binary noise
+            clean = "".join(c for c in text if c.isprintable() or c in "\n\r\t")
+            if len(clean.strip()) > 50:
+                return clean.strip()
+        except Exception:
+            pass
+        raise ValueError("Old .doc format detected. Please save as .docx or PDF and try again.")
+    
+    # --- Images and PDFs: use Gemini Vision/Document AI ---
     gen_ai = get_gemini_client()
     if not gen_ai:
         raise ValueError("Gemini API key (GOOGLE_API_KEY) is not set in environment.")
         
-    model = gen_ai.GenerativeModel('gemini-1.5-flash')
+    model = gen_ai.GenerativeModel('gemini-2.0-flash')
     
     part = {
         "mime_type": mime_type,
@@ -42,7 +88,7 @@ def parse_file_with_gemini(file_bytes, mime_type, file_name):
     }
     
     if mime_type.startswith("image/"):
-        prompt = "Extract the full job description text, company name, and job role from this screenshot. Do not format as a chat response, just provide the parsed text clearly."
+        prompt = "Extract ALL text from this image. This may be a resume or a job description screenshot. Provide the complete parsed text clearly, preserving structure."
     elif mime_type == "application/pdf":
         prompt = "Extract the complete text contents of this document (which is a resume or job description). Maintain structure where possible."
     else:
@@ -82,7 +128,9 @@ Perform these tasks and return a structured JSON response matching the specifica
    - "confident": Bold and assertive.
    - "curious": Eager, research-oriented, showing interest in the company's recent achievements.
    - "concise": Under 4 sentences, quick and sweet.
-6. Generate an "Interview Prep Pack" containing 3 key questions tailored to the company's domain (e.g., Stripe's payments system) and this role, with categories "CASE STUDY", "STRATEGY", or "CULTURE", estimated prep duration, and AI-suggested talking points.
+6. Generate an "Interview Prep Pack" containing 5 to 7 high-quality, trusted FREE learning resources tailored to the skills needed for this role.
+   - Include a mix of top-tier free courses (e.g., freeCodeCamp, Coursera free tier, edX), official documentation/guides (e.g., MDN), highly rated YouTube channels or playlists, and practice sites (e.g., GeeksforGeeks, LeetCode).
+   Provide a brief description of what the user will learn from each resource and why it is highly recommended.
 
 Return ONLY a valid JSON object matching the exact structure below. Do not include markdown code block syntax (like ```json) or any wrapping text.
 
@@ -113,12 +161,12 @@ Expected JSON format:
     "curious": "Curious message draft",
     "concise": "Concise message draft"
   }},
-  "interviewQuestions": [
+  "learningResources": [
     {{
-      "type": "CASE STUDY",
-      "duration": "15 MINS",
-      "question": "The interview question",
-      "suggestion": "AI suggestion for talking points"
+      "platform": "YouTube",
+      "title": "Title of the video or topic",
+      "link": "Search query or URL",
+      "description": "Why it's useful for this role"
     }}
   ]
 }}
@@ -149,7 +197,7 @@ async def generate_analysis_with_gemini(prompt, gemini_client):
         raise ValueError("Neither Groq nor Gemini API keys are configured correctly.")
         
     model = gemini_client.GenerativeModel(
-        model_name='gemini-1.5-flash',
+        model_name='gemini-2.0-flash',
         generation_config={"response_mime_type": "application/json"}
     )
     result = model.generate_content(prompt)
@@ -213,7 +261,7 @@ async def chat_with_gemini(messages, gemini_client):
             break
             
     model = gemini_client.GenerativeModel(
-        model_name='gemini-1.5-flash',
+        model_name='gemini-2.0-flash',
         system_instruction=system_instruction
     )
     

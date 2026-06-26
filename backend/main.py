@@ -1,14 +1,13 @@
 import os
-from fastapi import FastAPI, UploadFile, File, HTTPException, status
+from fastapi import FastAPI, UploadFile, File, HTTPException, status, Depends, Request
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
+from passlib.context import CryptContext
 
 # Load environment variables from .env
 load_dotenv()
-
-print("DEBUG KEY:", os.environ.get("GOOGLE_API_KEY"))
-print("DEBUG GROQ:", os.environ.get("GROQ_API_KEY"))
 
 from src.lib.lemma.datastore import (
     get_applications,
@@ -21,6 +20,10 @@ from src.lib.lemma.datastore import (
 )
 from src.lib.lemma.workflows import trigger_application_workflow
 from src.services.ai_service import parse_file_with_gemini, chat_with_agent
+from src.lib.lemma.auth import create_access_token, verify_token
+from src.lib.lemma.auth_store import user_exists, get_user_by_email, create_user
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 app = FastAPI(title="CareerOS API", version="1.0.0")
 
@@ -32,6 +35,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+class RegisterRequest(BaseModel):
+    email: str
+    mobile: str
+    password: str
+
+class LoginRequest(BaseModel):
+    email: str
+    password: str
 
 class AnalyzeRequest(BaseModel):
     jdText: str
@@ -49,6 +61,53 @@ class ChatRequest(BaseModel):
     chatHistory: list | None = []
     resumeText: str | None = ""
     currentJdText: str | None = ""
+
+# --- Auth Helper ---
+def get_current_user(request: Request):
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    token = auth_header.split(" ")[1]
+    email = verify_token(token)
+    if not email:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+    return email
+
+# --- Auth Routes ---
+
+@app.post("/api/auth/register")
+async def register(req: RegisterRequest):
+    if not req.email or not req.password or not req.mobile:
+        raise HTTPException(status_code=400, detail="Email, mobile and password are required")
+    if user_exists(req.email):
+        raise HTTPException(status_code=409, detail="An account with this email already exists")
+    password_hash = pwd_context.hash(req.password)
+    create_user(req.email, req.mobile, password_hash)
+    token = create_access_token(req.email)
+    return {"success": True, "token": token, "email": req.email.lower()}
+
+@app.post("/api/auth/login")
+async def login(req: LoginRequest):
+    user = get_user_by_email(req.email)
+    if not user or not pwd_context.verify(req.password, user["password_hash"]):
+        raise HTTPException(status_code=401, detail="Invalid email or password")
+    token = create_access_token(req.email)
+    return {"success": True, "token": token, "email": user["email"]}
+
+# --- Profile Routes ---
+
+@app.get("/api/profile")
+async def get_profile_route(email: str = Depends(get_current_user)):
+    profile = get_profile(email)
+    return {"success": True, "profile": profile}
+
+@app.put("/api/profile")
+async def update_profile_route(req: UpdateRequest, email: str = Depends(get_current_user)):
+    existing = get_profile(email) or {}
+    if req.profile:
+        existing.update(req.profile)
+    saved = save_profile(email, existing)
+    return {"success": True, "profile": saved}
 
 # 1. File Upload / Parser Route (Gemini OCR & PDF Parsing)
 @app.post("/api/parse-file")
@@ -76,19 +135,19 @@ async def parse_file(file: UploadFile = File(...)):
 
 # 2. Application Analysis Workflow Route (Groq + Gemini Triage Scorer)
 @app.post("/api/analyze")
-async def analyze_application(req: AnalyzeRequest):
+async def analyze_application(req: AnalyzeRequest, email: str = Depends(get_current_user)):
     try:
-        print("[Backend] Triggering analysis workflow...")
-        saved_app = await trigger_application_workflow({
+        print(f"[Backend] Triggering analysis workflow for {email}...")
+        saved_app = await trigger_application_workflow(email, {
             "jdText": req.jdText,
             "resumeText": req.resumeText,
             "companyName": req.companyName,
             "roleName": req.roleName
         })
         
-        weekly_velocity = get_weekly_velocity()
-        active_nudges = get_active_nudges()
-        all_apps = get_applications()
+        weekly_velocity = get_weekly_velocity(email)
+        active_nudges = get_active_nudges(email)
+        all_apps = get_applications(email)
         
         return {
             "success": True,
@@ -106,11 +165,11 @@ async def analyze_application(req: AnalyzeRequest):
 
 # 3. Get Application pipeline board and stats
 @app.get("/api/analyze")
-async def get_analysis_dashboard():
+async def get_analysis_dashboard(email: str = Depends(get_current_user)):
     try:
-        all_apps = get_applications()
-        weekly_velocity = get_weekly_velocity()
-        active_nudges = get_active_nudges()
+        all_apps = get_applications(email)
+        weekly_velocity = get_weekly_velocity(email)
+        active_nudges = get_active_nudges(email)
         
         return {
             "success": True,
@@ -127,11 +186,11 @@ async def get_analysis_dashboard():
 
 # 4. Update application status or user profile
 @app.put("/api/applications")
-async def update_applications_or_profile(req: UpdateRequest):
+async def update_applications_or_profile(req: UpdateRequest, email: str = Depends(get_current_user)):
     try:
         if req.profile is not None:
-            print("[Backend] Updating user profile...")
-            saved = save_profile(req.profile)
+            print(f"[Backend] Updating user profile for {email}...")
+            saved = save_profile(email, req.profile)
             return {"success": True, "profile": saved}
             
         if not req.id:
@@ -140,8 +199,8 @@ async def update_applications_or_profile(req: UpdateRequest):
                 detail="Application ID is required"
             )
             
-        print(f"[Backend] Updating application status: {req.id}")
-        updated_app = update_application(req.id, req.updates or {})
+        print(f"[Backend] Updating application status: {req.id} for {email}")
+        updated_app = update_application(email, req.id, req.updates or {})
         
         if not updated_app:
             raise HTTPException(
@@ -161,10 +220,10 @@ async def update_applications_or_profile(req: UpdateRequest):
 
 # 5. Delete an application
 @app.delete("/api/applications")
-async def delete_app(id: str):
+async def delete_app(id: str, email: str = Depends(get_current_user)):
     try:
-        print(f"[Backend] Deleting application {id}")
-        success = delete_application(id)
+        print(f"[Backend] Deleting application {id} for {email}")
+        success = delete_application(email, id)
         return {"success": success}
     except Exception as e:
         print(f"Error in applications DELETE route: {e}")
@@ -173,11 +232,78 @@ async def delete_app(id: str):
             detail="Failed to delete application"
         )
 
+# 5.b Download Tailored Resume
+import docx
+import json
+import tempfile
+
+@app.get("/api/applications/{app_id}/download-resume")
+async def download_resume(app_id: str, email: str = Depends(get_current_user)):
+    try:
+        all_apps = get_applications(email)
+        app_data = next((a for a in all_apps if a.get("id") == app_id), None)
+        if not app_data:
+            raise HTTPException(status_code=404, detail="Application not found")
+            
+        profile = get_profile(email)
+        resume_text = profile.get("resumeText", "") if profile else ""
+        if not resume_text:
+            raise HTTPException(status_code=400, detail="No base resume found")
+            
+        # Parse tailored bullets
+        tailored_bullets_raw = app_data.get("tailoredBullets", "[]")
+        try:
+            tailored_bullets = json.loads(tailored_bullets_raw) if isinstance(tailored_bullets_raw, str) else tailored_bullets_raw
+        except:
+            tailored_bullets = []
+            
+        # Reconstruct resume text by replacing original with tailored
+        final_resume = resume_text
+        for bullet in tailored_bullets:
+            original = bullet.get("original", "").strip()
+            tailored = bullet.get("tailored", "").strip()
+            if original and tailored and original in final_resume:
+                final_resume = final_resume.replace(original, tailored)
+                
+        # Create a DOCX
+        doc = docx.Document()
+        
+        # Add basic formatting
+        for paragraph in final_resume.split('\n'):
+            p = paragraph.strip()
+            if p:
+                if p.isupper() and len(p) < 40:
+                    # Treat short uppercase lines as headings
+                    doc.add_heading(p, level=2)
+                elif p.startswith(('-', '*')):
+                    # Treat lines starting with hyphens or asterisks as bullets
+                    doc.add_paragraph(p[1:].strip(), style='List Bullet')
+                else:
+                    doc.add_paragraph(p)
+                    
+        # Save to temp file
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".docx")
+        doc.save(temp_file.name)
+        
+        return FileResponse(
+            temp_file.name, 
+            media_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            filename=f"Tailored_Resume_{app_data.get('company', 'Company')}.docx"
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Error downloading resume: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to generate document"
+        )
+
 # 6. Conversational Chat Agent (Career Concierge)
 @app.post("/api/chat")
-async def chat(req: ChatRequest):
+async def chat(req: ChatRequest, email: str = Depends(get_current_user)):
     try:
-        print("[Backend] Forwarding message to Career Concierge...")
+        print(f"[Backend] Forwarding message to Career Concierge for {email}...")
         reply = await chat_with_agent({
             "message": req.message,
             "chatHistory": req.chatHistory or [],

@@ -1,4 +1,547 @@
 {
-  "applications": [],
-  "profile": null
+  "user_data": {
+    "pratik@example.com": {
+      "applications": [
+        {
+          "id": "app_1782429901213",
+          "company": "Google",
+          "role": "Site Reliability Engineer (SRE)",
+          "status": "Applied",
+          "dateApplied": "2026-06-26T04:55:01.213711Z",
+          "matchScore": 70,
+          "effort": "Medium",
+          "flag": "Yellow",
+          "flagReason": "The job description requires significant experience and qualifications, which may be challenging for the candidate to meet.",
+          "jdText": "Minimum qualifications:\nBachelor\u2019s degree in Computer Science, a related field, or equivalent practical experience.\n5 years of experience with software development in one or more programming languages.\n3 years of experience in designing, analyzing, and troubleshooting large-scale distributed systems.\n2 years of experience leading projects and providing technical leadership.\n\nPreferred qualifications:\nMaster's degree in Computer Science or Engineering.\nAbout the job\nSite Reliability Engineering (SRE) combines software and systems engineering to build and run large-scale, massively distributed, fault-tolerant systems. SRE ensures that Google Cloud's services\u2014both our internally critical and our externally-visible systems\u2014have reliability, uptime appropriate to customer's needs and a fast rate of improvement. Additionally SRE\u2019s will keep an ever-watchful eye on our systems capacity and performance.\n\n\nMuch of our software development focuses on optimizing existing systems, building infrastructure and eliminating work through automation. On the SRE team, you\u2019ll have the opportunity to manage the complex challenges of scale which are unique to Google Cloud, while using your expertise in coding, algorithms, complexity analysis and large-scale system design. SRE's culture of intellectual curiosity, problem solving and openness is key to its success. Our organization brings together people with a wide variety of backgrounds, experiences and perspectives. We encourage them to collaborate, think big and take risks in a blame-free environment. We promote self-direction to work on meaningful projects, while we also strive to create an environment that provides the support and mentorship needed to learn and grow.\nBehind everything our users see online is the architecture built by the Technical Infrastructure team to keep it running. From developing and maintaining our data centers to building the next generation of Google platforms, we make Google's product portfolio possible. We're proud to be our engineers' engineers and love voiding warranties by taking things apart so we can rebuild them. We keep our networks up and running, ensuring our users have the best and fastest experience possible.\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nIreland: \u20ac122000 - \u20ac126000 (EUR) + 15% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nEngage in and improve the whole lifecycle of services\u2014from inception and design, through to deployment, operation and refinement.\nSupport services before they go live through activities such as system design consulting, developing software platforms and frameworks, capacity planning and launch reviews.\nMaintain services once they are live by measuring and monitoring availability, latency and overall system health.\nScale systems sustainably through mechanisms like automation, and evolve systems by pushing for changes that improve reliability and velocity.\nPractice sustainable incident response and blameless postmortems.",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Designed and developed a scalable knowledge management system using AI and machine learning, improving query resolution efficiency by 38%.\", \"reason\": \"Emphasized the scalability and efficiency aspects of the project to align with the SRE role.\"}, {\"original\": \"Developed FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\", \"tailored\": \"Architected and implemented a high-performance document processing pipeline using FastAPI and Pinecone, capable of handling large volumes of data.\", \"reason\": \"Highlighted the technical skills and performance aspects of the project to match the SRE requirements.\"}, {\"original\": \"Integrated Slack bot interface adopted by 120+ engineers across three product teams within one month of launch.\", \"tailored\": \"Successfully integrated a collaboration platform with a Slack bot interface, resulting in rapid adoption by 120+ engineers and improved team productivity.\", \"reason\": \"Focused on the collaboration and productivity aspects of the project to align with the SRE role's emphasis on teamwork and efficiency.\"}]",
+          "outreachMessages": {
+            "confident": "I'm excited to apply for the SRE role at Google, where I can leverage my technical skills and experience to drive innovation and reliability in large-scale systems.",
+            "curious": "I'm intrigued by Google's approach to site reliability engineering and would love to learn more about the company's recent achievements and challenges in this area.",
+            "concise": "As a skilled software engineer with experience in AI and machine learning, I'm interested in exploring the SRE role at Google and contributing to the company's mission."
+          },
+          "interviewQuestions": [
+            {
+              "type": "CASE STUDY",
+              "duration": "15 MINS",
+              "question": "Can you describe a situation where you had to troubleshoot a complex issue in a distributed system? How did you approach the problem, and what was the outcome?",
+              "suggestion": "Be prepared to walk the interviewer through your thought process, highlighting your problem-solving skills and ability to work with complex systems."
+            },
+            {
+              "type": "STRATEGY",
+              "duration": "10 MINS",
+              "question": "How would you approach the design of a scalable and fault-tolerant system for a cloud-based service? What factors would you consider, and what trade-offs would you make?",
+              "suggestion": "Emphasize your understanding of system design principles, scalability, and fault tolerance, and be prepared to discuss trade-offs and compromises."
+            },
+            {
+              "type": "CULTURE",
+              "duration": "10 MINS",
+              "question": "Can you tell me about a time when you had to collaborate with a cross-functional team to resolve a technical issue? What was your role, and how did you contribute to the team's efforts?",
+              "suggestion": "Highlight your ability to work collaboratively, communicate effectively, and drive results in a team environment, emphasizing your fit with Google's culture and values."
+            }
+          ],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "The candidate lacks experience with large-scale distributed systems and fault-tolerant systems, which are key requirements for the SRE role."
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "The candidate has experience with machine learning and AI, but the job description focuses more on software engineering and systems reliability."
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate has the opportunity to develop their skills in cloud computing, DevOps, and system design, which are essential for the SRE role."
+            }
+          ]
+        }
+      ],
+      "profile": {
+        "name": "Pratik kamble",
+        "targetRole": "software engineer",
+        "resumeName": "pratik_kamble_resume (3).docx",
+        "resumeText": "PRATIK KAMBLE\n+91 98765 43210  |  pratikk.ce22@mitaoe.ac.in  |  linkedin.com/in/pratik-kamble  |  github.com/pratikk-dev  |  Pune, MH\nEDUCATION\nMIT Academy of Engineering, Alandi (Pune)\tAug 2022 \u2013 May 2026\nB.E. Computer Engineering \u00b7 Savitribai Phule Pune University  CGPA: 8.05 / 10.0\nVidyalankar Junior College, Mumbai\t2020 \u2013 2022\nHSC (Science) \u00b7 Maharashtra State Board  \u00b7  87.4%\nTECHNICAL SKILLS\nLanguages: Python, JavaScript / TypeScript, C++, SQL, Bash    Frameworks: React, Next.js, FastAPI, Node.js, Tailwind CSS\nAI / ML: PyTorch, scikit-learn, LangChain, Groq API, Hugging Face, Llama 3    Databases: PostgreSQL, MongoDB, Supabase\nCloud & DevOps: AWS (EC2, S3, Lambda), Docker, Vercel, GitHub Actions    Tools: Git, Postman, Tableau, Figma, Linux\nEXPERIENCE\nSoftware Engineering Intern \u2014 NeuralBridge Technologies \u00b7 Pune (Hybrid)\tMay 2025 \u2013 Jul 2025\nBuilt a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\nDeveloped FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\nIntegrated Slack bot interface adopted by 120+ engineers across three product teams within one month of launch.\nMachine Learning Research Intern \u2014 IIT Bombay \u00b7 Synapse AI Lab (Remote)\tDec 2024 \u2013 Feb 2025\nResearched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\nCo-authored workshop paper submitted to ICLR 2025 (FinML Workshop) on heterogeneous graph sampling strategies.\nAutomated hyperparameter sweeps using Optuna, cutting experimentation cycles by 4\u00d7.\nPROJECTS\nAI Job Application Command Centre \u2014 Next.js \u00b7 Groq / Llama-3.3-70b \u00b7 Lemma SDK \u00b7 Supabase\tJun 2026\nEnd-to-end platform for students managing multi-platform job searches \u2014 JD parser, 'Signal Score' fit scorer, resume tailor, recruiter message drafter, Kanban pipeline tracker, and AI interview prep generator.\nIntegrated Lemma SDK for agent orchestration; Groq API (llama-3.3-70b) for sub-second inference; Clerk auth + Supabase Postgres with row-level security. Deployed on Vercel.\nTradeMind \u2014 Explainable AI Investment Profiler \u2014 React / TypeScript \u00b7 FastAPI \u00b7 Groq API\tMar 2026\nConversational AI that profiles investor risk appetite and generates explainable portfolio recommendations with SHAP-style reasoning narratives.\nImplemented multi-asset backtesting engine (equities, ETFs, crypto) with visual equity curves rendered using Recharts.\nIndian Startup Ecosystem \u2014 Tableau Analytics Dashboard \u2014 Tableau \u00b7 Python \u00b7 Pandas\tJan 2026\nDesigned a two-dashboard Tableau Story ('Ecosystem Overview' + 'Geography & Players') over 10-year funding data across 6,000+ rounds with nine analytical problem statements.\nHACKATHONS & ACHIEVEMENTS\nHackSphere 2026 \u2014 National Level Hackathon  \u00b7  Runner-Up (240 teams)\tFeb 2026\nReal-time disaster response coordination platform using multi-agent LLMs and satellite imagery analysis. Team of 4 \u00b7 36 hrs.\nLemma SDK Launch Hackathon 2026  \u00b7  Finalist \u2014 Top 10 globally (800+ submissions)\tJun 2026\nSmart India Hackathon 2025  \u00b7  Institute Winner\tAug 2025\nNLP-powered grievance classification system routing 92% of municipal complaints to correct departments automatically.\nCERTIFICATIONS & ACTIVITIES\n\u2022 AWS Certified Solutions Architect \u2013 Associate (2025)\t\u2022 Tech Lead, MITAOE Developer Club (2024\u201325)\n\u2022 Google Data Analytics Professional Certificate\t\u2022 Core Member, E-Cell MITAOE\n\u2022 Supervised ML: Regression & Classification \u00b7 Coursera\t\u2022 400+ LeetCode problems \u00b7 Rating: 1,742"
+      }
+    },
+    "preetikamble959@gmail.com": {
+      "applications": [],
+      "profile": null
+    },
+    "test2@example.com": {
+      "applications": [],
+      "profile": {
+        "name": "Test User Two",
+        "targetRole": "AI Specialist",
+        "resumeName": "",
+        "resumeText": ""
+      }
+    },
+    "kamble10pratik.10@gmail.com": {
+      "applications": [
+        {
+          "id": "app_1782452717100",
+          "company": "Google",
+          "role": "Networking Test Engineer",
+          "status": "Under Review",
+          "dateApplied": "2026-06-26T11:15:17.100057Z",
+          "matchScore": 70,
+          "effort": "Medium",
+          "flag": "Yellow",
+          "flagReason": "Lack of direct experience in networking protocols and hardware testing.",
+          "jdText": "Minimum qualifications:\nBachelor\u2019s degree in Computer Science, Electrical Engineering, a related field, or equivalent practical experience.\n1 year of experience working with and testing multiple Level 2 and Level 3 networking protocols as well as troubleshooting automation.\nExperience with test methodologies, writing test plans and creating test cases.\n\nPreferred qualifications:\n1 year of experience in software development and testing.\nExperience with automation and debugging.\nAbout the job\nOur computational challenges are so big and unique we can't just buy our hardware, we've got to make it ourselves. Our Platforms Team designs and builds the hardware, software and networking technologies that power all of Google's services. As a Networking Test Engineer you make sure that our massive and growing network is operating at its peak potential. You have direct experience with complex networking equipment, a deep understanding of networking protocols, test design and implementation chops and a background in IP network design. It's your job to make sure Google's cutting-edge technology can perform at scale.\n\nGoogle is an engineering company at heart. We hire people with a broad set of technical skills who are ready to take on some of technology's greatest challenges and make an impact on users around the world. At Google, engineers not only revolutionize search, they routinely work on scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From Google Ads to Chrome, Android to YouTube, social to local, Google engineers are changing the world one technological achievement after another.\n\nResponsibilities\nIdentify and report bugs, including escalating complex issues to executive engineers or managers.\nDevelop and execute test plans, including contributing to the hardening of device hardware and software by developing automated scripts and running regression on existing Google platforms.\nManage testing and releases of networking products, including managing timelines and project plans.\nWrite and review test plans with teams, including identifying and gathering requirements to test networking features of a moderate to high-complexity project, participate in cross-functional reviews with related teams which cover test plans and test results.",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Developed an AI-powered knowledge assistant that streamlined information retrieval, potentially applicable to optimizing network troubleshooting processes.\", \"reason\": \"Emphasized the problem-solving aspect and automation potential relevant to networking test engineering.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Applied machine learning techniques to complex network data, demonstrating the ability to analyze and optimize network performance and security.\", \"reason\": \"Highlighted the network analysis aspect and its relevance to understanding and improving network protocols.\"}, {\"original\": \"Automated hyperparameter sweeps using Optuna, cutting experimentation cycles by 4\\u00d7.\", \"tailored\": \"Improved the efficiency of test processes through automation, which can be applied to streamlining networking test methodologies and reducing manual effort.\", \"reason\": \"Focused on the efficiency gains through automation, relevant to test design and implementation in a networking context.\"}]",
+          "outreachMessages": {
+            "confident": "With my strong background in software development and experience in automation, I am confident in my ability to make a significant impact as a Networking Test Engineer at Google.",
+            "curious": "I've been following Google's advancements in networking technologies and am excited about the opportunity to contribute to the team. Could you share more about the current challenges and projects the team is working on?",
+            "concise": "As a detail-oriented and innovative engineer with experience in automation and software development, I am interested in the Networking Test Engineer role and look forward to discussing how my skills align with Google's needs."
+          },
+          "interviewQuestions": [
+            {
+              "type": "CASE STUDY",
+              "duration": "20 MINS",
+              "question": "How would you approach the task of identifying and troubleshooting a performance issue in a large-scale network, given limited access to physical network devices?",
+              "suggestion": "Discuss a structured approach to network troubleshooting, including the use of monitoring tools, log analysis, and simulation techniques to isolate and resolve issues."
+            },
+            {
+              "type": "STRATEGY",
+              "duration": "15 MINS",
+              "question": "What strategies would you employ to ensure that new networking hardware and software solutions are adequately tested and validated before deployment in a production environment?",
+              "suggestion": "Emphasize the importance of comprehensive test planning, including the development of test cases that cover a wide range of scenarios and edge cases, as well as the use of automation tools to streamline the testing process."
+            },
+            {
+              "type": "CULTURE",
+              "duration": "10 MINS",
+              "question": "How do you stay current with the latest developments and advancements in networking technologies, and how do you see yourself contributing to the knowledge sharing and innovation within Google's engineering community?",
+              "suggestion": "Talk about participating in industry forums, reading technical blogs, and engaging in continuous learning. Highlight any personal projects or contributions to open-source initiatives that demonstrate your commitment to innovation and knowledge sharing."
+            }
+          ],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "No direct mention of experience with Level 2 and Level 3 networking protocols in the resume."
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "While the candidate has experience in software development, the resume lacks a strong focus on networking equipment and IP network design."
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate's experience in automation and debugging can be leveraged for networking test automation, presenting an opportunity for growth."
+            }
+          ]
+        },
+        {
+          "id": "app_1782453076497",
+          "company": "Amazon",
+          "role": "Business Intelligence Engineer",
+          "status": "Offer",
+          "dateApplied": "2026-06-26T11:21:16.497795Z",
+          "matchScore": 70,
+          "effort": "Medium",
+          "flag": "Yellow",
+          "flagReason": "The job description has some unrealistic qualifications, but overall it is clear and well-defined.",
+          "jdText": "Business Intelligence Engineer, ROW AOP\nJob ID: 10459711 | ASSPL - Andhra Pradesh\nDescription\nAmazon\u2019s ROW (Rest of World) Supply Chain Analytics team is looking for talented Business Intelligence Engineers who develop solutions to better manage/optimize speed and operations planning while providing the best experience to our customers at the lowest possible price. Our team members have an opportunity to be at the forefront of supply chain thought leadership by working on some of the most difficult problems with some of the best research scientists, product/program managers, software developers and business leaders in the industry, shaping our roadmap to drive real impact on Amazon's long-term profitability. We are an agile team, building new analysis from ground up, proposing new concepts and technology to meet business needs, and enjoy and excel at diving into data to analyze root causes and implement long-term solutions.\nAs a BIE within the group, you will analyze massive data sets, identify areas to improve, define metrics to measure and monitor programs, build models to predict and optimize and most importantly work with different stakeholders to drive improvements over time. You will also work closely with internal business teams to extract or mine information from our existing systems to create new analysis, build analytical products and cause impact across wider teams in intuitive ways. This position provides opportunities to influence high visibility/high impact areas in the organization. They are right a lot, work very efficiently, and routinely deliver results on time. They have a global view of the analytical and/or science solutions that they build and consistently think in terms of automating, expanding, and scaling the results broadly. This position also requires you to work across a variety of teams, including transportation, operations, finance, delivery experience, people experience and platform (software) teams. Successful candidates must thrive in fast-paced environments which encourage collaborative and creative problem solving, be able to measure and estimate risks, constructively critique peer research, extract and manipulate data across various data marts, and align research focuses on Amazon\u2019s strategic needs.\nWe are looking for people with a flair for recognizing trends and patterns while correlating it to the business problem at hand. If you have an uncanny ability to decipher the exact policy/mechanism/solution to address the challenge and ability to influence folks using hard data (and some tact) then we are looking for you!\n\nKey job responsibilities\n\u2022 Analysis of historical data to identify trends and support decision making, including written and verbal presentation of results and recommendations\n\u2022 Collaborating with product and software development teams to implement analytics systems and data structures to support large-scale data analysis and delivery of analytical and machine learning models\n\u2022 Mining and manipulating data from database tables, simulation results, and log files\n\u2022 Identifying data needs and driving data quality improvement projects\n\u2022 Understanding the broad range of Amazon\u2019s data resources, which to use, how, and when\n\u2022 Thought leadership on data mining and analysis\n\u2022 Modeling complex/abstract problems and discovering insights and developing solutions/products using statistics, data mining, science/machine-learning and visualization techniques\n\u2022 Helping to automate processes by developing deep-dive tools, metrics, and dashboards to communicate insights to the business teams\n\u2022 Collaborating effectively with internal end-users, cross-functional software development teams, and technical support/sustaining engineering teams to solve problems and implement new solutions\n\nAbout the team\nROW (Rest of World) Supply Chain analytics team is hiring multiple BIE roles in planning, inbound and SNOP functions. The role will be responsible for generating insights, defining metrics to measure and monitor, building analytical products, automation and self-serve and overall driving business improvements. The role involves combination of data-analysis, visualization, statistics, scripting, a bit of machine learning and usage of AWS services.\n\nBasic Qualifications\n- 3+ years of analyzing and interpreting data with Redshift, Oracle, NoSQL etc. experience\n- 2+ years of Tableau Desktop, Quicksight or other relevant data visualization software experience\n- Bachelor's degree or above in business administration, finance, economics, computer science, data science, engineering, or other related field, or 2+ years of Amazon RME (BB/3P) Full Time Exempt experience\n- Experience with data visualization using Tableau, Quicksight, or similar tools\n- Experience with data modeling, warehousing and building ETL pipelines\n- Experience in Statistical Analysis packages such as R, SAS and Matlab\n- Experience using SQL to pull data from a database or data warehouse and scripting experience (Python) to process data for modeling\n- Experience using SQL (Structured Query Language) to pull data from a database or data warehouse\n- Experience using Python scripting to process data for modeling\n\nPreferred Qualifications\n- Master's degree or above in BI, finance, engineering, statistics, computer science, mathematics or equivalent quantitative field\n- Knowledge of Microsoft Excel at an advanced level, including: pivot tables, macros, index/match, vlookup, VBA, data links, etc.\n- Experience with AWS solutions such as EC2, DynamoDB, S3, and Redshift\n- Experience in data mining, ETL, etc. and using databases in a business environment with large-scale, complex datasets\n- Experience developing and presenting recommendations of new metrics allowing better understanding of the performance of the business",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Developed and deployed a data-driven solution using LangChain and Llama 3, resulting in a 38% reduction in query resolution time and demonstrating my ability to drive business improvements through data analysis.\", \"reason\": \"Emphasized the business impact and data-driven approach to align with the job description's focus on business intelligence and analytics.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Conducted research on graph neural networks for anomaly detection, achieving a 93.2% F1 score on a large-scale dataset and demonstrating my ability to apply machine learning techniques to complex problems.\", \"reason\": \"Reframed the research experience to focus on anomaly detection, which is relevant to the business intelligence role, and highlighted the candidate's ability to apply machine learning techniques to complex problems.\"}, {\"original\": \"Developed FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\", \"tailored\": \"Designed and developed scalable data pipelines using FastAPI, processing large volumes of data and demonstrating my ability to build efficient and reliable data systems.\", \"reason\": \"Emphasized the candidate's experience with data pipelines and ability to handle large volumes of data, which is relevant to the job description's focus on data analysis and visualization.\"}]",
+          "outreachMessages": {
+            "confident": "I am excited to apply for the Business Intelligence Engineer role at Amazon, where I can leverage my skills in data analysis and machine learning to drive business improvements. With my strong background in computer science and experience with AWS services, I am confident that I would be a valuable addition to your team.",
+            "curious": "I am impressed by Amazon's commitment to innovation and customer satisfaction, and I am excited to learn more about the Business Intelligence Engineer role. Can you tell me more about the team's current projects and how this role contributes to the company's goals?",
+            "concise": "I am a highly motivated and experienced data analyst and machine learning engineer, and I am excited to apply for the Business Intelligence Engineer role at Amazon. I would welcome the opportunity to discuss my qualifications further and learn more about the team's work."
+          },
+          "interviewQuestions": [
+            {
+              "type": "CASE STUDY",
+              "duration": "15 MINS",
+              "question": "How would you analyze and visualize data to identify trends and insights in Amazon's supply chain operations?",
+              "suggestion": "Discuss how you would use data visualization tools, such as Tableau, to create interactive dashboards and identify key performance indicators. Emphasize your ability to communicate complex data insights to non-technical stakeholders."
+            },
+            {
+              "type": "STRATEGY",
+              "duration": "10 MINS",
+              "question": "What strategies would you use to improve data quality and ensure data integrity in Amazon's business intelligence systems?",
+              "suggestion": "Discuss how you would implement data validation and data cleansing techniques, and emphasize the importance of data governance and data stewardship in ensuring data quality and integrity."
+            },
+            {
+              "type": "CULTURE",
+              "duration": "10 MINS",
+              "question": "Can you describe your experience working in a fast-paced and dynamic environment, and how you handle multiple priorities and tight deadlines?",
+              "suggestion": "Emphasize your ability to work effectively in a team, prioritize tasks, and manage multiple projects simultaneously. Discuss how you handle stress and pressure, and how you maintain a positive and productive attitude in a fast-paced environment."
+            }
+          ],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "The candidate's resume does not mention experience with Redshift or Oracle, which are required by the job description."
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "The candidate's experience in machine learning is not directly applicable to the business intelligence role, which requires more data analysis and visualization skills."
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate has the opportunity to highlight their experience with AWS services, such as EC2 and S3, which are relevant to the job description."
+            }
+          ]
+        },
+        {
+          "id": "app_1782453131392",
+          "company": "Amazon",
+          "role": "Sales Associate, Direct Sales Team",
+          "status": "Applied",
+          "dateApplied": "2026-06-26T11:22:11.392001Z",
+          "matchScore": 40,
+          "effort": "High",
+          "flag": "Yellow",
+          "flagReason": "The job description requires a CMA or MBA, but the candidate's resume does not mention these qualifications.",
+          "jdText": "Sales Associate, DS Bengaluru, Direct Sales Team\nJob ID: 10431386 | ASSPL - Karnataka - B56\nDescription\nAs a Direct Sales Associate, you are the engine behind Amazon's seller growth story. You identify, recruit, and launch high-potential businesses onto the Amazon marketplace \u2014 then partner with them to unlock their full revenue potential. From that first cold call to a seller's first sale (and beyond), you own the journey.\n\nWhat makes this role exciting:\n\n1. You're a builder \u2013 You don't just fill a pipeline; you create thriving businesses from scratch. Every seller you launch adds selection, sharpens pricing, and delights customers.\n2. You're a strategist \u2013 You advise companies on catalogue optimization, FBA adoption, deals strategy, and growth levers that move the needle on Gross Merchandise Sales.\n3. You're a closer \u2013 You handle objections, push for commitment, and turn a \"maybe\" into a launched storefront generating real revenue.\n4. You're a partner \u2013 Post-launch, you stay in the trenches with your sellers for up to 12 months \u2014 coaching, optimizing, and scaling their success.\n\n\nKey job responsibilities\nWorking in a dynamic sales environment, you will be responsible for prospecting, qualifying, negotiating and closing agreements with third-party sellers. Your success will be measured by the product selection and revenue your clients bring to the platform. Your responsibilities will include helping define key retailer segments to target, establishing seller relationships, and drive the day-to-day interactions with these companies in order to build long-term business opportunity. The ideal candidate will possess a demonstrated ability to think strategically about business, product, and ecommerce challenges, with the ability to build and convey compelling value propositions to sellers of all sizes.\n\nTo be successful in this role you will need to have superior communication, presentation and organizational skills. Operating in a fast-moving and sometimes ambiguous environment, you will work autonomously taking full control and responsibility for hitting business objectives. This role provides opportunities to develop original ideas, approaches, and solutions in a competitive and ever changing business climate.\n\nSpecific responsibilities include the following:\n\n1. Understand Amazon Services products and services and be able to articulate its functions and benefits to external audiences.\n2. Help define the seller base and industry verticals we target and influence a sales plan that is in line with our global seller business direction.\n3. Work across key internal stakeholders to set priorities and develop account targets that underpin category strategy and knowledge of the local market.\n4. Track and report performance using appropriate metrics. Achieve productivity and seller satisfaction targets\n5. Engage with internal and external customers/teams to improve products and business processes.\n6. Identify specific prospects/partners to approach, communicate the specific value proposition for their business and use case, and establish long-term, successful partnerships.\n7. Work closely with senior executives at interested sellers to successfully negotiate deals and help in on-boarding.\n8. Review and monitor performance and sales of key partners to manage their performance.\n\nPersonal attributes and competencies:\n1. Demonstrated customer focus.\n2. Demonstrated highest level of integrity, intellectual honesty, and strong work ethic.\n3. Sharp, analytical, and thoughtful. Has sound judgment and ability to be right a lot.\n4. Thoroughly thinks through problems to come up with solutions. Applies fair and consistent criteria.\n5. Gathers the right input/data.\n6. Uses intuition. Is decisive. Makes good decisions when analysis of data is not sufficient to reach a conclusion.\n7. Proven ability to successfully thrive in an ambiguous environment and changing market conditions.\n8. Simplifier but at the same time things big, takes smart risks, is innovative and can think out of the box. 9. Develops original ideas, approaches, and solutions to typical, unusual, or difficult situations or problems.\n10. Takes initiative. Doesn't wait to be asked. Plans efficiently while avoiding analysis paralysis.\n11. Consistent effort, strong commitment, and willingness to go above and beyond when needed.\n12. Strong team player, acts like an owner, and ultimately focused on delivering results with high standards.\n\nBasic Qualifications\n- CMA, or MBA\n- 6+ years of marketing communications in a B2B or B2C role experience\n\nPreferred Qualifications\n- MBA, or Master's degree\n",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Improved process efficiency by 38% through the development of a knowledge assistant, demonstrating the ability to analyze problems and implement effective solutions.\", \"reason\": \"The original bullet point highlights technical skills, but the tailored version emphasizes the impact on process efficiency, making it more relevant to a sales role.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Utilized analytical skills to research and develop a solution for fraud detection, achieving a high level of accuracy and demonstrating the ability to drive results-driven solutions.\", \"reason\": \"The original bullet point focuses on technical details, but the tailored version emphasizes the analytical skills and results-driven approach, making it more applicable to a sales role.\"}, {\"original\": \"Developed FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\", \"tailored\": \"Designed and implemented a scalable solution for document processing, showcasing the ability to handle complex projects and drive innovation.\", \"reason\": \"The original bullet point highlights technical expertise, but the tailored version emphasizes the ability to design and implement scalable solutions, making it more relevant to a sales role.\"}]",
+          "outreachMessages": {
+            "confident": "I am excited to apply for the Sales Associate role at Amazon, as my strong work ethic and analytical skills make me a strong fit for the position. I am confident that my unique blend of technical expertise and problem-solving abilities will enable me to drive results and make a significant impact.",
+            "curious": "I am intrigued by Amazon's innovative approach to sales and customer satisfaction. I would love to learn more about the company's recent achievements and how the Sales Associate role contributes to the company's mission. Can we schedule a time to discuss the position and how my skills align with the company's goals?",
+            "concise": "I am interested in the Sales Associate role at Amazon and believe my skills and experience make me a strong candidate. I would appreciate the opportunity to discuss the position further and learn more about the company's vision."
+          },
+          "interviewQuestions": [
+            {
+              "type": "CASE STUDY",
+              "duration": "15 MINS",
+              "question": "Suppose you are tasked with increasing sales for a new product on the Amazon platform. Walk me through your strategy and approach to achieve this goal.",
+              "suggestion": "The candidate should discuss their understanding of the product, target audience, and marketing channels, as well as their plan for analyzing sales data and adjusting their strategy accordingly."
+            },
+            {
+              "type": "STRATEGY",
+              "duration": "10 MINS",
+              "question": "How would you approach building relationships with potential sellers and convincing them to partner with Amazon?",
+              "suggestion": "The candidate should emphasize the importance of understanding the seller's needs and providing value-added services, such as inventory management and shipping solutions."
+            },
+            {
+              "type": "CULTURE",
+              "duration": "5 MINS",
+              "question": "Can you describe a time when you had to work in a fast-paced and dynamic environment? How did you adapt to the changing circumstances and prioritize your tasks?",
+              "suggestion": "The candidate should provide a specific example from their experience, highlighting their ability to remain calm under pressure, prioritize tasks effectively, and maintain a high level of productivity."
+            }
+          ],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "The job description emphasizes sales experience, but the candidate's resume highlights technical skills and experience as a software engineering intern."
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "The job description requires superior communication, presentation, and organizational skills, but the candidate's resume focuses on technical expertise, such as programming languages and AI/ML tools."
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate could emphasize transferable skills, such as problem-solving and analytical thinking, to demonstrate potential for success in a sales role."
+            }
+          ]
+        },
+        {
+          "id": "app_1782453409401",
+          "company": "Amazon",
+          "role": "Sales Associate",
+          "status": "Applied",
+          "dateApplied": "2026-06-26T11:26:49.401431Z",
+          "matchScore": 40,
+          "effort": "High",
+          "flag": "Yellow",
+          "flagReason": "Lack of direct sales experience and missing required qualifications such as MBA or CMA.",
+          "jdText": "Sales Associate, DS Bengaluru, Direct Sales Team\nJob ID: 10431386 | ASSPL - Karnataka - B56\nDescription\nAs a Direct Sales Associate, you are the engine behind Amazon's seller growth story. You identify, recruit, and launch high-potential businesses onto the Amazon marketplace \u2014 then partner with them to unlock their full revenue potential. From that first cold call to a seller's first sale (and beyond), you own the journey.\n\nWhat makes this role exciting:\n\n1. You're a builder \u2013 You don't just fill a pipeline; you create thriving businesses from scratch. Every seller you launch adds selection, sharpens pricing, and delights customers.\n2. You're a strategist \u2013 You advise companies on catalogue optimization, FBA adoption, deals strategy, and growth levers that move the needle on Gross Merchandise Sales.\n3. You're a closer \u2013 You handle objections, push for commitment, and turn a \"maybe\" into a launched storefront generating real revenue.\n4. You're a partner \u2013 Post-launch, you stay in the trenches with your sellers for up to 12 months \u2014 coaching, optimizing, and scaling their success.\n\n\nKey job responsibilities\nWorking in a dynamic sales environment, you will be responsible for prospecting, qualifying, negotiating and closing agreements with third-party sellers. Your success will be measured by the product selection and revenue your clients bring to the platform. Your responsibilities will include helping define key retailer segments to target, establishing seller relationships, and drive the day-to-day interactions with these companies in order to build long-term business opportunity. The ideal candidate will possess a demonstrated ability to think strategically about business, product, and ecommerce challenges, with the ability to build and convey compelling value propositions to sellers of all sizes.\n\nTo be successful in this role you will need to have superior communication, presentation and organizational skills. Operating in a fast-moving and sometimes ambiguous environment, you will work autonomously taking full control and responsibility for hitting business objectives. This role provides opportunities to develop original ideas, approaches, and solutions in a competitive and ever changing business climate.\n\nSpecific responsibilities include the following:\n\n1. Understand Amazon Services products and services and be able to articulate its functions and benefits to external audiences.\n2. Help define the seller base and industry verticals we target and influence a sales plan that is in line with our global seller business direction.\n3. Work across key internal stakeholders to set priorities and develop account targets that underpin category strategy and knowledge of the local market.\n4. Track and report performance using appropriate metrics. Achieve productivity and seller satisfaction targets\n5. Engage with internal and external customers/teams to improve products and business processes.\n6. Identify specific prospects/partners to approach, communicate the specific value proposition for their business and use case, and establish long-term, successful partnerships.\n7. Work closely with senior executives at interested sellers to successfully negotiate deals and help in on-boarding.\n8. Review and monitor performance and sales of key partners to manage their performance.\n\nPersonal attributes and competencies:\n1. Demonstrated customer focus.\n2. Demonstrated highest level of integrity, intellectual honesty, and strong work ethic.\n3. Sharp, analytical, and thoughtful. Has sound judgment and ability to be right a lot.\n4. Thoroughly thinks through problems to come up with solutions. Applies fair and consistent criteria.\n5. Gathers the right input/data.\n6. Uses intuition. Is decisive. Makes good decisions when analysis of data is not sufficient to reach a conclusion.\n7. Proven ability to successfully thrive in an ambiguous environment and changing market conditions.\n8. Simplifier but at the same time things big, takes smart risks, is innovative and can think out of the box. 9. Develops original ideas, approaches, and solutions to typical, unusual, or difficult situations or problems.\n10. Takes initiative. Doesn't wait to be asked. Plans efficiently while avoiding analysis paralysis.\n11. Consistent effort, strong commitment, and willingness to go above and beyond when needed.\n12. Strong team player, acts like an owner, and ultimately focused on delivering results with high standards.\n\nBasic Qualifications\n- CMA, or MBA\n- 6+ years of marketing communications in a B2B or B2C role experience\n\nPreferred Qualifications\n- MBA, or Master's degree",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Utilized AI and machine learning to optimize business processes, achieving a 38% reduction in query resolution time, which can be applied to drive seller growth and revenue on the Amazon platform.\", \"reason\": \"Highlighting the candidate's ability to leverage AI and machine learning to drive business efficiency and growth.\"}, {\"original\": \"Developed FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\", \"tailored\": \"Designed and developed scalable solutions for handling large datasets, which can be applied to optimize catalogue optimization, FBA adoption, and deals strategy for sellers on the Amazon platform.\", \"reason\": \"Emphasizing the candidate's ability to handle large datasets and develop scalable solutions that can be applied to drive seller growth.\"}, {\"original\": \"Identified specific prospects/partners to approach, communicated the specific value proposition for their business and use case, and established long-term, successful partnerships.\", \"tailored\": \"Not Applicable\", \"reason\": \"The candidate does not have direct experience in sales or business development, so this bullet point is not applicable.\"}]",
+          "outreachMessages": {
+            "confident": "I am excited to apply for the Sales Associate role at Amazon, where I can leverage my skills in AI and machine learning to drive business growth and optimize sales strategies.",
+            "curious": "I am interested in learning more about Amazon's Direct Sales Team and how I can contribute to the company's mission to empower sellers and drive revenue growth.",
+            "concise": "I am applying for the Sales Associate role at Amazon, where I can utilize my technical skills to drive business efficiency and growth."
+          },
+          "interviewQuestions": [
+            {
+              "type": "CASE STUDY",
+              "duration": "15 MINS",
+              "question": "Suppose you are tasked with launching a new seller onto the Amazon platform. Walk me through your strategy for identifying the seller, negotiating the agreement, and driving revenue growth.",
+              "suggestion": "Discuss the importance of understanding the seller's business needs, developing a customized value proposition, and leveraging data-driven insights to drive revenue growth."
+            },
+            {
+              "type": "STRATEGY",
+              "duration": "10 MINS",
+              "question": "How would you approach catalogue optimization, FBA adoption, and deals strategy for a new seller on the Amazon platform?",
+              "suggestion": "Emphasize the importance of data-driven decision making, leveraging AI and machine learning to optimize catalogue optimization, and developing a strategic approach to FBA adoption and deals strategy."
+            },
+            {
+              "type": "CULTURE",
+              "duration": "5 MINS",
+              "question": "Can you tell me about a time when you had to work in a fast-paced and ambiguous environment? How did you handle it?",
+              "suggestion": "Discuss your ability to adapt to changing circumstances, prioritize tasks, and maintain a high level of productivity in a fast-paced environment."
+            }
+          ],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "The candidate lacks experience in sales, marketing, and ecommerce, which are crucial for the role."
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "The candidate's technical skills do not directly align with the job requirements, which emphasize sales, communication, and business development skills."
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate's experience in machine learning and AI can be leveraged to drive business growth and optimize sales strategies in the role."
+            }
+          ]
+        },
+        {
+          "id": "app_1782456035169",
+          "company": "Google",
+          "role": "Product Manager",
+          "status": "Applied",
+          "dateApplied": "2026-06-26T12:10:35.169512Z",
+          "matchScore": 70,
+          "effort": "Medium",
+          "flag": "Yellow",
+          "flagReason": "The job description requires a bachelor's degree and 5 years of experience in technical product management, which is higher than the candidate's current qualifications.",
+          "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n5 years of experience in technical product management or a similar role leading developer-facing or designer-facing platform infrastructure.\n2 years of experience taking technical products from conception to launch (e.g., ideation to execution, end-to-end, 0 to 1, etc.).\nExperience with the AI/ML product development life-cycle.\n\nPreferred qualifications:\nMaster's degree in a technology or business related field.\n2 years of experience in software development or engineering.\n2 years of experience working cross-functionally with engineering, UX/UI, sales finance, and other stakeholders.\nExperience in typography, design systems, visual identity branding, or digital asset delivery protocols.\nAbout the job\nAt Google, we put our users first. The world is always changing, so we need Product Managers who are continuously adapting and excited to work on products that affect millions of people every day.\n\nIn this role, you will work cross-functionally to guide products from conception to launch by connecting the technical and business worlds. You can break down complex problems into steps that drive product development.\n\nOne of the many reasons Google consistently brings innovative, world-changing products to market is because of the collaborative work we do in Product Management. Our team works closely with creative engineers, designers, marketers, etc. to help design and develop technologies that improve access to the world's information. We're responsible for guiding products throughout the execution cycle, focusing specifically on analyzing, positioning, packaging, promoting, and tailoring our solutions to our users.\n\nJoin the Emmy-winning Google Fonts team and lead the technology powering 1.4 trillion monthly requests. Your work will shape Material Design typography, directly impacting all of Google\u2019s 1 Billion+ Daily Active User (DAU) products, 50% of the desktop web, and 45% of the mobile web.\n\nAs Product Manager, you will support typography for the AI era\u2014uniting expert design with AI-driven products like Gemini and Workspace. You will guide the evolution of 1,900+ fonts and 4,500+ icons, oversee migrations to Rust, and teach foundational AI models professional typographic rules. Owning a $3.8M+ Operational Expenditure (OpEx) portfolio, you will partner with executives to prove how expressive typography accelerates product Key Performance Indicators (KPIs).\n\nThe Core team builds the technical foundation behind Google\u2019s flagship products. We are owners and advocates for the underlying design elements, developer platforms, product components, and infrastructure at Google. These are the essential building blocks for excellent, safe, and coherent experiences for our users and drive the pace of innovation for every developer. We look across Google\u2019s products to build central solutions, break down technical barriers and strengthen existing systems. As the Core team, we have a mandate and a unique opportunity to impact important technical decisions across the company.\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $163000 - $237000 (USD) + 15% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nLead cross-functional partners with deep type-design expertise to build an AI-ready infrastructure and modern brand fonts that scale across Google's ecosystem.\nDrive the overarching product strategy to build typographic intelligence into foundational AI programs like Gemini, enabling designers and developers to create cohesive, desirable products.\nAlign roadmaps and land advanced typographic innovations with major internal partners utilizing Customer Satisfaction (CSAT) data to optimize customer strategies.\nPartner with Material Design to drive adoption of Google Sans Flex and Google Symbols, while defining a data-driven 2027 internationalization roadmap to expand language support.\nModernize the open-source text stack by migrating from legacy C++ to memory-safe Rust, pioneering Incremental Font Transfer (IFT) web standards, and delivering automated evaluations for AI-generated content.",
+          "tailoredBullets": "[{\"original\": \"Developed FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\", \"tailored\": \"Utilized technical expertise to design and develop scalable solutions, such as FastAPI microservices, to improve document processing workflows and enhance product efficiency.\", \"reason\": \"Highlighting the candidate's technical skills and ability to apply them to real-world problems.\"}, {\"original\": \"Co-authored workshop paper submitted to ICLR 2025 on heterogeneous graph sampling strategies.\", \"tailored\": \"Demonstrated research expertise in machine learning and collaboration skills by co-authoring a workshop paper on graph sampling strategies, which can be applied to product development and technical leadership roles.\", \"reason\": \"Emphasizing the candidate's research experience and ability to contribute to technical discussions.\"}, {\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Applied AI/ML expertise to develop innovative solutions, such as a knowledge assistant, which improved workflow efficiency and employee productivity, showcasing potential for technical product management.\", \"reason\": \"Highlighting the candidate's ability to apply AI/ML skills to real-world problems and drive positive impact.\"}]",
+          "outreachMessages": {
+            "confident": "I'm excited to apply for the Product Manager role at Google, as my technical expertise and experience in machine learning research make me a strong fit for the position.",
+            "curious": "I'm interested in learning more about Google's product development process and how the company's focus on AI/ML is driving innovation. I'd love to discuss my qualifications and how I can contribute to the team.",
+            "concise": "Hello, I'm Pratik Kamble, and I'm excited to apply for the Product Manager role at Google. With my background in machine learning research and software development, I believe I can make a valuable contribution to the team."
+          },
+          "interviewQuestions": [
+            {
+              "type": "CASE STUDY",
+              "duration": "20 MINS",
+              "question": "Can you walk us through your experience with developing and launching a technical product, and how you handled any challenges that arose during the process?",
+              "suggestion": "Be prepared to discuss a specific example, such as the knowledge assistant project, and highlight your technical expertise, problem-solving skills, and ability to collaborate with stakeholders."
+            },
+            {
+              "type": "STRATEGY",
+              "duration": "15 MINS",
+              "question": "How do you stay up-to-date with the latest trends and developments in AI/ML, and how do you see these technologies impacting the product management landscape?",
+              "suggestion": " Discuss your approach to ongoing learning, such as attending conferences or reading industry publications, and highlight your understanding of AI/ML applications in product development."
+            },
+            {
+              "type": "CULTURE",
+              "duration": "10 MINS",
+              "question": "What do you know about Google's company culture, and how do you think you would fit in with our team?",
+              "suggestion": "Research Google's values and mission, and be prepared to discuss how your own values and work style align with the company culture. Highlight your ability to collaborate and contribute to a team environment."
+            }
+          ],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "The candidate does not have direct experience with typography, design systems, visual identity branding, or digital asset delivery protocols, which are mentioned in the job description."
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "The candidate has experience with machine learning research and software development, but the job description focuses more on product management, technical leadership, and cross-functional collaboration."
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate has an opportunity to highlight their experience with AI/ML, graph neural networks, and natural language processing, which can be applied to the product management role at Google."
+            }
+          ]
+        },
+        {
+          "id": "app_1782458628965",
+          "company": "DeepMind",
+          "role": "Senior Developer Relations Engineer",
+          "status": "Applied",
+          "dateApplied": "2026-06-26T12:53:48.965349Z",
+          "matchScore": 72,
+          "effort": "Medium",
+          "flag": "Yellow",
+          "flagReason": "The job description has high-level qualifications, but the company is a renowned pioneer in AI, indicating a potentially stringent selection process.",
+          "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n7 years of experience in a technical role (e.g., software engineering, AI engineering, solutions consultant, etc.) or equivalent technical experience.\n5 years of experience with machine learning algorithms and tools, artificial intelligence, deep learning or natural language processing.\nExperience coding in Python, TypeScript, or JavaScript.\n\nPreferred qualifications:\nStrong understanding of the developer ecosystem in India and prior engagement with it.\nAbility to produce excellent code samples, clear documentation, and effective how-to materials to enable developer success with technical offerings.\nAbility to navigate ambiguity in a fast paced environment.\nOwnership of problems end-to-end and a team player with a collaborative mindset.\nAbout the job\nDeepMind Developer Experience works at the intersection of Engineering, Product, and Community. We advocate developer success by delivering seamless experiences across our GenAI product suite. Through deep collaborations across Google, we empower developers by providing high-quality launch materials, education, technical outreach, and a supportive ecosystem for developers of all backgrounds.\n\nAs a Senior Developer Relations Engineer for DeepMind in India, you will operate at the intersection of Product, Engineering, Research, and one of the world's most dynamic developer communities. You will be a strategic leader, serving as the trusted Indian developer ecosystem inside DeepMind and the technical expert of our organization to the region.\n\nYour mission is to define the developer relations strategy for India, advocating developer success and driving the adoption of our models and tools. You will actively shape our global product and research direction based on regional insights, lead local launch strategies, and scale a thriving AI builders ecosystem.\n\nYou will require a unique blend of deep technical expertise, developer empathy, and strategic thinking to navigate the rapid evolution of foundational AI and developer needs in India. You will work with a passionate, cross-functional global team of engineers, researchers, and product managers who are dedicated to pushing the boundaries of what\u2019s possible. If you are excited to shape the developer experience for the world\u2019s most advanced AI and build a thriving ecosystem in a key growth market, this is your chance to be at the forefront of this technological revolution.\nArtificial intelligence will be one of humanity\u2019s most transformative inventions. At DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n\nWe are pushing the boundaries across multiple domains. Our global teams offer learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\nResponsibilities\nDefine and lead the technical go-to-market (GTM) strategy for AI models and tools (such as Gemini, Nano Banana, Google AI Studio), tailoring enablement and developer assets to the distinct needs of the Indian ecosystem (high-growth startups, developers, and enterprises).\nExecute strategic partnerships with regional developer platforms and startups in India, driving high-impact integrations that embed DeepMind technology into the local developer stack.\nLead DeepMind\u2019s regional technical strategy and advocacy, representing the organization at key developer events, steering the regional content and advocacy strategy to inspire the developer community.\nInfluence global product and model research roadmaps by synthesizing technical findings, local constraints, and Indian developer feedback.\nAct as a strategic zeroth customer for DeepMind technology, partnering with core engineering teams on early-stage API design, usability, and architecture to ensure new features are production-ready for real-world deployment.",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Developed an AI-powered knowledge assistant that significantly enhanced team efficiency, showcasing my ability to apply AI solutions to real-world problems, which could be valuable in driving developer success at DeepMind.\", \"reason\": \"This bullet point highlights the candidate's experience with AI technologies and their practical application, making it relevant to DeepMind's focus on AI development and ecosystem support.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Conducted research on advanced neural network architectures for fraud detection, demonstrating my capability to explore and implement cutting-edge AI solutions, a skill that could contribute to DeepMind's mission to push the boundaries of AI development.\", \"reason\": \"Emphasizing the candidate's research experience and ability to work with complex AI models can show alignment with DeepMind's pioneering work in AI.\"}, {\"original\": \"Automated hyperparameter sweeps using Optuna, cutting experimentation cycles by 4\\u00d7.\", \"tailored\": \"Improved the efficiency of machine learning model development by automating hyperparameter tuning, which can help in optimizing AI model performance at DeepMind and supporting the development of more efficient AI technologies.\", \"reason\": \"Highlighting the candidate's experience in optimizing AI model development processes can resonate with DeepMind's goal of advancing AI for real-world applications.\"}]",
+          "outreachMessages": {
+            "confident": "As a highly motivated and experienced AI/ML professional, I am confident that my skills in developing and applying AI solutions will make a significant impact at DeepMind. I look forward to discussing how my expertise can contribute to your pioneering work in AI.",
+            "curious": "I've been following DeepMind's impressive advancements in AI and am particularly intrigued by the potential of your GenAI product suite. I'd love the opportunity to explore how my background in machine learning and AI development could support the success of your developer ecosystem in India.",
+            "concise": "With a strong foundation in AI and machine learning, I am excited about the opportunity to join DeepMind and contribute to the development of innovative AI technologies. Looking forward to discussing my application."
+          },
+          "interviewQuestions": [
+            {
+              "type": "CASE STUDY",
+              "duration": "20 MINS",
+              "question": "How would you design and implement a developer relations strategy for a new AI model in the Indian market, considering the local developer ecosystem and potential barriers to adoption?",
+              "suggestion": "Discuss the importance of understanding the local developer community's needs, highlighting the value proposition of the AI model, and creating strategic partnerships to facilitate adoption."
+            },
+            {
+              "type": "STRATEGY",
+              "duration": "15 MINS",
+              "question": "What approach would you take to influence the global product and model research roadmaps at DeepMind based on insights from the Indian developer community, and how would you measure the impact of your strategy?",
+              "suggestion": "Emphasize the need for continuous feedback loops with the developer community, using data to inform product development decisions, and establishing clear metrics to evaluate the success of the strategy."
+            },
+            {
+              "type": "CULTURE",
+              "duration": "10 MINS",
+              "question": "How do you think your experience and skills align with DeepMind's mission and values, and what do you hope to achieve in terms of personal and professional growth by joining the team?",
+              "suggestion": "Highlight specific aspects of DeepMind's mission and culture that resonate with you, discuss how your skills can contribute to the company's goals, and express your enthusiasm for learning and growing within the organization."
+            }
+          ],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "Lack of direct experience with the specific technologies like Gemini, Nano Banana, and Google AI Studio mentioned in the job description."
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "Although the candidate has experience with AI/ML frameworks, there is a need for more direct alignment with the tools and technologies DeepMind utilizes."
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate's experience in machine learning and AI could be leveraged to bridge the gap in understanding and working with DeepMind's technologies through dedicated learning and professional development."
+            }
+          ]
+        },
+        {
+          "id": "app_1782460574447",
+          "company": "Google",
+          "role": "Service Delivery Leader",
+          "status": "Applied",
+          "dateApplied": "2026-06-26T13:26:14.447846Z",
+          "matchScore": 40,
+          "effort": "High",
+          "flag": "Red",
+          "flagReason": "Job description has unrealistic qualifications, including 13 years of experience managing operations and leading cross-regional teams.",
+          "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n13 years of experience managing operations and leading cross-regional teams.\nExperience in vendor management processes, including managing global vendors, executing multi-year agreements, and managing extended workforce projects.\n\nPreferred qualifications:\nExperience in operations strategy and cost/quality management.\nExpertise in program management and implementing strategic initiatives in fluid environments.\nExceptional communication, leadership, and collaboration skills with the ability to influence stakeholders at all levels.\nExcellent investigative, structured problem-solving, and critical thinking skills with a global mindset.\nAbout the job\nThe gTech Users & Products (gUP) Service Delivery team powers the vendor workforce behind much of this work. We work with dozens of vendor partners across the globe, and stakeholders throughout the company. We run a hugely diversified set of operations, from call centers to technical development, human judgment to translation vendors.\n\nAs a leader in Service Delivery, you will be responsible for the strategic direction and operational management of vendor performance across your capabilities and workflows. You will apply your project management expertise to evaluate vendor outcomes against established objectives, ensuring high-quality work products and consistent Service Level Agreement (SLA) compliance. By understanding the priorities of key stakeholders, you will align vendor output with their expectations to drive both user and stakeholder satisfaction\n\nIn gTech Users and Products (gUP), our mission is to advocate for Google\u2019s users by creating helpful and trusted experiences across the product ecosystem. We achieve this by meeting partners and consumers where they are with support and help, representing their needs with our product partners and proposing fixes and features that elevate their engagement with Google's product ecosystem. Additionally we provide a range of product services that ensure our products are optimized for every user, no matter where they are in the world (e.g., localization, digitization, partner integration and more).Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nIreland: \u20ac178000 - \u20ac183000 (EUR) + 25% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nDrive large-scale transformational initiatives and exceptional operations with vendor partners. Provide operational leadership by engaging and inspiring service provider teams to exceed expectations and deliver exceptional experiences.\nEstablish and lead programs to sustainably expand continuous improvement across operations. Identify opportunities to streamline and re-engineer processes to boost efficiency and quality, while operationalizing solutions alongside cross-functional stakeholders and vendor partners.\nPartner with senior regional and product stakeholders to define, influence, and achieve shared objectives. Lead the development and refinement of service strategies and cross-team processes, ensuring all documentation and training materials remain current.\nFoster a culture of healthy teamwork and collaboration to drive team velocity and success. Support team members' professional growth by understanding their motivations and ensuring work is allocated thoughtfully and equitably.",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%\", \"tailored\": \"Improved process efficiency by 38% through the development of a RAG-based internal knowledge assistant, demonstrating potential for operational improvement in a service delivery context\", \"reason\": \"Highlighting the candidate's ability to improve process efficiency, which can be applied to service delivery operations\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark\", \"tailored\": \"Applied graph neural networks to detect anomalies in complex networks, showcasing ability to analyze and optimize large-scale systems, transferable to vendor performance analysis\", \"reason\": \"Emphasizing the candidate's ability to analyze and optimize complex systems, which can be applied to vendor performance analysis\"}, {\"original\": \"Automated hyperparameter sweeps using Optuna, cutting experimentation cycles by 4\\u00d7\", \"tailored\": \"Streamlined experimentation processes using Optuna, resulting in a 4\\u00d7 reduction in experimentation cycles, demonstrating potential for process improvement in service delivery operations\", \"reason\": \"Highlighting the candidate's ability to automate and optimize processes, which can be applied to service delivery operations\"}]",
+          "outreachMessages": {
+            "confident": "I am excited to apply for the Service Delivery Leader role at Google, and I am confident that my skills and experience make me an ideal candidate for the position",
+            "curious": "I am intrigued by Google's innovative approach to service delivery and I would love to learn more about the company's recent achievements in this area, as well as discuss how my skills and experience align with the role",
+            "concise": "I am interested in the Service Delivery Leader role at Google and believe my skills and experience make me a strong candidate, I would appreciate the opportunity to discuss the position further"
+          },
+          "interviewQuestions": [],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "Vendor management experience is not mentioned in the candidate's resume"
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "The candidate lacks experience in operations strategy and cost/quality management, which is a preferred qualification for the job"
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate can highlight their ability to learn and adapt to the company's operations and strategy, given their experience in software development and machine learning"
+            }
+          ],
+          "learningResources": [
+            {
+              "platform": "YouTube",
+              "title": "Service Delivery and Operations Management",
+              "link": "https://www.youtube.com/results?search_query=service+delivery+and+operations+management",
+              "description": "This YouTube channel provides an introduction to service delivery and operations management, including best practices and industry trends"
+            },
+            {
+              "platform": "GitHub",
+              "title": "Vendor Management System",
+              "link": "https://github.com/topics/vendor-management-system",
+              "description": "This GitHub repository provides an example of a vendor management system, including code and documentation, which can be used as a reference for building a similar system"
+            },
+            {
+              "platform": "GeeksforGeeks",
+              "title": "Operations Management Concepts",
+              "link": "https://www.geeksforgeeks.org/operations-management-concepts/",
+              "description": "This GeeksforGeeks article provides an overview of operations management concepts, including service delivery, supply chain management, and quality control"
+            }
+          ]
+        },
+        {
+          "id": "app_1782460963064",
+          "company": "Google",
+          "role": "Leader in Service Delivery",
+          "status": "Under Review",
+          "dateApplied": "2026-06-26T13:32:43.064396Z",
+          "matchScore": 62,
+          "effort": "High",
+          "flag": "Yellow",
+          "flagReason": "Job description has high expectations and limited direct relevance to candidate's experience.",
+          "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n13 years of experience managing operations and leading cross-regional teams.\nExperience in vendor management processes, including managing global vendors, executing multi-year agreements, and managing extended workforce projects.\n\nPreferred qualifications:\nExperience in operations strategy and cost/quality management.\nExpertise in program management and implementing strategic initiatives in fluid environments.\nExceptional communication, leadership, and collaboration skills with the ability to influence stakeholders at all levels.\nExcellent investigative, structured problem-solving, and critical thinking skills with a global mindset.\nAbout the job\nThe gTech Users & Products (gUP) Service Delivery team powers the vendor workforce behind much of this work. We work with dozens of vendor partners across the globe, and stakeholders throughout the company. We run a hugely diversified set of operations, from call centers to technical development, human judgment to translation vendors.\n\nAs a leader in Service Delivery, you will be responsible for the strategic direction and operational management of vendor performance across your capabilities and workflows. You will apply your project management expertise to evaluate vendor outcomes against established objectives, ensuring high-quality work products and consistent Service Level Agreement (SLA) compliance. By understanding the priorities of key stakeholders, you will align vendor output with their expectations to drive both user and stakeholder satisfaction\n\nIn gTech Users and Products (gUP), our mission is to advocate for Google\u2019s users by creating helpful and trusted experiences across the product ecosystem. We achieve this by meeting partners and consumers where they are with support and help, representing their needs with our product partners and proposing fixes and features that elevate their engagement with Google's product ecosystem. Additionally we provide a range of product services that ensure our products are optimized for every user, no matter where they are in the world (e.g., localization, digitization, partner integration and more).Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nIreland: \u20ac178000 - \u20ac183000 (EUR) + 25% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nDrive large-scale transformational initiatives and exceptional operations with vendor partners. Provide operational leadership by engaging and inspiring service provider teams to exceed expectations and deliver exceptional experiences.\nEstablish and lead programs to sustainably expand continuous improvement across operations. Identify opportunities to streamline and re-engineer processes to boost efficiency and quality, while operationalizing solutions alongside cross-functional stakeholders and vendor partners.\nPartner with senior regional and product stakeholders to define, influence, and achieve shared objectives. Lead the development and refinement of service strategies and cross-team processes, ensuring all documentation and training materials remain current.\nFoster a culture of healthy teamwork and collaboration to drive team velocity and success. Support team members' professional growth by understanding their motivations and ensuring work is allocated thoughtfully and equitably.",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Developed and implemented an AI-powered knowledge management system, resulting in significant reductions in query resolution time, which can be applied to streamline vendor management processes and improve operational efficiency.\", \"reason\": \"Highlighting the application of technical skills to operational improvements.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Utilized advanced machine learning techniques to analyze complex networks, demonstrating potential for applying similar analytical skills to optimize vendor performance and identify areas for improvement in service delivery.\", \"reason\": \"Adapting technical research experience to showcase analytical skills relevant to operational optimization.\"}, {\"original\": \"Integrated Slack bot interface adopted by 120+ engineers across three product teams within one month of launch.\", \"tailored\": \"Designed and integrated communication tools that enhanced teamwork and collaboration, skills that can be valuable in leading cross-regional teams and managing stakeholder expectations in a service delivery role.\", \"reason\": \"Emphasizing the ability to facilitate team collaboration and communication.\"}]",
+          "outreachMessages": {
+            "confident": "I am excited to apply for the Leader in Service Delivery role, bringing my unique blend of technical and collaborative skills to drive innovation and efficiency in vendor management and service delivery.",
+            "curious": "I've been following Google's advancements in AI and service delivery, and I'm intrigued by the opportunity to contribute my skills and experience to the gTech Users & Products team. Could you share more about the team's current projects and how this role fits into the team's strategy?",
+            "concise": "I'm interested in the Leader in Service Delivery position and believe my technical expertise and collaborative approach can enhance vendor management and operational efficiency. I look forward to discussing my application."
+          },
+          "interviewQuestions": [],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "Lack of direct experience in vendor management and operations strategy."
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "Candidate's background is more technical, whereas the job requires strong leadership and operational skills."
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "Candidate can leverage their strong technical skills to innovate and improve operational processes and vendor management."
+            }
+          ],
+          "learningResources": [
+            {
+              "platform": "Coursera",
+              "title": "Operations Management",
+              "link": "https://www.coursera.org/specializations/operations-management",
+              "description": "This specialization provides a comprehensive overview of operations management, including supply chain management, quality control, and process improvement, which are crucial for the service delivery role."
+            },
+            {
+              "platform": "edX",
+              "title": "Leadership and Management",
+              "link": "https://www.edx.org/learn/leadership",
+              "description": "This course focuses on developing leadership skills, including strategic planning, team management, and stakeholder communication, essential for leading cross-regional teams and managing vendor partnerships."
+            },
+            {
+              "platform": "YouTube",
+              "title": "Vendor Management",
+              "link": "https://www.youtube.com/results?search_query=vendor+management",
+              "description": "Various videos and channels offer insights and best practices in vendor management, including contract negotiation, performance monitoring, and relationship building, which are directly relevant to the role's responsibilities."
+            },
+            {
+              "platform": "freeCodeCamp",
+              "title": "Project Management",
+              "link": "https://www.freecodecamp.org/learn/project-management",
+              "description": "This resource provides practical lessons and exercises in project management, covering topics like project planning, risk management, and team leadership, which are applicable to the service delivery context."
+            },
+            {
+              "platform": "GeeksforGeeks",
+              "title": "Data Structures and Algorithms",
+              "link": "https://www.geeksforgeeks.org/data-structures/",
+              "description": "GeeksforGeeks offers comprehensive practice materials and explanations for data structures and algorithms, essential for any technical role and useful for optimizing operational processes."
+            },
+            {
+              "platform": "Google Cloud",
+              "title": "Cloud Computing",
+              "link": "https://cloud.google.com/docs",
+              "description": "Official Google Cloud documentation and tutorials provide valuable insights into cloud computing, which is relevant for managing global vendors and implementing strategic initiatives in a cloud-based environment."
+            }
+          ]
+        }
+      ],
+      "profile": {
+        "name": "Pratik kamble",
+        "targetRole": "Software Engineer",
+        "resumeName": "pratik_kamble_resume (1).docx",
+        "resumeText": "PRATIK KAMBLE\n+91 98765 43210  |  pratikk.ce22@mitaoe.ac.in  |  linkedin.com/in/pratik-kamble  |  github.com/pratikk-dev  |  Pune, MH\nEDUCATION\nMIT Academy of Engineering, Alandi (Pune)\tAug 2022 \u2013 May 2026\nB.E. Computer Engineering \u00b7 Savitribai Phule Pune University  CGPA: 8.05 / 10.0\nVidyalankar Junior College, Mumbai\t2020 \u2013 2022\nHSC (Science) \u00b7 Maharashtra State Board  \u00b7  87.4%\nTECHNICAL SKILLS\nLanguages: Python, JavaScript / TypeScript, C++, SQL, Bash    Frameworks: React, Next.js, FastAPI, Node.js, Tailwind CSS\nAI / ML: PyTorch, scikit-learn, LangChain, Groq API, Hugging Face, Llama 3    Databases: PostgreSQL, MongoDB, Supabase\nCloud & DevOps: AWS (EC2, S3, Lambda), Docker, Vercel, GitHub Actions    Tools: Git, Postman, Tableau, Figma, Linux\nEXPERIENCE\nSoftware Engineering Intern \u2014 NeuralBridge Technologies \u00b7 Pune (Hybrid)\tMay 2025 \u2013 Jul 2025\nBuilt a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\nDeveloped FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\nIntegrated Slack bot interface adopted by 120+ engineers across three product teams within one month of launch.\nMachine Learning Research Intern \u2014 IIT Bombay \u00b7 Synapse AI Lab (Remote)\tDec 2024 \u2013 Feb 2025\nResearched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\nCo-authored workshop paper submitted to ICLR 2025 (FinML Workshop) on heterogeneous graph sampling strategies.\nAutomated hyperparameter sweeps using Optuna, cutting experimentation cycles by 4\u00d7.\nPROJECTS\nAI Job Application Command Centre \u2014 Next.js \u00b7 Groq / Llama-3.3-70b \u00b7 Lemma SDK \u00b7 Supabase\tJun 2026\nEnd-to-end platform for students managing multi-platform job searches \u2014 JD parser, 'Signal Score' fit scorer, resume tailor, recruiter message drafter, Kanban pipeline tracker, and AI interview prep generator.\nIntegrated Lemma SDK for agent orchestration; Groq API (llama-3.3-70b) for sub-second inference; Clerk auth + Supabase Postgres with row-level security. Deployed on Vercel.\nTradeMind \u2014 Explainable AI Investment Profiler \u2014 React / TypeScript \u00b7 FastAPI \u00b7 Groq API\tMar 2026\nConversational AI that profiles investor risk appetite and generates explainable portfolio recommendations with SHAP-style reasoning narratives.\nImplemented multi-asset backtesting engine (equities, ETFs, crypto) with visual equity curves rendered using Recharts.\nIndian Startup Ecosystem \u2014 Tableau Analytics Dashboard \u2014 Tableau \u00b7 Python \u00b7 Pandas\tJan 2026\nDesigned a two-dashboard Tableau Story ('Ecosystem Overview' + 'Geography & Players') over 10-year funding data across 6,000+ rounds with nine analytical problem statements.\nHACKATHONS & ACHIEVEMENTS\nHackSphere 2026 \u2014 National Level Hackathon  \u00b7  Runner-Up (240 teams)\tFeb 2026\nReal-time disaster response coordination platform using multi-agent LLMs and satellite imagery analysis. Team of 4 \u00b7 36 hrs.\nLemma SDK Launch Hackathon 2026  \u00b7  Finalist \u2014 Top 10 globally (800+ submissions)\tJun 2026\nSmart India Hackathon 2025  \u00b7  Institute Winner\tAug 2025\nNLP-powered grievance classification system routing 92% of municipal complaints to correct departments automatically.\nCERTIFICATIONS & ACTIVITIES\n\u2022 AWS Certified Solutions Architect \u2013 Associate (2025)\t\u2022 Tech Lead, MITAOE Developer Club (2024\u201325)\n\u2022 Google Data Analytics Professional Certificate\t\u2022 Core Member, E-Cell MITAOE\n\u2022 Supervised ML: Regression & Classification \u00b7 Coursera\t\u2022 400+ LeetCode problems \u00b7 Rating: 1,742"
+      }
+    },
+    "abc@abc.com": {
+      "applications": [],
+      "profile": null
+    }
+  }
 }

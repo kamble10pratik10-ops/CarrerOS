@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "email": "kamble10pratik.10@gmail.com",
+      "mobile": "9325941760",
+      "password_hash": "$2b$12$WvNbCuWIO5.Z2hVpmlpZJ.XHe83jmS6YNy7EWfPaRz0FsxLED67RW",
+      "created_at": "2026-06-25T18:10:01.598178+00:00"
+    },
+    {
+      "email": "pratik@example.com",
+      "mobile": "9876543210",
+      "password_hash": "$2b$12$JqdaMadyCGC2IWD2hyxYCeIwGt.H.A1b8FramM5oGESAwvz5nJf9m",
+      "created_at": "2026-06-26T05:08:06.020163+00:00"
+    },
+    {
+      "email": "preetikamble959@gmail.com",
+      "mobile": "9322298398",
+      "password_hash": "$2b$12$BVuEnmy3nv3R1pHTIlFt6uk9eJTnsfWXHfX98yO8kb8GHJqWukDuq",
+      "created_at": "2026-06-26T05:12:06.626664+00:00"
+    },
+    {
+      "email": "test2@example.com",
+      "mobile": "9876543210",
+      "password_hash": "$2b$12$7kEYLzq8W5z.1ALHrSKSOO68uwqk05hwp.5JWU0poTUQmULR2XTZG",
+      "created_at": "2026-06-26T05:20:02.480515+00:00"
+    },
+    {
+      "email": "abc@abc.com",
+      "mobile": "1234567890",
+      "password_hash": "$2b$12$shkMS/YU12Pt/KznjDJRD.0XLog1Kk29w1TRO.GFXs0sq76MGLHZy",
+      "created_at": "2026-06-26T06:56:19.744201+00:00"
+    }
+  ]
+}

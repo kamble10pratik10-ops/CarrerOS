@@ -3,7 +3,7 @@ from datetime import datetime
 from .datastore import save_application
 from .docstore import save_tailored_resume
 
-async def trigger_application_workflow(payload):
+async def trigger_application_workflow(user_email: str, payload):
     try:
         # Import the AI service function inside the trigger function to avoid circular dependency
         from ...services.ai_service import generate_application_analysis
@@ -13,7 +13,7 @@ async def trigger_application_workflow(payload):
         company_name = payload.get("companyName")
         role_name = payload.get("roleName")
         
-        print(f"[Lemma Workflows] Starting workflow for {role_name or 'Unknown Role'} at {company_name or 'Unknown Company'}")
+        print(f"[Lemma Workflows] Starting workflow for {role_name or 'Unknown Role'} at {company_name or 'Unknown Company'} for {user_email}")
         
         # 2. Run AI reasoning
         analysis_result = await generate_application_analysis({
@@ -38,16 +38,16 @@ async def trigger_application_workflow(payload):
             "jdText": jd_text,
             "tailoredBullets": json.dumps(analysis_result.get("tailoredBullets", [])),
             "outreachMessages": analysis_result.get("outreachMessages") or {"confident": "", "curious": "", "concise": ""},
-            "interviewQuestions": analysis_result.get("interviewQuestions") or [],
+            "learningResources": analysis_result.get("learningResources") or [],
             "gaps": analysis_result.get("gaps") or [],
             "nudge3Dismissed": False,
             "nudge7Dismissed": False
         }
         
         # 4. Save to DataStore & DocStore
-        saved_app = save_application(app_entry)
+        saved_app = save_application(user_email, app_entry)
         if saved_app:
-            save_tailored_resume(saved_app["id"], app_entry["tailoredBullets"])
+            save_tailored_resume(user_email, saved_app["id"], app_entry["tailoredBullets"])
             
         return saved_app
     except Exception as e:
