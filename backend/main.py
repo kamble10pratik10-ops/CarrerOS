@@ -1,6 +1,9 @@
 import os
+import uuid
+import shutil
 from fastapi import FastAPI, UploadFile, File, HTTPException, status, Depends, Request
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
@@ -16,16 +19,25 @@ from src.lib.lemma.datastore import (
     update_application,
     delete_application,
     save_profile,
-    get_profile
+    get_profile,
+    get_discoverable_profiles,
+    follow_user,
+    unfollow_user,
+    search_profiles,
+    get_profiles_by_emails
 )
 from src.lib.lemma.workflows import trigger_application_workflow
-from src.services.ai_service import parse_file_with_gemini, chat_with_agent, chat_with_recruiter_agent, evaluate_interview_performance, generate_interview_questions, chat_with_mentor
+from src.services.ai_service import parse_file_with_gemini, chat_with_agent, chat_with_recruiter_agent, evaluate_interview_performance, generate_interview_questions, chat_with_mentor, generate_network_matches, generate_ai_introduction
 from src.lib.lemma.auth import create_access_token, verify_token
 from src.lib.lemma.auth_store import user_exists, get_user_by_email, create_user
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 app = FastAPI(title="CareerOS API", version="1.0.0")
+
+import os
+os.makedirs("uploads/profiles", exist_ok=True)
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 # CORS middleware configuration matching Node.js backend
 app.add_middleware(
@@ -77,6 +89,9 @@ class GenerateQuestionsRequest(BaseModel):
     resumeText: str | None = ""
     skills: str | None = ""
     questionTypes: list | None = ["technical", "behavioral", "situational"]
+
+class NetworkIntroRequest(BaseModel):
+    targetEmail: str
 
 # --- Auth Helper ---
 def get_current_user(request: Request):
@@ -419,6 +434,106 @@ async def generate_questions(req: GenerateQuestionsRequest, email: str = Depends
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=str(e) or "Failed to generate interview questions"
         )
+
+# 11. Career Connect Matchmaking
+@app.get("/api/network/matches")
+async def get_network_matches(email: str = Depends(get_current_user)):
+    try:
+        current_profile = get_profile(email) or {}
+        if not current_profile.get("discoverable"):
+            return {"success": True, "matches": [], "message": "You must opt-in to discoverability to see matches."}
+            
+        candidate_profiles = get_discoverable_profiles(exclude_email=email)
+        if not candidate_profiles:
+            return {"success": True, "matches": []}
+            
+        print(f"[Backend] Generating network matches for {email} out of {len(candidate_profiles)} candidates...")
+        result = await generate_network_matches({
+            "currentProfile": current_profile,
+            "candidateProfiles": candidate_profiles
+        })
+        return {"success": True, "matches": result.get("matches", [])}
+    except Exception as e:
+        print(f"Error in network matches API route: {e}")
+        raise HTTPException(status_code=500, detail="Failed to generate network matches")
+
+@app.post("/api/network/intro")
+async def generate_network_intro(req: NetworkIntroRequest, email: str = Depends(get_current_user)):
+    try:
+        current_profile = get_profile(email) or {}
+        target_profile = get_profile(req.targetEmail) or {}
+        
+        if not target_profile:
+            raise HTTPException(status_code=404, detail="Target profile not found")
+            
+        print(f"[Backend] Generating intro from {email} to {req.targetEmail}...")
+        intro_text = await generate_ai_introduction({
+            "currentProfile": current_profile,
+            "targetProfile": target_profile
+        })
+        return {"success": True, "intro": intro_text}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Error in network intro API route: {e}")
+        raise HTTPException(status_code=500, detail="Failed to generate intro")
+
+class FollowRequest(BaseModel):
+    targetEmail: str
+
+@app.post("/api/profile/photo")
+async def upload_profile_photo(file: UploadFile = File(...), email: str = Depends(get_current_user)):
+    try:
+        ext = file.filename.split(".")[-1]
+        filename = f"{uuid.uuid4().hex}.{ext}"
+        filepath = os.path.join("uploads", "profiles", filename)
+        
+        with open(filepath, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+            
+        photo_url = f"/uploads/profiles/{filename}"
+        
+        profile = get_profile(email) or {}
+        profile["photoUrl"] = photo_url
+        save_profile(email, profile)
+        
+        return {"success": True, "photoUrl": photo_url}
+    except Exception as e:
+        print(f"Error uploading photo: {e}")
+        raise HTTPException(status_code=500, detail="Failed to upload photo")
+
+@app.get("/api/network/search")
+async def network_search(q: str, email: str = Depends(get_current_user)):
+    try:
+        profiles = search_profiles(q, exclude_email=email)
+        return {"success": True, "profiles": profiles}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Search failed")
+
+@app.post("/api/network/follow")
+async def network_follow(req: FollowRequest, email: str = Depends(get_current_user)):
+    try:
+        success = follow_user(email, req.targetEmail)
+        return {"success": success}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Follow failed")
+
+@app.post("/api/network/unfollow")
+async def network_unfollow(req: FollowRequest, email: str = Depends(get_current_user)):
+    try:
+        success = unfollow_user(email, req.targetEmail)
+        return {"success": success}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Unfollow failed")
+
+@app.get("/api/network/users")
+async def get_network_users(emails: str, email: str = Depends(get_current_user)):
+    try:
+        email_list = [e.strip() for e in emails.split(",") if e.strip()]
+        profiles = get_profiles_by_emails(email_list)
+        return {"success": True, "profiles": profiles}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Failed to fetch users")
 
 
 if __name__ == "__main__":

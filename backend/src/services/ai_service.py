@@ -523,3 +523,105 @@ async def chat_with_gemini(messages, gemini_client):
     last_msg = contents[-1]["parts"][0]["text"]
     result = chat.send_message(last_msg)
     return result.text
+
+async def generate_network_matches(payload):
+    current_profile = payload.get("currentProfile", {})
+    candidate_profiles = payload.get("candidateProfiles", [])
+    
+    if not candidate_profiles:
+        return {"matches": []}
+        
+    prompt = f"""
+You are the Career Connect AI Matchmaker. Your job is to find the best peer matches for the user.
+Match criteria includes target role, skills, current goals, projects, hackathons, location, and availability.
+
+CURRENT USER:
+Target Role: {current_profile.get('targetRole', 'N/A')}
+Skills: {current_profile.get('skills', 'N/A')}
+Projects: {current_profile.get('projects', 'N/A')}
+Hackathons: {current_profile.get('hackathons', 'N/A')}
+Goals: {current_profile.get('goals', 'N/A')}
+Location: {current_profile.get('location', 'N/A')}
+Availability: {current_profile.get('availability', 'N/A')}
+
+CANDIDATES:
+{json.dumps(candidate_profiles, indent=2)}
+
+Score each candidate on a scale of 0-100 based on how mutually beneficial a connection would be (e.g. complementary skills, same hackathon, similar goals like Leetcode, study groups).
+Return the top 5 matches, sorted by score descending.
+
+Return ONLY a valid JSON object matching this structure:
+{{
+  "matches": [
+    {{
+      "email": "candidate email",
+      "name": "candidate name",
+      "role": "candidate target role",
+      "score": 95,
+      "reasons": [
+        "Same target company",
+        "Complementary skills (you have frontend, they have backend)",
+        "Both attending HackTX"
+      ]
+    }}
+  ]
+}}
+"""
+    groq_client = get_groq_client()
+    gemini_client = get_gemini_client()
+    
+    if groq_client:
+        try:
+            print("[ai_service] Using Groq API for network matching...")
+            completion = groq_client.chat.completions.create(
+                messages=[{"role": "user", "content": prompt}],
+                model="llama-3.3-70b-versatile",
+                response_format={"type": "json_object"}
+            )
+            return json.loads(clean_json_string(completion.choices[0].message.content))
+        except Exception as e:
+            print(f"[ai_service] Groq Match Error, falling back to Gemini: {e}")
+            return await generate_analysis_with_gemini(prompt, gemini_client)
+    else:
+        print("[ai_service] Using Gemini API for network matching...")
+        return await generate_analysis_with_gemini(prompt, gemini_client)
+
+async def generate_ai_introduction(payload):
+    current_profile = payload.get("currentProfile", {})
+    target_profile = payload.get("targetProfile", {})
+    
+    prompt = f"""
+You are the Career Connect AI. Write a personalized, casual, and friendly introduction message from the Current User to the Target User to initiate networking.
+The tone should be natural, not overly formal, and should reference common ground (e.g. shared goals, complementary skills, or location).
+
+CURRENT USER:
+Name: {current_profile.get('name', 'N/A')}
+Role: {current_profile.get('targetRole', 'N/A')}
+Skills: {current_profile.get('skills', 'N/A')}
+Goals: {current_profile.get('goals', 'N/A')}
+
+TARGET USER:
+Name: {target_profile.get('name', 'N/A')}
+Role: {target_profile.get('targetRole', 'N/A')}
+Skills: {target_profile.get('skills', 'N/A')}
+Goals: {target_profile.get('goals', 'N/A')}
+
+Write only the message text (no JSON, no intro text). Keep it under 4-5 sentences.
+"""
+    groq_client = get_groq_client()
+    gemini_client = get_gemini_client()
+    
+    if groq_client:
+        try:
+            print("[ai_service] Using Groq API for intro generation...")
+            completion = groq_client.chat.completions.create(
+                messages=[{"role": "user", "content": prompt}],
+                model="llama-3.3-70b-versatile"
+            )
+            return completion.choices[0].message.content
+        except Exception as e:
+            print(f"[ai_service] Groq Intro Error, falling back to Gemini: {e}")
+            return await generate_analysis_with_gemini(prompt, gemini_client)
+    else:
+        print("[ai_service] Using Gemini API for intro generation...")
+        return await generate_analysis_with_gemini(prompt, gemini_client)

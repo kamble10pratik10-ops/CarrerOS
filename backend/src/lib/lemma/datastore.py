@@ -1,5 +1,7 @@
 import os
 import json
+import time
+import uuid
 from datetime import datetime, timedelta
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -213,3 +215,154 @@ def get_active_nudges(user_email: str):
             print(f"Error parsing date in nudge generation {date_str}: {parse_err}")
             
     return nudges
+
+def get_discoverable_profiles(exclude_email: str):
+    init_db()
+    try:
+        with open(DB_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        user_data = data.get("user_data", {})
+        profiles = []
+        for email, udata in user_data.items():
+            if email.lower() == exclude_email.lower():
+                continue
+            profile = udata.get("profile")
+            if profile and profile.get("discoverable") is True:
+                profile_copy = profile.copy()
+                profile_copy["email"] = email
+                profiles.append(profile_copy)
+        return profiles
+    except Exception as e:
+        print(f"Error reading discoverable profiles: {e}")
+        return []
+
+def follow_user(follower_email: str, target_email: str):
+    follower_dict, full_data = get_user_data(follower_email)
+    follower_profile = follower_dict.get("profile") or {}
+    following = set(follower_profile.get("following", []))
+    following.add(target_email.lower())
+    follower_profile["following"] = list(following)
+    follower_dict["profile"] = follower_profile
+    full_data.setdefault("user_data", {})[follower_email.lower()] = follower_dict
+    
+    target_email = target_email.lower()
+    target_dict = full_data.setdefault("user_data", {}).setdefault(target_email, {"applications": [], "profile": {}})
+    target_profile = target_dict.get("profile") or {}
+    followers = set(target_profile.get("followers", []))
+    followers.add(follower_email.lower())
+    target_profile["followers"] = list(followers)
+    target_dict["profile"] = target_profile
+    full_data["user_data"][target_email] = target_dict
+    
+    with open(DB_PATH, 'w', encoding='utf-8') as f:
+        json.dump(full_data, f, indent=2)
+    return True
+
+def unfollow_user(follower_email: str, target_email: str):
+    follower_dict, full_data = get_user_data(follower_email)
+    follower_profile = follower_dict.get("profile") or {}
+    following = set(follower_profile.get("following", []))
+    if target_email.lower() in following:
+        following.remove(target_email.lower())
+    follower_profile["following"] = list(following)
+    follower_dict["profile"] = follower_profile
+    full_data.setdefault("user_data", {})[follower_email.lower()] = follower_dict
+    
+    target_email = target_email.lower()
+    target_dict = full_data.setdefault("user_data", {}).setdefault(target_email, {"applications": [], "profile": {}})
+    target_profile = target_dict.get("profile") or {}
+    followers = set(target_profile.get("followers", []))
+    if follower_email.lower() in followers:
+        followers.remove(follower_email.lower())
+    target_profile["followers"] = list(followers)
+    target_dict["profile"] = target_profile
+    full_data["user_data"][target_email] = target_dict
+    
+    with open(DB_PATH, 'w', encoding='utf-8') as f:
+        json.dump(full_data, f, indent=2)
+    return True
+
+def search_profiles(query: str, exclude_email: str):
+    init_db()
+    query = query.lower()
+    try:
+        with open(DB_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        user_data = data.get("user_data", {})
+        profiles = []
+        for email, udata in user_data.items():
+            if email.lower() == exclude_email.lower():
+                continue
+            profile = udata.get("profile")
+            if profile and profile.get("discoverable") is True:
+                name = profile.get("name", "").lower()
+                if query in name:
+                    profile_copy = profile.copy()
+                    profile_copy["email"] = email
+                    profiles.append(profile_copy)
+        return profiles
+    except Exception as e:
+        print(f"Error searching profiles: {e}")
+        return []
+
+def get_profiles_by_emails(emails: list):
+    init_db()
+    try:
+        with open(DB_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        user_data = data.get("user_data", {})
+        profiles = []
+        emails_lower = [e.lower() for e in emails]
+        for email, udata in user_data.items():
+            if email.lower() in emails_lower:
+                profile = udata.get("profile") or {}
+                profile_copy = profile.copy()
+                profile_copy["email"] = email
+                profiles.append(profile_copy)
+        return profiles
+    except Exception as e:
+        print(f"Error fetching profiles: {e}")
+        return []
+
+def get_chat_room_id(email1: str, email2: str) -> str:
+    emails = sorted([email1.lower(), email2.lower()])
+    return f"{emails[0]}_{emails[1]}"
+
+def save_chat_message(sender: str, receiver: str, text: str, media_urls: list = None):
+    init_db()
+    try:
+        with open(DB_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        chats = data.setdefault("chats", {})
+        room_id = get_chat_room_id(sender, receiver)
+        room_messages = chats.setdefault(room_id, [])
+        
+        msg = {
+            "id": f"msg_{int(time.time()*1000)}_{uuid.uuid4().hex[:6]}",
+            "sender": sender.lower(),
+            "receiver": receiver.lower(),
+            "text": text,
+            "mediaUrls": media_urls or [],
+            "timestamp": int(time.time() * 1000)
+        }
+        room_messages.append(msg)
+        
+        with open(DB_PATH, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2)
+        return msg
+    except Exception as e:
+        print(f"Error saving chat message: {e}")
+        return None
+
+def get_chat_history(user1: str, user2: str):
+    init_db()
+    try:
+        with open(DB_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        chats = data.get("chats", {})
+        room_id = get_chat_room_id(user1, user2)
+        return chats.get(room_id, [])
+    except Exception as e:
+        print(f"Error fetching chat history: {e}")
+        return []

@@ -7,6 +7,7 @@ export default function Sidebar({ activePage, setActivePage, userEmail, onLogout
     { id: 'twin', label: 'Career Twin', icon: 'psychology' },
     { id: 'mentor', label: 'AI Mentor', icon: 'school' },
     { id: 'interview', label: 'Mock Interview', icon: 'record_voice_over' },
+    { id: 'connect', label: 'Career Connect', icon: 'hub' },
     { id: 'goals', label: 'Goal Tracker', icon: 'flag' },
     { id: 'pipeline', label: 'Pipeline', icon: 'view_kanban' },
     { id: 'profile', label: 'Profile', icon: 'settings' },

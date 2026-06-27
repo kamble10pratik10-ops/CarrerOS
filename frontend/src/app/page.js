@@ -12,6 +12,7 @@ import GoalTrackerPage from './components/GoalTrackerPage';
 import AiMentorPage from './components/AiMentorPage';
 import PipelinePage from './components/PipelinePage';
 import ProfilePage from './components/ProfilePage';
+import CareerConnectPage from './components/CareerConnectPage';
 
 // Auth wrapper - default export. Only holds auth state.
 export default function CareerCommandCenter() {
@@ -56,6 +57,8 @@ function MainApp({ authedEmail, handleLogout }) {
         return <AiMentorPage />;
       case 'interview':
         return <InterviewPrepPage />;
+      case 'connect':
+        return <CareerConnectPage onNavigate={setActivePage} />;
       case 'goals':
         return <GoalTrackerPage onNavigate={setActivePage} />;
       case 'pipeline':
