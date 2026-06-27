@@ -1,0 +1,124 @@
+{
+  "companies": [
+    {
+      "id": "c1",
+      "name": "Google",
+      "industry": "Technology",
+      "location": "Mountain View, CA",
+      "website": "https://careers.google.com",
+      "description": "Search, cloud computing, AI, and more."
+    },
+    {
+      "id": "c2",
+      "name": "Microsoft",
+      "industry": "Technology",
+      "location": "Redmond, WA",
+      "website": "https://careers.microsoft.com",
+      "description": "Software, cloud, AI, and enterprise solutions."
+    },
+    {
+      "id": "c3",
+      "name": "Amazon",
+      "industry": "Technology / E-commerce",
+      "location": "Seattle, WA",
+      "website": "https://amazon.jobs",
+      "description": "E-commerce, cloud computing (AWS), AI, logistics."
+    },
+    {
+      "id": "c4",
+      "name": "Meta",
+      "industry": "Technology / Social Media",
+      "location": "Menlo Park, CA",
+      "website": "https://metacareers.com",
+      "description": "Social media, AR/VR, AI, connectivity."
+    },
+    {
+      "id": "c5",
+      "name": "Apple",
+      "industry": "Technology / Consumer Electronics",
+      "location": "Cupertino, CA",
+      "website": "https://apple.com/careers",
+      "description": "Consumer electronics, software, services."
+    },
+    {
+      "id": "c6",
+      "name": "Netflix",
+      "industry": "Entertainment / Streaming",
+      "location": "Los Gatos, CA",
+      "website": "https://jobs.netflix.com",
+      "description": "Streaming entertainment, content production."
+    },
+    {
+      "id": "c7",
+      "name": "Tesla",
+      "industry": "Automotive / Energy",
+      "location": "Austin, TX",
+      "website": "https://tesla.com/careers",
+      "description": "Electric vehicles, solar energy, battery tech."
+    },
+    {
+      "id": "c8",
+      "name": "Goldman Sachs",
+      "industry": "Finance / Banking",
+      "location": "New York, NY",
+      "website": "https://goldmansachs.com/careers",
+      "description": "Investment banking, asset management, fintech."
+    },
+    {
+      "id": "c9",
+      "name": "JPMorgan Chase",
+      "industry": "Finance / Banking",
+      "location": "New York, NY",
+      "website": "https://jpmorganchase.com/careers",
+      "description": "Banking, financial services, technology."
+    },
+    {
+      "id": "c10",
+      "name": "Stripe",
+      "industry": "Fintech",
+      "location": "San Francisco, CA",
+      "website": "https://stripe.com/jobs",
+      "description": "Online payment processing, financial infrastructure."
+    },
+    {
+      "id": "c11",
+      "name": "Airbnb",
+      "industry": "Hospitality / Technology",
+      "location": "San Francisco, CA",
+      "website": "https://airbnb.com/careers",
+      "description": "Short-term lodging, experiences, travel."
+    },
+    {
+      "id": "c12",
+      "name": "Uber",
+      "industry": "Transportation / Technology",
+      "location": "San Francisco, CA",
+      "website": "https://uber.com/careers",
+      "description": "Ride-hailing, food delivery, freight."
+    },
+    {
+      "id": "c13",
+      "name": "Salesforce",
+      "industry": "Enterprise Software / CRM",
+      "location": "San Francisco, CA",
+      "website": "https://salesforce.com/company/careers",
+      "description": "CRM, enterprise cloud, AI (Einstein)."
+    },
+    {
+      "id": "c14",
+      "name": "Atlassian",
+      "industry": "Enterprise Software",
+      "location": "Sydney, Australia / Global",
+      "website": "https://atlassian.com/company/careers",
+      "description": "Team collaboration, Jira, Confluence."
+    },
+    {
+      "id": "c15",
+      "name": "Spotify",
+      "industry": "Music / Audio Streaming",
+      "location": "Stockholm, Sweden / Global",
+      "website": "https://spotify.com/careers",
+      "description": "Music streaming, podcasting, audio tech."
+    }
+  ]
+}

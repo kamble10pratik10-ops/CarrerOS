@@ -8,6 +8,7 @@ export default function Topbar({ activePage, setActivePage, userEmail, onLogout 
     { id: 'mentor', label: 'AI Mentor', icon: 'school' },
     { id: 'interview', label: 'Mock Interview', icon: 'record_voice_over' },
     { id: 'goals', label: 'Goal Tracker', icon: 'flag' },
+    { id: 'connect', label: 'Connect', icon: 'group' },
     { id: 'pipeline', label: 'Pipeline', icon: 'view_kanban' },
     { id: 'profile', label: 'Profile', icon: 'settings' },
   ];

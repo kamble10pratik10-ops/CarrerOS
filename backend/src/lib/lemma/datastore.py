@@ -366,3 +366,102 @@ def get_chat_history(user1: str, user2: str):
     except Exception as e:
         print(f"Error fetching chat history: {e}")
         return []
+
+def get_conversations(email: str):
+    """Get all unique users the given email has chatted with, with last message preview."""
+    init_db()
+    email = email.lower()
+    try:
+        with open(DB_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        chats = data.get("chats", {})
+        conversations = {}
+        for room_id, messages in chats.items():
+            parts = room_id.split("_")
+            if email in parts:
+                other = parts[0] if parts[1] == email else parts[1]
+                if messages:
+                    last = messages[-1]
+                    conversations[other] = {
+                        "lastMessage": last.get("text", ""),
+                        "timestamp": last.get("timestamp", 0),
+                        "sender": last.get("sender", "")
+                    }
+        # Sort by timestamp descending
+        sorted_convs = sorted(conversations.items(), key=lambda x: x[1]["timestamp"], reverse=True)
+        return [{"email": email, **data} for email, data in sorted_convs]
+    except Exception as e:
+        print(f"Error fetching conversations: {e}")
+        return []
+
+# --- Company Discovery ---
+
+COMPANIES_DB_PATH = os.path.join(CURRENT_DIR, 'companies.json')
+
+def init_companies_db():
+    if not os.path.exists(COMPANIES_DB_PATH):
+        default_companies = {
+            "companies": [
+                {"id": "c1", "name": "Google", "industry": "Technology", "location": "Mountain View, CA", "website": "https://careers.google.com", "description": "Search, cloud computing, AI, and more."},
+                {"id": "c2", "name": "Microsoft", "industry": "Technology", "location": "Redmond, WA", "website": "https://careers.microsoft.com", "description": "Software, cloud, AI, and enterprise solutions."},
+                {"id": "c3", "name": "Amazon", "industry": "Technology / E-commerce", "location": "Seattle, WA", "website": "https://amazon.jobs", "description": "E-commerce, cloud computing (AWS), AI, logistics."},
+                {"id": "c4", "name": "Meta", "industry": "Technology / Social Media", "location": "Menlo Park, CA", "website": "https://metacareers.com", "description": "Social media, AR/VR, AI, connectivity."},
+                {"id": "c5", "name": "Apple", "industry": "Technology / Consumer Electronics", "location": "Cupertino, CA", "website": "https://apple.com/careers", "description": "Consumer electronics, software, services."},
+                {"id": "c6", "name": "Netflix", "industry": "Entertainment / Streaming", "location": "Los Gatos, CA", "website": "https://jobs.netflix.com", "description": "Streaming entertainment, content production."},
+                {"id": "c7", "name": "Tesla", "industry": "Automotive / Energy", "location": "Austin, TX", "website": "https://tesla.com/careers", "description": "Electric vehicles, solar energy, battery tech."},
+                {"id": "c8", "name": "Goldman Sachs", "industry": "Finance / Banking", "location": "New York, NY", "website": "https://goldmansachs.com/careers", "description": "Investment banking, asset management, fintech."},
+                {"id": "c9", "name": "JPMorgan Chase", "industry": "Finance / Banking", "location": "New York, NY", "website": "https://jpmorganchase.com/careers", "description": "Banking, financial services, technology."},
+                {"id": "c10", "name": "Stripe", "industry": "Fintech", "location": "San Francisco, CA", "website": "https://stripe.com/jobs", "description": "Online payment processing, financial infrastructure."},
+                {"id": "c11", "name": "Airbnb", "industry": "Hospitality / Technology", "location": "San Francisco, CA", "website": "https://airbnb.com/careers", "description": "Short-term lodging, experiences, travel."},
+                {"id": "c12", "name": "Uber", "industry": "Transportation / Technology", "location": "San Francisco, CA", "website": "https://uber.com/careers", "description": "Ride-hailing, food delivery, freight."},
+                {"id": "c13", "name": "Salesforce", "industry": "Enterprise Software / CRM", "location": "San Francisco, CA", "website": "https://salesforce.com/company/careers", "description": "CRM, enterprise cloud, AI (Einstein)."},
+                {"id": "c14", "name": "Atlassian", "industry": "Enterprise Software", "location": "Sydney, Australia / Global", "website": "https://atlassian.com/company/careers", "description": "Team collaboration, Jira, Confluence."},
+                {"id": "c15", "name": "Spotify", "industry": "Music / Audio Streaming", "location": "Stockholm, Sweden / Global", "website": "https://spotify.com/careers", "description": "Music streaming, podcasting, audio tech."}
+            ]
+        }
+        with open(COMPANIES_DB_PATH, 'w', encoding='utf-8') as f:
+            json.dump(default_companies, f, indent=2)
+    return COMPANIES_DB_PATH
+
+def get_companies(search: str = ""):
+    init_companies_db()
+    try:
+        with open(COMPANIES_DB_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        companies = data.get("companies", [])
+        if search:
+            q = search.lower()
+            companies = [c for c in companies if q in c["name"].lower() or q in c["industry"].lower() or q in c.get("location", "").lower()]
+        return companies
+    except Exception as e:
+        print(f"Error reading companies: {e}")
+        return []
+
+def save_company_interest(user_email: str, company_id: str):
+    init_db()
+    user_email = user_email.lower()
+    try:
+        with open(DB_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        interests = data.setdefault("company_interests", {})
+        user_interests = interests.setdefault(user_email, [])
+        if company_id not in user_interests:
+            user_interests.append(company_id)
+        with open(DB_PATH, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2)
+        return True
+    except Exception as e:
+        print(f"Error saving company interest: {e}")
+        return False
+
+def get_user_company_interests(user_email: str):
+    init_db()
+    user_email = user_email.lower()
+    try:
+        with open(DB_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        interests = data.get("company_interests", {})
+        return interests.get(user_email, [])
+    except Exception as e:
+        print(f"Error fetching company interests: {e}")
+        return []

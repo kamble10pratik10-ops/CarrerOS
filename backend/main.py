@@ -24,7 +24,13 @@ from src.lib.lemma.datastore import (
     follow_user,
     unfollow_user,
     search_profiles,
-    get_profiles_by_emails
+    get_profiles_by_emails,
+    save_chat_message,
+    get_chat_history,
+    get_conversations,
+    get_companies,
+    save_company_interest,
+    get_user_company_interests
 )
 from src.lib.lemma.workflows import trigger_application_workflow
 from src.services.ai_service import parse_file_with_gemini, chat_with_agent, chat_with_recruiter_agent, evaluate_interview_performance, generate_interview_questions, chat_with_mentor, generate_network_matches, generate_ai_introduction
@@ -93,6 +99,11 @@ class GenerateQuestionsRequest(BaseModel):
 
 class NetworkIntroRequest(BaseModel):
     targetEmail: str
+
+class ChatSendRequest(BaseModel):
+    receiver: str
+    text: str
+    mediaUrls: list | None = []
 
 # --- Auth Helper ---
 def get_current_user(request: Request):
@@ -536,6 +547,62 @@ async def get_network_users(emails: str, email: str = Depends(get_current_user))
         return {"success": True, "profiles": profiles}
     except Exception as e:
         raise HTTPException(status_code=500, detail="Failed to fetch users")
+
+# --- Chat Routes ---
+
+@app.post("/api/chat/send")
+async def send_chat_message(req: ChatSendRequest, email: str = Depends(get_current_user)):
+    try:
+        msg = save_chat_message(email, req.receiver, req.text, req.mediaUrls or [])
+        if msg:
+            return {"success": True, "message": msg}
+        raise HTTPException(status_code=500, detail="Failed to save message")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/chat/history")
+async def chat_history(user2: str, email: str = Depends(get_current_user)):
+    try:
+        history = get_chat_history(email, user2)
+        return {"success": True, "messages": history}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/chat/conversations")
+async def chat_conversations(email: str = Depends(get_current_user)):
+    try:
+        convos = get_conversations(email)
+        # Enrich with profile info
+        enriched = []
+        for conv in convos:
+            profile = get_profile(conv["email"]) or {}
+            conv["name"] = profile.get("name", conv["email"])
+            conv["photoUrl"] = profile.get("photoUrl", "")
+            enriched.append(conv)
+        return {"success": True, "conversations": enriched}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+# --- Company Routes ---
+
+@app.get("/api/companies")
+async def list_companies(q: str = "", email: str = Depends(get_current_user)):
+    try:
+        companies = get_companies(q)
+        interested_ids = get_user_company_interests(email)
+        for c in companies:
+            c["interested"] = c.get("id") in interested_ids
+        return {"success": True, "companies": companies}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/companies/connect")
+async def connect_company(req: NetworkIntroRequest, email: str = Depends(get_current_user)):
+    try:
+        ok = save_company_interest(email, req.targetEmail)
+        return {"success": ok}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 if __name__ == "__main__":

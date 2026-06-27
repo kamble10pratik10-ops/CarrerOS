@@ -101,6 +101,24 @@
       "mobile": "+1 555",
       "password_hash": "$2b$12$5AL6KlX052m./3STrMyN3eV0cUTysJ6gwH9w2WsWzVefZWsoFnLo2",
       "created_at": "2026-06-27T17:49:21.475860+00:00"
+    },
+    {
+      "email": "conn_test@test.com",
+      "mobile": "+1 555",
+      "password_hash": "$2b$12$skP7oef3iklywJyPk6EgReNaZtTuLtAsJQp4y.KbNCAuq6aWaGXm2",
+      "created_at": "2026-06-27T18:24:03.454451+00:00"
+    },
+    {
+      "email": "conn2@test.com",
+      "mobile": "+1 555",
+      "password_hash": "$2b$12$44a5DsQl4mzfWcI2fydPbOEcjN.Fn1.f1fVoPXsqZ1QhLBIjeFtD2",
+      "created_at": "2026-06-27T18:24:27.791171+00:00"
+    },
+    {
+      "email": "fin_conn@test.com",
+      "mobile": "+1 555",
+      "password_hash": "$2b$12$tsj.xuhBftUM/e3H.NJRAusMAhE4pCRRzmqCuaii7VL6q7g6gBc3y",
+      "created_at": "2026-06-27T18:25:22.147827+00:00"
     }
   ]
 }

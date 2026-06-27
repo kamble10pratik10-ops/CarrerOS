@@ -876,5 +876,17 @@
         "resumeText": "Experienced DevOps engineer with 5 years..."
       }
     }
+  },
+  "chats": {
+    "fin_conn@test.com_peer2@test.com": [
+      {
+        "id": "msg_1782584722360_20d93c",
+        "sender": "fin_conn@test.com",
+        "receiver": "peer2@test.com",
+        "text": "hello",
+        "mediaUrls": [],
+        "timestamp": 1782584722360
+      }
+    ]
   }
 }
