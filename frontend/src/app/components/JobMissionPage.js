@@ -15,6 +15,10 @@ export default function JobMissionPage() {
   const [outreachTone, setOutreachTone] = useState('confident');
   const [addedToPipeline, setAddedToPipeline] = useState(false);
   const [downloadingResume, setDownloadingResume] = useState(false);
+  const [mentorMessages, setMentorMessages] = useState([]);
+  const [mentorInput, setMentorInput] = useState('');
+  const [mentorLoading, setMentorLoading] = useState(false);
+  const mentorEndRef = useRef(null);
   const resultsRef = useRef(null);
 
   // Auto-fetch resume from profile on mount
@@ -117,9 +121,54 @@ export default function JobMissionPage() {
     }
   };
 
+  useEffect(() => {
+    mentorEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [mentorMessages]);
+
+  const sendMentorMessage = async () => {
+    if (!mentorInput.trim() || mentorLoading) return;
+    const userMsg = { role: 'user', content: mentorInput };
+    setMentorMessages(prev => [...prev, userMsg]);
+    setMentorInput('');
+    setMentorLoading(true);
+
+    try {
+      const token = localStorage.getItem('careeros_token');
+      const headers = {
+        'Content-Type': 'application/json',
+        ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+      };
+      const res = await fetch(`${BACKEND_URL}/api/mentor/chat`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          message: mentorInput,
+          chatHistory: mentorMessages.slice(-10),
+          resumeText: resumeText || '',
+          profile: {
+            targetRole: result?.role || '',
+            skills: ''
+          }
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setMentorMessages(prev => [...prev, { role: 'assistant', content: data.reply }]);
+      } else {
+        setMentorMessages(prev => [...prev, { role: 'assistant', content: data.detail || 'Mentor unavailable. Check API keys.' }]);
+      }
+    } catch (err) {
+      console.error('Mentor error:', err);
+      setMentorMessages(prev => [...prev, { role: 'assistant', content: 'Could not reach the backend.' }]);
+    } finally {
+      setMentorLoading(false);
+    }
+  };
+
   const steps = [
     { id: 1, label: 'Intelligence', icon: 'search_insights' },
     { id: 2, label: 'Prep', icon: 'school' },
+    { id: 3, label: 'Mentor', icon: 'school' },
   ];
 
   return (
@@ -405,6 +454,82 @@ export default function JobMissionPage() {
               </div>
             )}
 
+            {/* Step 3: AI Mentor */}
+            {activeStep === 3 && (
+              <div className="flex flex-col space-y-4" style={{ height: '500px' }}>
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary text-lg">school</span>
+                  <h2 className="text-lg font-bold text-on-surface">AI Mentor — {result.company}</h2>
+                </div>
+                <p className="text-xs text-on-surface-variant font-medium -mt-2">
+                  Ask personalized questions about this role, resume improvements, and career strategy.
+                </p>
+
+                {/* Chat Messages */}
+                <div className="flex-1 overflow-y-auto custom-scrollbar space-y-4 pb-4 pr-1">
+                  {mentorMessages.length === 0 && (
+                    <div className="flex flex-col items-center justify-center h-full gap-3 text-center p-4">
+                      <span className="material-symbols-outlined text-muted text-3xl">forum</span>
+                      <p className="text-xs text-on-surface-variant font-medium">Ask the mentor about this job or your resume</p>
+                      <div className="grid grid-cols-1 gap-2 w-full max-w-md">
+                        {[
+                          'How can I tailor my resume better for this role?',
+                          'What skills should I highlight for this job?',
+                          'How does this role align with my career growth?',
+                          'What companies should I target with my profile?',
+                        ].map((q, i) => (
+                          <button key={i} onClick={() => setMentorInput(q)}
+                            className="card-static p-2.5 text-left text-xs font-bold text-on-surface-variant hover:border-primary/30 hover:text-on-surface transition-all btn-hover border-outline-variant/30">
+                            "{q}"
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {mentorMessages.map((msg, i) => (
+                    <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                      <div className={`max-w-[80%] rounded-xl px-4 py-3 shadow-md ${
+                        msg.role === 'user'
+                          ? 'bg-primary/10 text-on-surface border border-primary/20'
+                          : 'card-static text-on-surface border border-outline-variant/30 bg-surface-container/40'
+                      }`}>
+                        {msg.role === 'assistant' && (
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className="material-symbols-outlined text-primary text-sm">school</span>
+                            <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Mentor</span>
+                          </div>
+                        )}
+                        <p className="text-sm whitespace-pre-wrap leading-relaxed font-semibold">{msg.content}</p>
+                      </div>
+                    </div>
+                  ))}
+
+                  {mentorLoading && (
+                    <div className="flex justify-start">
+                      <div className="card-static px-4 py-3 flex items-center gap-2.5 border-outline-variant/30 bg-surface-container/20">
+                        <span className="w-3.5 h-3.5 rounded-full border-2 border-primary/20 border-t-primary animate-spin" />
+                        <span className="text-xs text-muted font-bold uppercase tracking-wider">Mentor is thinking...</span>
+                      </div>
+                    </div>
+                  )}
+                  <div ref={mentorEndRef} />
+                </div>
+
+                {/* Chat Input */}
+                <div className="border-t border-outline-variant/20 pt-4 flex gap-3 shrink-0">
+                  <input value={mentorInput} onChange={e => setMentorInput(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && !e.shiftKey && sendMentorMessage()}
+                    placeholder="Ask about this role or your resume..."
+                    className="flex-1 premium-input" />
+                  <button onClick={sendMentorMessage} disabled={mentorLoading || !mentorInput.trim()}
+                    className="px-5 py-3 bg-gradient-to-r from-primary to-secondary text-on-primary rounded-lg text-sm font-bold shadow-lg shadow-primary/20 btn-hover disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                    <span className="material-symbols-outlined text-sm font-bold">send</span>
+                    Send
+                  </button>
+                </div>
+              </div>
+            )}
             {/* Add to Pipeline CTA — always visible when results exist */}
             {result && activeStep > 0 && (
               <div className="border-t border-outline-variant/20 pt-5 mt-6 flex items-center gap-4">

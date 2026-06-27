@@ -1,5 +1,6 @@
 import os
 import json
+import base64
 from groq import Groq
 import google.generativeai as genai
 
@@ -80,11 +81,13 @@ def parse_file_with_gemini(file_bytes, mime_type, file_name):
     if not gen_ai:
         raise ValueError("Gemini API key (GOOGLE_API_KEY) is not set in environment.")
         
-    model = gen_ai.GenerativeModel('gemini-2.0-flash')
+    model = gen_ai.GenerativeModel('models/gemini-2.5-flash')
     
     part = {
-        "mime_type": mime_type,
-        "data": file_bytes
+        "inline_data": {
+            "mime_type": mime_type,
+            "data": base64.b64encode(file_bytes).decode('utf-8')
+        }
     }
     
     if mime_type.startswith("image/"):
@@ -197,7 +200,7 @@ async def generate_analysis_with_gemini(prompt, gemini_client):
         raise ValueError("Neither Groq nor Gemini API keys are configured correctly.")
         
     model = gemini_client.GenerativeModel(
-        model_name='gemini-2.0-flash',
+        model_name='models/gemini-2.0-flash',
         generation_config={"response_mime_type": "application/json"}
     )
     result = model.generate_content(prompt)
@@ -372,6 +375,114 @@ Ensure the output is ONLY valid JSON without any markdown formatting wrappers li
         print("[ai_service] Using Gemini API for interview evaluation...")
         return await generate_analysis_with_gemini(prompt, gemini_client)
 
+async def generate_interview_questions(payload):
+    target_role = payload.get("targetRole", "")
+    resume_text = payload.get("resumeText", "")
+    skills = payload.get("skills", "")
+    question_types = payload.get("questionTypes", ["technical", "behavioral", "situational"])
+
+    prompt = f"""
+You are an expert interview coach. Based on the candidate's profile below, generate a comprehensive set of interview practice questions.
+
+CANDIDATE PROFILE:
+Target Role: {target_role or 'Not specified'}
+Key Skills: {skills or 'Not specified'}
+Resume Summary: {(resume_text[:500] + '...') if len(resume_text) > 500 else resume_text}
+
+Generate questions in these categories: {', '.join(question_types)}.
+
+For each question, provide:
+1. The question text
+2. The category (technical/behavioral/situational/experience)
+3. What the interviewer is looking for (key points to cover)
+4. Difficulty level (easy/medium/hard)
+
+Return ONLY a valid JSON object with this structure (no markdown wrapping):
+{{
+  "questions": [
+    {{
+      "question": "The interview question",
+      "category": "technical",
+      "keyPoints": "What the interviewer wants to hear",
+      "difficulty": "medium"
+    }}
+  ],
+  "tips": "General interview tips based on the candidate's profile"
+}}
+"""
+
+    groq_client = get_groq_client()
+    gemini_client = get_gemini_client()
+
+    if groq_client:
+        try:
+            print("[ai_service] Using Groq API for question generation...")
+            completion = groq_client.chat.completions.create(
+                messages=[{"role": "user", "content": prompt}],
+                model="llama-3.3-70b-versatile",
+                response_format={"type": "json_object"}
+            )
+            return json.loads(clean_json_string(completion.choices[0].message.content))
+        except Exception as e:
+            print(f"[ai_service] Groq API Error for questions, falling back to Gemini: {e}")
+            return await generate_analysis_with_gemini(prompt, gemini_client)
+    else:
+        print("[ai_service] Using Gemini API for question generation...")
+        return await generate_analysis_with_gemini(prompt, gemini_client)
+
+async def chat_with_mentor(payload):
+    message = payload.get("message")
+    chat_history = payload.get("chatHistory") or []
+    resume_text = payload.get("resumeText")
+    profile = payload.get("profile", {})
+
+    system_prompt = f"""
+You are an elite AI Career Mentor with deep expertise across all industries, roles, and career stages. Your purpose is to provide personalized, actionable career guidance.
+
+USER PROFILE:
+Target Role: {profile.get('targetRole', 'Not set')}
+Current Skills: {profile.get('skills', 'Not specified')}
+Resume Summary: {(resume_text[:300] + '...') if resume_text and len(resume_text) > 300 else resume_text or 'No resume uploaded'}
+
+Your areas of expertise:
+1. **Skill Recommendations** — Which skills to learn next based on market demand, the user's goals, and their current stack.
+2. **Company Suggestions** — Recommend companies hiring for their target role, considering culture, growth, and compensation.
+3. **Domain Switching** — Advice on pivoting to a new field (e.g., frontend → AI/ML, finance → tech) with realistic roadmaps.
+4. **Career Strategy** — Long-term career planning, promotion strategies, building a personal brand, networking.
+5. **Salary Guidance** — Negotiation tactics, compensation benchmarks, equity vs cash considerations, timing.
+
+Response guidelines:
+- Be direct, honest, and supportive — no fluff.
+- Use concrete examples, company names, technologies, and numbers where relevant.
+- Keep responses concise (2-4 paragraphs max) for chat UI.
+- Use bullet points for lists.
+- When recommending skills, suggest specific technologies/frameworks and explain WHY.
+- When recommending companies, consider company stage (startup vs FAANG vs mid-market).
+- For salary questions, cite realistic ranges based on role/experience/location.
+- NEVER fabricate data. If unsure, say so and suggest research directions.
+"""
+    groq_client = get_groq_client()
+    gemini_client = get_gemini_client()
+
+    messages = [{"role": "system", "content": system_prompt}]
+    for h in chat_history:
+        messages.append({"role": h.get("role"), "content": h.get("content")})
+    messages.append({"role": "user", "content": message})
+
+    if groq_client:
+        try:
+            print("[ai_service] Using Groq API for mentor chat...")
+            completion = groq_client.chat.completions.create(
+                messages=messages,
+                model="llama-3.3-70b-versatile"
+            )
+            return completion.choices[0].message.content
+        except Exception as e:
+            print(f"[ai_service] Groq Mentor Error, falling back to Gemini: {e}")
+            return await chat_with_gemini(messages, gemini_client)
+    else:
+        print("[ai_service] Using Gemini API for mentor chat...")
+        return await chat_with_gemini(messages, gemini_client)
 async def chat_with_gemini(messages, gemini_client):
     if not gemini_client:
         raise ValueError("No LLM client is available. Set GROQ_API_KEY or GOOGLE_API_KEY.")
@@ -383,7 +494,7 @@ async def chat_with_gemini(messages, gemini_client):
             break
             
     model = gemini_client.GenerativeModel(
-        model_name='gemini-2.0-flash',
+        model_name='models/gemini-2.0-flash',
         system_instruction=system_instruction
     )
     
