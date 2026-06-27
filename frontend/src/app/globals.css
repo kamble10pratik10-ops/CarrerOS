@@ -1,0 +1,374 @@
+@import "tailwindcss";
+
+:root {
+  --theme-background: #F8FAFC;
+  --theme-surface: #FFFFFF;
+  --theme-surface-dim: #F1F5F9;
+  --theme-surface-bright: #FFFFFF;
+  --theme-surface-container-lowest: #FFFFFF;
+  --theme-surface-container-low: #F8FAFC;
+  --theme-surface-container: #F1F5F9;
+  --theme-surface-container-high: #E2E8F0;
+  --theme-surface-container-highest: #CBD5E1;
+
+  --theme-on-surface: #0F172A;
+  --theme-on-surface-variant: #475569;
+  --theme-outline: #CBD5E1;
+  --theme-outline-variant: #E2E8F0;
+  --theme-muted: #64748B;
+
+  --theme-primary: #0D9488;
+  --theme-on-primary: #FFFFFF;
+  --theme-primary-container: rgba(13, 148, 136, 0.1);
+  --theme-on-primary-container: #0D9488;
+
+  --theme-secondary: #4F46E5;
+  --theme-on-secondary: #FFFFFF;
+  --theme-secondary-container: rgba(79, 70, 229, 0.1);
+  --theme-on-secondary-container: #4F46E5;
+
+  --theme-success: #10B981;
+  --theme-warning: #F59E0B;
+  --theme-error: #F43F5E;
+  --theme-on-error: #FFFFFF;
+  --theme-tertiary: #EC4899;
+  --theme-on-tertiary: #FFFFFF;
+
+  --primary-glow: rgba(13, 148, 136, 0.15);
+  --secondary-glow: rgba(79, 70, 229, 0.15);
+  --accent-glow: rgba(236, 72, 153, 0.12);
+}
+
+.dark {
+  --theme-background: #050814;
+  --theme-surface: #090E1D;
+  --theme-surface-dim: #050811;
+  --theme-surface-bright: #141B2D;
+  --theme-surface-container-lowest: #03050C;
+  --theme-surface-container-low: #070B17;
+  --theme-surface-container: #0C1225;
+  --theme-surface-container-high: #131A32;
+  --theme-surface-container-highest: #1B2440;
+
+  --theme-on-surface: #F8FAFC;
+  --theme-on-surface-variant: #94A3B8;
+  --theme-outline: #38425C;
+  --theme-outline-variant: #1E294B;
+  --theme-muted: #64748B;
+
+  --theme-primary: #2DD4BF;
+  --theme-on-primary: #050814;
+  --theme-primary-container: rgba(45, 212, 191, 0.08);
+  --theme-on-primary-container: #2DD4BF;
+
+  --theme-secondary: #818CF8;
+  --theme-on-secondary: #050814;
+  --theme-secondary-container: rgba(129, 140, 248, 0.08);
+  --theme-on-secondary-container: #818CF8;
+
+  --theme-success: #10B981;
+  --theme-warning: #F59E0B;
+  --theme-error: #F43F5E;
+  --theme-on-error: #FFFFFF;
+  --theme-tertiary: #EC4899;
+  --theme-on-tertiary: #FFFFFF;
+
+  --primary-glow: rgba(45, 212, 191, 0.15);
+  --secondary-glow: rgba(129, 140, 248, 0.15);
+  --accent-glow: rgba(236, 72, 153, 0.12);
+}
+
+@theme {
+  --color-background: var(--theme-background);
+  --color-surface: var(--theme-surface);
+  --color-surface-dim: var(--theme-surface-dim);
+  --color-surface-bright: var(--theme-surface-bright);
+  --color-surface-container-lowest: var(--theme-surface-container-lowest);
+  --color-surface-container-low: var(--theme-surface-container-low);
+  --color-surface-container: var(--theme-surface-container);
+  --color-surface-container-high: var(--theme-surface-container-high);
+  --color-surface-container-highest: var(--theme-surface-container-highest);
+
+  --color-on-surface: var(--theme-on-surface);
+  --color-on-surface-variant: var(--theme-on-surface-variant);
+  --color-outline: var(--theme-outline);
+  --color-outline-variant: var(--theme-outline-variant);
+  --color-muted: var(--theme-muted);
+
+  --color-primary: var(--theme-primary);
+  --color-on-primary: var(--theme-on-primary);
+  --color-primary-container: var(--theme-primary-container);
+  --color-on-primary-container: var(--theme-on-primary-container);
+
+  --color-secondary: var(--theme-secondary);
+  --color-on-secondary: var(--theme-on-secondary);
+  --color-secondary-container: var(--theme-secondary-container);
+  --color-on-secondary-container: var(--theme-on-secondary-container);
+
+  --color-success: var(--theme-success);
+  --color-warning: var(--theme-warning);
+  --color-error: var(--theme-error);
+  --color-on-error: var(--theme-on-error);
+  --color-tertiary: var(--theme-tertiary);
+  --color-on-tertiary: var(--theme-on-tertiary);
+
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --spacing-stack-lg: 32px;
+  --spacing-stack-md: 16px;
+  --spacing-gutter: 24px;
+  --spacing-container-margin: 32px;
+  --spacing-section-gap: 48px;
+  --spacing-stack-sm: 8px;
+  --spacing-unit: 4px;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--theme-background);
+  color: var(--theme-on-surface);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === Ambient Glowing Orbs === */
+@keyframes float1 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes float2 {
+  0% { transform: translate(0px, 0px) scale(1.1); }
+  50% { transform: translate(-40px, 30px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1.1); }
+}
+
+.ambient-orb-1 {
+  position: fixed;
+  top: 15%;
+  left: 20%;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--theme-primary) 8%, transparent) 0%, transparent 65%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+  animation: float1 25s ease-in-out infinite;
+}
+
+.ambient-orb-2 {
+  position: fixed;
+  bottom: 10%;
+  right: 15%;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--theme-secondary) 8%, transparent) 0%, transparent 70%);
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: 0;
+  animation: float2 30s ease-in-out infinite;
+}
+
+.ambient-orb-3 {
+  position: fixed;
+  top: 50%;
+  left: 60%;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--theme-tertiary) 6%, transparent) 0%, transparent 65%);
+  filter: blur(35px);
+  pointer-events: none;
+  z-index: 0;
+  animation: float1 20s ease-in-out infinite reverse;
+}
+
+/* === Glassmorphism Cards & Panels === */
+.card {
+  background: color-mix(in srgb, var(--theme-surface-container) 60%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in srgb, var(--theme-on-surface) 6%, transparent);
+  border-radius: 0.85rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.005);
+  background: color-mix(in srgb, var(--theme-surface-container-high) 70%, transparent);
+  border-color: color-mix(in srgb, var(--theme-primary) 30%, transparent);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12), 0 0 25px color-mix(in srgb, var(--theme-primary) 10%, transparent);
+}
+
+.card-static {
+  background: color-mix(in srgb, var(--theme-surface-container) 55%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in srgb, var(--theme-on-surface) 6%, transparent);
+  border-radius: 0.85rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-panel {
+  background: color-mix(in srgb, var(--theme-surface-dim) 85%, transparent);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid color-mix(in srgb, var(--theme-on-surface) 6%, transparent);
+}
+
+/* === Text Gradients === */
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-secondary) 50%, #6366F1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-secondary {
+  background: linear-gradient(135deg, var(--theme-secondary) 0%, var(--theme-tertiary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--theme-warning) 0%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === Premium Form Inputs === */
+.premium-input {
+  width: 100%;
+  background: color-mix(in srgb, var(--theme-surface-container-highest) 30%, transparent) !important;
+  border: 1px solid var(--theme-outline) !important;
+  border-radius: 0.65rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--theme-on-surface);
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-input:focus {
+  border-color: var(--theme-primary) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-primary) 15%, transparent);
+  background: color-mix(in srgb, var(--theme-surface-container-highest) 50%, transparent) !important;
+}
+
+.premium-input::placeholder {
+  color: var(--theme-muted);
+}
+
+/* === Custom Scrollbar === */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--theme-on-surface) 12%, transparent);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--theme-primary) 35%, transparent);
+}
+
+/* === Page Transitions === */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: fadeSlideIn 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* === Skeleton Loading Shimmer === */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--theme-surface-container) 60%, transparent) 25%, color-mix(in srgb, var(--theme-surface-container-high) 75%, transparent) 50%, color-mix(in srgb, var(--theme-surface-container) 60%, transparent) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--theme-outline) 10%, transparent);
+}
+
+/* === Button Hover === */
+.btn-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-hover:hover {
+  transform: translateY(-1.5px) scale(1.02);
+}
+
+.btn-hover:active {
+  transform: translateY(0.5px) scale(0.985);
+}
+
+/* === Active navigation side bar item overlay === */
+.active-nav-glow {
+  position: relative;
+}
+
+.active-nav-glow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 25%;
+  height: 50%;
+  width: 3px;
+  background: var(--theme-primary);
+  border-radius: 99px;
+  box-shadow: 0 0 8px var(--theme-primary);
+}
+
+/* === Glowing Dot === */
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--theme-primary);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--theme-primary) 70%, transparent);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--theme-primary) 70%, transparent);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--theme-primary) 0%, transparent);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--theme-primary) 0%, transparent);
+  }
+}

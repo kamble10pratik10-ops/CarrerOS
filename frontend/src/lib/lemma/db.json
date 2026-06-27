@@ -1,0 +1,59 @@
+{
+  "applications": [
+    {
+      "id": "app_1782376703596",
+      "company": "Stripe",
+      "role": "Software Engineer",
+      "status": "Applied",
+      "dateApplied": "2026-06-25T08:38:23.596Z",
+      "matchScore": 40,
+      "effort": "High",
+      "flag": "Yellow",
+      "flagReason": "The job description lacks specific details about the required experience level.",
+      "jdText": "We are looking for a Software Engineer at Stripe. Requirements: React, Node.js, API design, financial ledger compliance.",
+      "tailoredBullets": "[{\"original\":\"Experience: Lead Designer\",\"tailored\":\"Lead Designer with experience in managing teams and designing user interfaces, seeking to leverage my skills in a software engineering role.\",\"reason\":\"Emphasizing transferable skills to demonstrate potential for the role.\"},{\"original\":\"Skills: React, CSS Grid, checkout design\",\"tailored\":\"Proficient in React and CSS Grid, with experience in designing checkout interfaces, looking to apply my skills in a software engineering context.\",\"reason\":\"Highlighting relevant technical skills and experience.\"},{\"original\":\"team management\",\"tailored\":\"Proven ability to manage teams and collaborate with colleagues, which could be valuable in a software engineering team environment.\",\"reason\":\"Showcasing soft skills that can be applied to the role.\"}]",
+      "outreachMessages": {
+        "confident": "I am excited to apply for the Software Engineer role at Stripe, and I am confident that my skills and experience make me a strong fit for the position.",
+        "curious": "I am interested in learning more about the Software Engineer role at Stripe and how my skills and experience align with the company's goals and vision.",
+        "concise": "I am applying for the Software Engineer role at Stripe, and I would appreciate the opportunity to discuss my qualifications further."
+      },
+      "interviewQuestions": [
+        {
+          "type": "CASE STUDY",
+          "duration": "15 MINS",
+          "question": "How would you design a payment processing system using React and Node.js, ensuring compliance with financial regulations?",
+          "suggestion": "Discuss the importance of security, scalability, and usability in the system, and provide examples of how you would implement these features."
+        },
+        {
+          "type": "STRATEGY",
+          "duration": "10 MINS",
+          "question": "What strategies would you use to optimize the performance of a financial ledger system, and how would you measure the success of these strategies?",
+          "suggestion": "Discuss the use of caching, indexing, and parallel processing to improve performance, and describe how you would use metrics such as latency and throughput to measure success."
+        },
+        {
+          "type": "CULTURE",
+          "duration": "5 MINS",
+          "question": "What do you know about Stripe's company culture, and how do you think you would contribute to it as a Software Engineer?",
+          "suggestion": "Research Stripe's values and mission, and discuss how your own values and work style align with these, as well as how you would contribute to the company's culture of innovation and collaboration."
+        }
+      ],
+      "nudge3Dismissed": false,
+      "nudge7Dismissed": false,
+      "gaps": [
+        {
+          "type": "MISSING KEYWORD",
+          "text": "The candidate's resume does not mention Node.js, API design, or financial ledger compliance, which are crucial for the job."
+        },
+        {
+          "type": "SKILL MISMATCH",
+          "text": "The candidate's experience is primarily in design, whereas the job requires software engineering skills."
+        },
+        {
+          "type": "OPPORTUNITY",
+          "text": "The candidate could emphasize transferable skills, such as problem-solving and attention to detail, to demonstrate potential for the role."
+        }
+      ]
+    }
+  ],
+  "profile": null
+}
