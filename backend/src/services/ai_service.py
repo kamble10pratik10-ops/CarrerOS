@@ -81,7 +81,7 @@ def parse_file_with_gemini(file_bytes, mime_type, file_name):
     if not gen_ai:
         raise ValueError("Gemini API key (GOOGLE_API_KEY) is not set in environment.")
         
-    model = gen_ai.GenerativeModel('gemini-1.5-flash')
+    model = gen_ai.GenerativeModel('models/gemini-2.5-flash')
     
     part = {
         "inline_data": {
@@ -200,7 +200,7 @@ async def generate_analysis_with_gemini(prompt, gemini_client):
         raise ValueError("Neither Groq nor Gemini API keys are configured correctly.")
         
     model = gemini_client.GenerativeModel(
-        model_name='gemini-1.5-flash',
+        model_name='models/gemini-2.0-flash',
         generation_config={"response_mime_type": "application/json"}
     )
     result = model.generate_content(prompt)
@@ -495,7 +495,7 @@ async def chat_with_gemini(messages, gemini_client):
             break
             
     model = gemini_client.GenerativeModel(
-        model_name='gemini-1.5-flash',
+        model_name='models/gemini-2.0-flash',
         system_instruction=system_instruction
     )
     
