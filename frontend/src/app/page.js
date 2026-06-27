@@ -8,6 +8,7 @@ import JobMissionPage from './components/JobMissionPage';
 import CareerTwinPage from './components/CareerTwinPage';
 import InterviewPrepPage from './components/InterviewPrepPage';
 import GoalTrackerPage from './components/GoalTrackerPage';
+import AiMentorPage from './components/AiMentorPage';
 import PipelinePage from './components/PipelinePage';
 import ProfilePage from './components/ProfilePage';
 
@@ -46,6 +47,8 @@ function MainApp({ authedEmail, handleLogout }) {
         return <JobMissionPage />;
       case 'twin':
         return <CareerTwinPage />;
+      case 'mentor':
+        return <AiMentorPage />;
       case 'interview':
         return <InterviewPrepPage />;
       case 'goals':

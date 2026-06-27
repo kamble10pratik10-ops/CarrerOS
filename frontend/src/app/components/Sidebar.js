@@ -5,6 +5,7 @@ export default function Sidebar({ activePage, setActivePage, userEmail, onLogout
     { id: 'dashboard', label: 'Dashboard', icon: 'space_dashboard' },
     { id: 'mission', label: 'Job Mission', icon: 'target' },
     { id: 'twin', label: 'Career Twin', icon: 'psychology' },
+    { id: 'mentor', label: 'AI Mentor', icon: 'school' },
     { id: 'interview', label: 'Mock Interview', icon: 'record_voice_over' },
     { id: 'goals', label: 'Goal Tracker', icon: 'flag' },
     { id: 'pipeline', label: 'Pipeline', icon: 'view_kanban' },

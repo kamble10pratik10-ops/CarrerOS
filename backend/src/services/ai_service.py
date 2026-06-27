@@ -429,6 +429,60 @@ Return ONLY a valid JSON object with this structure (no markdown wrapping):
         print("[ai_service] Using Gemini API for question generation...")
         return await generate_analysis_with_gemini(prompt, gemini_client)
 
+async def chat_with_mentor(payload):
+    message = payload.get("message")
+    chat_history = payload.get("chatHistory") or []
+    resume_text = payload.get("resumeText")
+    profile = payload.get("profile", {})
+
+    system_prompt = f"""
+You are an elite AI Career Mentor with deep expertise across all industries, roles, and career stages. Your purpose is to provide personalized, actionable career guidance.
+
+USER PROFILE:
+Target Role: {profile.get('targetRole', 'Not set')}
+Current Skills: {profile.get('skills', 'Not specified')}
+Resume Summary: {(resume_text[:300] + '...') if resume_text and len(resume_text) > 300 else resume_text or 'No resume uploaded'}
+
+Your areas of expertise:
+1. **Skill Recommendations** — Which skills to learn next based on market demand, the user's goals, and their current stack.
+2. **Company Suggestions** — Recommend companies hiring for their target role, considering culture, growth, and compensation.
+3. **Domain Switching** — Advice on pivoting to a new field (e.g., frontend → AI/ML, finance → tech) with realistic roadmaps.
+4. **Career Strategy** — Long-term career planning, promotion strategies, building a personal brand, networking.
+5. **Salary Guidance** — Negotiation tactics, compensation benchmarks, equity vs cash considerations, timing.
+
+Response guidelines:
+- Be direct, honest, and supportive — no fluff.
+- Use concrete examples, company names, technologies, and numbers where relevant.
+- Keep responses concise (2-4 paragraphs max) for chat UI.
+- Use bullet points for lists.
+- When recommending skills, suggest specific technologies/frameworks and explain WHY.
+- When recommending companies, consider company stage (startup vs FAANG vs mid-market).
+- For salary questions, cite realistic ranges based on role/experience/location.
+- NEVER fabricate data. If unsure, say so and suggest research directions.
+"""
+    groq_client = get_groq_client()
+    gemini_client = get_gemini_client()
+
+    messages = [{"role": "system", "content": system_prompt}]
+    for h in chat_history:
+        messages.append({"role": h.get("role"), "content": h.get("content")})
+    messages.append({"role": "user", "content": message})
+
+    if groq_client:
+        try:
+            print("[ai_service] Using Groq API for mentor chat...")
+            completion = groq_client.chat.completions.create(
+                messages=messages,
+                model="llama-3.3-70b-versatile"
+            )
+            return completion.choices[0].message.content
+        except Exception as e:
+            print(f"[ai_service] Groq Mentor Error, falling back to Gemini: {e}")
+            return await chat_with_gemini(messages, gemini_client)
+    else:
+        print("[ai_service] Using Gemini API for mentor chat...")
+        return await chat_with_gemini(messages, gemini_client)
+
 async def chat_with_gemini(messages, gemini_client):
     if not gemini_client:
         raise ValueError("No LLM client is available. Set GROQ_API_KEY or GOOGLE_API_KEY.")

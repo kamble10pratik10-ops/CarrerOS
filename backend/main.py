@@ -19,7 +19,7 @@ from src.lib.lemma.datastore import (
     get_profile
 )
 from src.lib.lemma.workflows import trigger_application_workflow
-from src.services.ai_service import parse_file_with_gemini, chat_with_agent, chat_with_recruiter_agent, evaluate_interview_performance, generate_interview_questions
+from src.services.ai_service import parse_file_with_gemini, chat_with_agent, chat_with_recruiter_agent, evaluate_interview_performance, generate_interview_questions, chat_with_mentor
 from src.lib.lemma.auth import create_access_token, verify_token
 from src.lib.lemma.auth_store import user_exists, get_user_by_email, create_user
 
@@ -65,6 +65,12 @@ class ChatRequest(BaseModel):
 class EvaluateRequest(BaseModel):
     chatHistory: list | None = []
     currentJdText: str | None = ""
+
+class MentorChatRequest(BaseModel):
+    message: str
+    chatHistory: list | None = []
+    resumeText: str | None = ""
+    profile: dict | None = {}
 
 class GenerateQuestionsRequest(BaseModel):
     targetRole: str | None = ""
@@ -376,7 +382,26 @@ async def evaluate_interview(req: EvaluateRequest, email: str = Depends(get_curr
             detail=str(e) or "Failed to evaluate interview performance"
         )
 
-# 9. Interview Question Generator
+# 9. AI Mentor Chat
+@app.post("/api/mentor/chat")
+async def mentor_chat(req: MentorChatRequest, email: str = Depends(get_current_user)):
+    try:
+        print(f"[Backend] Forwarding message to AI Mentor for {email}...")
+        reply = await chat_with_mentor({
+            "message": req.message,
+            "chatHistory": req.chatHistory or [],
+            "resumeText": req.resumeText,
+            "profile": req.profile or {}
+        })
+        return {"success": True, "reply": reply}
+    except Exception as e:
+        print(f"Error in mentor chat API route: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=str(e) or "Failed to get response from AI Mentor"
+        )
+
+# 10. Interview Question Generator
 @app.post("/api/generate-questions")
 async def generate_questions(req: GenerateQuestionsRequest, email: str = Depends(get_current_user)):
     try:
