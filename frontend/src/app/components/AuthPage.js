@@ -9,7 +9,7 @@ const countryCodes = [
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
 
-export default function AuthPage({ onAuthSuccess }) {
+export default function AuthPage({ onAuthSuccess, onBack }) {
   const [mode, setMode] = useState('login');
   const [form, setForm] = useState({ email: '', mobile: '', password: '' });
   const [countryCode, setCountryCode] = useState('+1');
@@ -62,6 +62,15 @@ export default function AuthPage({ onAuthSuccess }) {
       <div className="ambient-orb-1" />
       <div className="ambient-orb-2" />
       <div className="ambient-orb-3" />
+
+      {onBack && (
+        <div className="auth-back-wrap">
+          <button onClick={onBack} className="auth-back-btn">
+            <span className="material-symbols-outlined text-sm">arrow_back</span>
+            Back to Home
+          </button>
+        </div>
+      )}
 
       <div className="auth-layout">
         {/* Hero Section */}

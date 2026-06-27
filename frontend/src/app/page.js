@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import LandingPage from './components/LandingPage';
 import AuthPage from './components/AuthPage';
 import Topbar from './components/Topbar';
 import DashboardPage from './components/DashboardPage';
@@ -14,13 +15,14 @@ import ProfilePage from './components/ProfilePage';
 
 // Auth wrapper - default export. Only holds auth state.
 export default function CareerCommandCenter() {
+  const [view, setView] = useState('landing');
   const [authedEmail, setAuthedEmail] = useState(null);
   const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('careeros_token');
     const email = localStorage.getItem('careeros_email');
-    if (token && email) setAuthedEmail(email);
+    if (token && email) { setAuthedEmail(email); setView('app'); }
     setAuthChecked(true);
   }, []);
 
@@ -28,11 +30,14 @@ export default function CareerCommandCenter() {
     localStorage.removeItem('careeros_token');
     localStorage.removeItem('careeros_email');
     setAuthedEmail(null);
+    setView('landing');
   };
 
   if (!authChecked) return null;
-  if (!authedEmail) return <AuthPage onAuthSuccess={(email) => setAuthedEmail(email)} />;
-  return <MainApp authedEmail={authedEmail} handleLogout={handleLogout} />;
+  if (view === 'landing') return <LandingPage onLogin={() => setView('auth')} onGetStarted={() => setView('auth')} />;
+  if (view === 'auth' && !authedEmail) return <AuthPage onAuthSuccess={(email) => { setAuthedEmail(email); setView('app'); }} onBack={() => setView('landing')} />;
+  if (authedEmail) return <MainApp authedEmail={authedEmail} handleLogout={handleLogout} />;
+  return <LandingPage onLogin={() => setView('auth')} onGetStarted={() => setView('auth')} />;
 }
 
 // Main app - only mounts when authenticated.
