@@ -66,7 +66,21 @@
     },
     "preetikamble959@gmail.com": {
       "applications": [],
-      "profile": null
+      "profile": {
+        "following": [
+          "kamble10pratik.10@gmail.com"
+        ],
+        "name": "Preeti kamble",
+        "targetRole": "AI Engineer",
+        "resumeName": "",
+        "resumeText": "",
+        "location": "",
+        "projects": "",
+        "hackathons": "",
+        "goals": "",
+        "availability": "",
+        "discoverable": true
+      }
     },
     "test2@example.com": {
       "applications": [],
@@ -670,13 +684,175 @@
               "description": "Comprehensive web development documentation, useful for understanding web technologies and developing skills in areas like JavaScript and TypeScript."
             }
           ]
+        },
+        {
+          "id": "app_1782538192705",
+          "company": "DeepMind",
+          "role": "Senior Developer Relations Engineer",
+          "status": "Applied",
+          "dateApplied": "2026-06-27T10:59:52.705145Z",
+          "matchScore": 82,
+          "effort": "Medium",
+          "flag": "Green",
+          "flagReason": "The job description is clear and specific about the required qualifications and responsibilities.",
+          "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n7 years of experience in a technical role (e.g., software engineering, AI engineering, solutions consultant, etc.) or equivalent technical experience.\n5 years of experience with machine learning algorithms and tools, artificial intelligence, deep learning or natural language processing.\nExperience coding in Python, TypeScript, or JavaScript.\n\nPreferred qualifications:\nStrong understanding of the developer ecosystem in India and prior engagement with it.\nAbility to produce excellent code samples, clear documentation, and effective how-to materials to enable developer success with technical offerings.\nAbility to navigate ambiguity in a fast paced environment.\nOwnership of problems end-to-end and a team player with a collaborative mindset.\nAbout the job\nDeepMind Developer Experience works at the intersection of Engineering, Product, and Community. We advocate developer success by delivering seamless experiences across our GenAI product suite. Through deep collaborations across Google, we empower developers by providing high-quality launch materials, education, technical outreach, and a supportive ecosystem for developers of all backgrounds.\n\nAs a Senior Developer Relations Engineer for DeepMind in India, you will operate at the intersection of Product, Engineering, Research, and one of the world's most dynamic developer communities. You will be a strategic leader, serving as the trusted Indian developer ecosystem inside DeepMind and the technical expert of our organization to the region.\n\nYour mission is to define the developer relations strategy for India, advocating developer success and driving the adoption of our models and tools. You will actively shape our global product and research direction based on regional insights, lead local launch strategies, and scale a thriving AI builders ecosystem.\n\nYou will require a unique blend of deep technical expertise, developer empathy, and strategic thinking to navigate the rapid evolution of foundational AI and developer needs in India. You will work with a passionate, cross-functional global team of engineers, researchers, and product managers who are dedicated to pushing the boundaries of what\u2019s possible. If you are excited to shape the developer experience for the world\u2019s most advanced AI and build a thriving ecosystem in a key growth market, this is your chance to be at the forefront of this technological revolution.\nArtificial intelligence will be one of humanity\u2019s most transformative inventions. At DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n\nWe are pushing the boundaries across multiple domains. Our global teams offer learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\nResponsibilities\nDefine and lead the technical go-to-market (GTM) strategy for AI models and tools (such as Gemini, Nano Banana, Google AI Studio), tailoring enablement and developer assets to the distinct needs of the Indian ecosystem (high-growth startups, developers, and enterprises).\nExecute strategic partnerships with regional developer platforms and startups in India, driving high-impact integrations that embed DeepMind technology into the local developer stack.\nLead DeepMind\u2019s regional technical strategy and advocacy, representing the organization at key developer events, steering the regional content and advocacy strategy to inspire the developer community.\nInfluence global product and model research roadmaps by synthesizing technical findings, local constraints, and Indian developer feedback.\nAct as a strategic zeroth customer for DeepMind technology, partnering with core engineering teams on early-stage API design, usability, and architecture to ensure new features are production-ready for real-world deployment.",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Developed an AI-powered knowledge management system, leveraging LangChain and Llama 3 to drive a 38% reduction in query resolution time, demonstrating expertise in natural language processing and machine learning.\", \"reason\": \"Emphasized the technical skills and impact of the project to align with the job requirements\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Conducted research on graph neural networks for transactional fraud detection, achieving a high F1 score of 93.2% on a large-scale benchmark, showcasing ability to apply machine learning to real-world problems.\", \"reason\": \"Highlighted the research and technical skills demonstrated in the project\"}, {\"original\": \"Designed a two-dashboard Tableau Story ('Ecosystem Overview' + 'Geography & Players') over 10-year funding data across 6,000+ rounds with nine analytical problem statements.\", \"tailored\": \"Created a data-driven storytelling platform using Tableau, providing insights into the Indian startup ecosystem through interactive dashboards and analytics, demonstrating ability to work with data and communicate complex information effectively.\", \"reason\": \"Focused on the data analysis and visualization skills relevant to the job role\"}]",
+          "outreachMessages": {
+            "confident": "I am excited to apply for the Senior Developer Relations Engineer role at DeepMind, bringing my strong background in machine learning and software development to drive success in the Indian developer ecosystem.",
+            "curious": "I am fascinated by DeepMind's work in AI and its applications, and I would love to learn more about the company's vision for the Indian market and how my skills can contribute to its growth.",
+            "concise": "I am a skilled software engineer with experience in machine learning and a passion for developer relations, and I am interested in exploring the Senior Developer Relations Engineer role at DeepMind."
+          },
+          "interviewQuestions": [],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "The candidate lacks direct experience with the developer ecosystem in India"
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "The candidate has experience with machine learning algorithms, but the job description requires experience with specific tools like Gemini and Google AI Studio"
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate has potential to develop their skills in deep learning and natural language processing, which are relevant to the job role"
+            }
+          ],
+          "learningResources": [
+            {
+              "platform": "freeCodeCamp",
+              "title": "Machine Learning with Python",
+              "link": "https://www.freecodecamp.org/learn/machine-learning-with-python/",
+              "description": "This comprehensive course covers the basics of machine learning with Python, including scikit-learn, TensorFlow, and Keras, providing a solid foundation for the role."
+            },
+            {
+              "platform": "Coursera",
+              "title": "Natural Language Processing with Deep Learning",
+              "link": "https://www.coursera.org/specializations/natural-language-processing",
+              "description": "This specialization, offered by Stanford University, covers the fundamentals of natural language processing with deep learning, including word embeddings, recurrent neural networks, and transformers, which are highly relevant to the job role."
+            },
+            {
+              "platform": "YouTube",
+              "title": "DeepMind AI Research",
+              "link": "https://www.youtube.com/channel/UCP7jmx9EdMm9Ah1ZItYdU_w",
+              "description": "DeepMind's official YouTube channel features research talks, explanations of AI concepts, and insights into the company's work, providing a valuable resource for staying up-to-date with the latest developments in AI and machine learning."
+            },
+            {
+              "platform": "edX",
+              "title": "AI for Everyone",
+              "link": "https://www.edx.org/course/ai-for-everyone",
+              "description": "This course, offered by Microsoft, provides an introduction to AI, including machine learning, deep learning, and natural language processing, and covers the applications of AI in various industries, making it a great resource for beginners and experienced professionals alike."
+            },
+            {
+              "platform": "LeetCode",
+              "title": "Machine Learning Problems",
+              "link": "https://leetcode.com/problemset/machine-learning/",
+              "description": "LeetCode's machine learning problems provide a great way to practice and improve coding skills in machine learning, with a focus on solving real-world problems and optimizing solutions."
+            },
+            {
+              "platform": "GeeksforGeeks",
+              "title": "Machine Learning",
+              "link": "https://www.geeksforgeeks.org/machine-learning/",
+              "description": "GeeksforGeeks' machine learning section features a wide range of articles, tutorials, and practice problems, covering topics such as supervised and unsupervised learning, neural networks, and deep learning, making it a valuable resource for learning and reviewing machine learning concepts."
+            }
+          ]
+        },
+        {
+          "id": "app_1782538395653",
+          "company": "DeepMind",
+          "role": "Senior Developer Relations Engineer",
+          "status": "Applied",
+          "dateApplied": "2026-06-27T11:03:15.653512Z",
+          "matchScore": 78,
+          "effort": "Medium",
+          "flag": "Green",
+          "flagReason": "The job description is detailed and specific about the qualifications and responsibilities.",
+          "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n7 years of experience in a technical role (e.g., software engineering, AI engineering, solutions consultant, etc.) or equivalent technical experience.\n5 years of experience with machine learning algorithms and tools, artificial intelligence, deep learning or natural language processing.\nExperience coding in Python, TypeScript, or JavaScript.\n\nPreferred qualifications:\nStrong understanding of the developer ecosystem in India and prior engagement with it.\nAbility to produce excellent code samples, clear documentation, and effective how-to materials to enable developer success with technical offerings.\nAbility to navigate ambiguity in a fast paced environment.\nOwnership of problems end-to-end and a team player with a collaborative mindset.\nAbout the job\nDeepMind Developer Experience works at the intersection of Engineering, Product, and Community. We advocate developer success by delivering seamless experiences across our GenAI product suite. Through deep collaborations across Google, we empower developers by providing high-quality launch materials, education, technical outreach, and a supportive ecosystem for developers of all backgrounds.\n\nAs a Senior Developer Relations Engineer for DeepMind in India, you will operate at the intersection of Product, Engineering, Research, and one of the world's most dynamic developer communities. You will be a strategic leader, serving as the trusted Indian developer ecosystem inside DeepMind and the technical expert of our organization to the region.\n\nYour mission is to define the developer relations strategy for India, advocating developer success and driving the adoption of our models and tools. You will actively shape our global product and research direction based on regional insights, lead local launch strategies, and scale a thriving AI builders ecosystem.\n\nYou will require a unique blend of deep technical expertise, developer empathy, and strategic thinking to navigate the rapid evolution of foundational AI and developer needs in India. You will work with a passionate, cross-functional global team of engineers, researchers, and product managers who are dedicated to pushing the boundaries of what\u2019s possible. If you are excited to shape the developer experience for the world\u2019s most advanced AI and build a thriving ecosystem in a key growth market, this is your chance to be at the forefront of this technological revolution.\nArtificial intelligence will be one of humanity\u2019s most transformative inventions. At DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n\nWe are pushing the boundaries across multiple domains. Our global teams offer learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\nResponsibilities\nDefine and lead the technical go-to-market (GTM) strategy for AI models and tools (such as Gemini, Nano Banana, Google AI Studio), tailoring enablement and developer assets to the distinct needs of the Indian ecosystem (high-growth startups, developers, and enterprises).\nExecute strategic partnerships with regional developer platforms and startups in India, driving high-impact integrations that embed DeepMind technology into the local developer stack.\nLead DeepMind\u2019s regional technical strategy and advocacy, representing the organization at key developer events, steering the regional content and advocacy strategy to inspire the developer community.\nInfluence global product and model research roadmaps by synthesizing technical findings, local constraints, and Indian developer feedback.\nAct as a strategic zeroth customer for DeepMind technology, partnering with core engineering teams on early-stage API design, usability, and architecture to ensure new features are production-ready for real-world deployment.",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Developed and deployed AI-powered knowledge management solutions, resulting in significant reductions in query resolution time and improving overall team efficiency.\", \"reason\": \"Emphasizing the impact of AI solutions on team efficiency and productivity\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Conducted research on graph neural networks for fraud detection, achieving high accuracy and demonstrating potential for real-world applications.\", \"reason\": \"Highlighting the candidate's research experience and potential for practical applications\"}, {\"original\": \"Integrated Slack bot interface adopted by 120+ engineers across three product teams within one month of launch.\", \"tailored\": \"Designed and implemented a Slack bot interface that improved communication and collaboration among multiple product teams, resulting in rapid adoption and positive feedback.\", \"reason\": \"Focusing on the candidate's ability to design and implement effective communication solutions\"}]",
+          "outreachMessages": {
+            "confident": "I am confident that my skills and experience make me an ideal fit for the Senior Developer Relations Engineer role at DeepMind, and I would welcome the opportunity to discuss how I can contribute to the team's success.",
+            "curious": "I am excited about the opportunity to join DeepMind and contribute to the development of AI solutions, and I would appreciate the chance to learn more about the team's current projects and initiatives.",
+            "concise": "I am a highly motivated and experienced developer with a strong background in AI and machine learning, and I am interested in exploring the Senior Developer Relations Engineer role at DeepMind."
+          },
+          "interviewQuestions": [],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "The candidate lacks explicit experience with machine learning algorithms and tools in a professional setting"
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "The candidate has limited experience with natural language processing and deep learning"
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate could leverage their experience with AI models and tools to develop a stronger understanding of the developer ecosystem in India"
+            }
+          ],
+          "learningResources": [
+            {
+              "platform": "Coursera",
+              "title": "Machine Learning by Stanford University",
+              "link": "https://www.coursera.org/learn/machine-learning",
+              "description": "This course provides a comprehensive introduction to machine learning, covering topics such as supervised and unsupervised learning, neural networks, and deep learning."
+            },
+            {
+              "platform": "YouTube",
+              "title": "Natural Language Processing with Deep Learning",
+              "link": "https://www.youtube.com/watch?v=OQQ-W_63UgQ",
+              "description": "This video series provides an in-depth introduction to natural language processing with deep learning, covering topics such as word embeddings, recurrent neural networks, and attention mechanisms."
+            },
+            {
+              "platform": "edX",
+              "title": "AI for Everyone",
+              "link": "https://www.edx.org/course/ai-for-everyone",
+              "description": "This course provides an introduction to AI and machine learning, covering topics such as machine learning basics, neural networks, and deep learning, and is designed for beginners with no prior experience in AI or programming."
+            },
+            {
+              "platform": "freeCodeCamp",
+              "title": "Machine Learning with Python",
+              "link": "https://www.freecodecamp.org/learn/machine-learning-with-python",
+              "description": "This course provides a comprehensive introduction to machine learning with Python, covering topics such as supervised and unsupervised learning, neural networks, and deep learning, and includes hands-on projects and exercises."
+            },
+            {
+              "platform": "GeeksforGeeks",
+              "title": "Machine Learning",
+              "link": "https://www.geeksforgeeks.org/machine-learning",
+              "description": "This resource provides a comprehensive collection of machine learning articles, quizzes, and practice problems, covering topics such as supervised and unsupervised learning, neural networks, and deep learning."
+            },
+            {
+              "platform": "LeetCode",
+              "title": "Machine Learning Problems",
+              "link": "https://leetcode.com/problemset/machine-learning",
+              "description": "This resource provides a collection of machine learning problems and challenges, covering topics such as supervised and unsupervised learning, neural networks, and deep learning, and is designed to help practitioners improve their skills and knowledge."
+            },
+            {
+              "platform": "MDN",
+              "title": "Web APIs",
+              "link": "https://developer.mozilla.org/en-US/docs/Web/API",
+              "description": "This resource provides a comprehensive collection of Web APIs, covering topics such as DOM, CSS, and JavaScript, and is designed to help developers build web applications and improve their skills and knowledge."
+            }
+          ]
         }
       ],
       "profile": {
         "name": "Pratik kamble",
         "targetRole": "Software Engineer",
         "resumeName": "pratik_kamble_resume (1).docx",
-        "resumeText": "PRATIK KAMBLE\n+91 98765 43210  |  pratikk.ce22@mitaoe.ac.in  |  linkedin.com/in/pratik-kamble  |  github.com/pratikk-dev  |  Pune, MH\nEDUCATION\nMIT Academy of Engineering, Alandi (Pune)\tAug 2022 \u2013 May 2026\nB.E. Computer Engineering \u00b7 Savitribai Phule Pune University  CGPA: 8.05 / 10.0\nVidyalankar Junior College, Mumbai\t2020 \u2013 2022\nHSC (Science) \u00b7 Maharashtra State Board  \u00b7  87.4%\nTECHNICAL SKILLS\nLanguages: Python, JavaScript / TypeScript, C++, SQL, Bash    Frameworks: React, Next.js, FastAPI, Node.js, Tailwind CSS\nAI / ML: PyTorch, scikit-learn, LangChain, Groq API, Hugging Face, Llama 3    Databases: PostgreSQL, MongoDB, Supabase\nCloud & DevOps: AWS (EC2, S3, Lambda), Docker, Vercel, GitHub Actions    Tools: Git, Postman, Tableau, Figma, Linux\nEXPERIENCE\nSoftware Engineering Intern \u2014 NeuralBridge Technologies \u00b7 Pune (Hybrid)\tMay 2025 \u2013 Jul 2025\nBuilt a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\nDeveloped FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\nIntegrated Slack bot interface adopted by 120+ engineers across three product teams within one month of launch.\nMachine Learning Research Intern \u2014 IIT Bombay \u00b7 Synapse AI Lab (Remote)\tDec 2024 \u2013 Feb 2025\nResearched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\nCo-authored workshop paper submitted to ICLR 2025 (FinML Workshop) on heterogeneous graph sampling strategies.\nAutomated hyperparameter sweeps using Optuna, cutting experimentation cycles by 4\u00d7.\nPROJECTS\nAI Job Application Command Centre \u2014 Next.js \u00b7 Groq / Llama-3.3-70b \u00b7 Lemma SDK \u00b7 Supabase\tJun 2026\nEnd-to-end platform for students managing multi-platform job searches \u2014 JD parser, 'Signal Score' fit scorer, resume tailor, recruiter message drafter, Kanban pipeline tracker, and AI interview prep generator.\nIntegrated Lemma SDK for agent orchestration; Groq API (llama-3.3-70b) for sub-second inference; Clerk auth + Supabase Postgres with row-level security. Deployed on Vercel.\nTradeMind \u2014 Explainable AI Investment Profiler \u2014 React / TypeScript \u00b7 FastAPI \u00b7 Groq API\tMar 2026\nConversational AI that profiles investor risk appetite and generates explainable portfolio recommendations with SHAP-style reasoning narratives.\nImplemented multi-asset backtesting engine (equities, ETFs, crypto) with visual equity curves rendered using Recharts.\nIndian Startup Ecosystem \u2014 Tableau Analytics Dashboard \u2014 Tableau \u00b7 Python \u00b7 Pandas\tJan 2026\nDesigned a two-dashboard Tableau Story ('Ecosystem Overview' + 'Geography & Players') over 10-year funding data across 6,000+ rounds with nine analytical problem statements.\nHACKATHONS & ACHIEVEMENTS\nHackSphere 2026 \u2014 National Level Hackathon  \u00b7  Runner-Up (240 teams)\tFeb 2026\nReal-time disaster response coordination platform using multi-agent LLMs and satellite imagery analysis. Team of 4 \u00b7 36 hrs.\nLemma SDK Launch Hackathon 2026  \u00b7  Finalist \u2014 Top 10 globally (800+ submissions)\tJun 2026\nSmart India Hackathon 2025  \u00b7  Institute Winner\tAug 2025\nNLP-powered grievance classification system routing 92% of municipal complaints to correct departments automatically.\nCERTIFICATIONS & ACTIVITIES\n\u2022 AWS Certified Solutions Architect \u2013 Associate (2025)\t\u2022 Tech Lead, MITAOE Developer Club (2024\u201325)\n\u2022 Google Data Analytics Professional Certificate\t\u2022 Core Member, E-Cell MITAOE\n\u2022 Supervised ML: Regression & Classification \u00b7 Coursera\t\u2022 400+ LeetCode problems \u00b7 Rating: 1,742"
+        "resumeText": "PRATIK KAMBLE\n+91 98765 43210  |  pratikk.ce22@mitaoe.ac.in  |  linkedin.com/in/pratik-kamble  |  github.com/pratikk-dev  |  Pune, MH\nEDUCATION\nMIT Academy of Engineering, Alandi (Pune)\tAug 2022 \u2013 May 2026\nB.E. Computer Engineering \u00b7 Savitribai Phule Pune University  CGPA: 8.05 / 10.0\nVidyalankar Junior College, Mumbai\t2020 \u2013 2022\nHSC (Science) \u00b7 Maharashtra State Board  \u00b7  87.4%\nTECHNICAL SKILLS\nLanguages: Python, JavaScript / TypeScript, C++, SQL, Bash    Frameworks: React, Next.js, FastAPI, Node.js, Tailwind CSS\nAI / ML: PyTorch, scikit-learn, LangChain, Groq API, Hugging Face, Llama 3    Databases: PostgreSQL, MongoDB, Supabase\nCloud & DevOps: AWS (EC2, S3, Lambda), Docker, Vercel, GitHub Actions    Tools: Git, Postman, Tableau, Figma, Linux\nEXPERIENCE\nSoftware Engineering Intern \u2014 NeuralBridge Technologies \u00b7 Pune (Hybrid)\tMay 2025 \u2013 Jul 2025\nBuilt a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\nDeveloped FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\nIntegrated Slack bot interface adopted by 120+ engineers across three product teams within one month of launch.\nMachine Learning Research Intern \u2014 IIT Bombay \u00b7 Synapse AI Lab (Remote)\tDec 2024 \u2013 Feb 2025\nResearched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\nCo-authored workshop paper submitted to ICLR 2025 (FinML Workshop) on heterogeneous graph sampling strategies.\nAutomated hyperparameter sweeps using Optuna, cutting experimentation cycles by 4\u00d7.\nPROJECTS\nAI Job Application Command Centre \u2014 Next.js \u00b7 Groq / Llama-3.3-70b \u00b7 Lemma SDK \u00b7 Supabase\tJun 2026\nEnd-to-end platform for students managing multi-platform job searches \u2014 JD parser, 'Signal Score' fit scorer, resume tailor, recruiter message drafter, Kanban pipeline tracker, and AI interview prep generator.\nIntegrated Lemma SDK for agent orchestration; Groq API (llama-3.3-70b) for sub-second inference; Clerk auth + Supabase Postgres with row-level security. Deployed on Vercel.\nTradeMind \u2014 Explainable AI Investment Profiler \u2014 React / TypeScript \u00b7 FastAPI \u00b7 Groq API\tMar 2026\nConversational AI that profiles investor risk appetite and generates explainable portfolio recommendations with SHAP-style reasoning narratives.\nImplemented multi-asset backtesting engine (equities, ETFs, crypto) with visual equity curves rendered using Recharts.\nIndian Startup Ecosystem \u2014 Tableau Analytics Dashboard \u2014 Tableau \u00b7 Python \u00b7 Pandas\tJan 2026\nDesigned a two-dashboard Tableau Story ('Ecosystem Overview' + 'Geography & Players') over 10-year funding data across 6,000+ rounds with nine analytical problem statements.\nHACKATHONS & ACHIEVEMENTS\nHackSphere 2026 \u2014 National Level Hackathon  \u00b7  Runner-Up (240 teams)\tFeb 2026\nReal-time disaster response coordination platform using multi-agent LLMs and satellite imagery analysis. Team of 4 \u00b7 36 hrs.\nLemma SDK Launch Hackathon 2026  \u00b7  Finalist \u2014 Top 10 globally (800+ submissions)\tJun 2026\nSmart India Hackathon 2025  \u00b7  Institute Winner\tAug 2025\nNLP-powered grievance classification system routing 92% of municipal complaints to correct departments automatically.\nCERTIFICATIONS & ACTIVITIES\n\u2022 AWS Certified Solutions Architect \u2013 Associate (2025)\t\u2022 Tech Lead, MITAOE Developer Club (2024\u201325)\n\u2022 Google Data Analytics Professional Certificate\t\u2022 Core Member, E-Cell MITAOE\n\u2022 Supervised ML: Regression & Classification \u00b7 Coursera\t\u2022 400+ LeetCode problems \u00b7 Rating: 1,742",
+        "location": "Pune",
+        "projects": "1)E-Commerce platform -->Eco-Exchange is based on buying and selling second hand items\n2)Investment Guidance platform --> TradeMind is based on helping working professionals and students learning investment by simulating with help of monte carlo graphs\n3) Community based students learning platform --> LearnConnect is a platform which helps students and professional devs connect and help them form a community\n",
+        "hackathons": "Hack4Us ",
+        "goals": "I want to solve 300 questions in leetcode by this year",
+        "availability": "Weekends",
+        "discoverable": true,
+        "photoUrl": "/uploads/profiles/70963548042e46c2baf8a0782fa4f7ab.png",
+        "followers": [
+          "preetikamble959@gmail.com"
+        ]
       }
     },
     "abc@abc.com": {
@@ -690,6 +866,15 @@
     "siyasinghaniya@gmail.com": {
       "applications": [],
       "profile": null
+    },
+    "lemma_test@test.com": {
+      "applications": [],
+      "profile": {
+        "name": "Lemma Test User",
+        "targetRole": "DevOps Engineer",
+        "skills": "Docker, K8s, Terraform",
+        "resumeText": "Experienced DevOps engineer with 5 years..."
+      }
     }
   }
 }

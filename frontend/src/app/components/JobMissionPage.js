@@ -530,7 +530,6 @@ export default function JobMissionPage() {
                 </div>
               </div>
             )}
-
             {/* Add to Pipeline CTA — always visible when results exist */}
             {result && activeStep > 0 && (
               <div className="border-t border-outline-variant/20 pt-5 mt-6 flex items-center gap-4">

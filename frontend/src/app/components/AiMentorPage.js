@@ -9,7 +9,9 @@ export default function AiMentorPage() {
   const [chatLoading, setChatLoading] = useState(false);
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [attachments, setAttachments] = useState([]);
   const chatEndRef = useRef(null);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -33,9 +35,41 @@ export default function AiMentorPage() {
     }
   }
 
+  function dataURLtoBase64(dataUrl) {
+    const comma = dataUrl.indexOf(',');
+    return dataUrl.slice(comma + 1);
+  }
+
+  function handleFileSelect(e) {
+    const files = Array.from(e.target.files);
+    files.forEach(file => {
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const dataUrl = ev.target.result;
+        const mimeType = file.type || 'application/octet-stream';
+        const ext = file.name.split('.').pop()?.toLowerCase() || '';
+        const isImage = mimeType.startsWith('image/');
+        setAttachments(prev => [...prev, {
+          id: Date.now() + Math.random(),
+          name: file.name,
+          mimeType,
+          dataUrl,
+          base64: dataURLtoBase64(dataUrl),
+          isImage
+        }]);
+      };
+      reader.readAsDataURL(file);
+    });
+    e.target.value = '';
+  }
+
+  function removeAttachment(id) {
+    setAttachments(prev => prev.filter(a => a.id !== id));
+  }
+
   const sendMessage = async () => {
-    if (!chatInput.trim() || chatLoading) return;
-    const userMsg = { role: 'user', content: chatInput };
+    if ((!chatInput.trim() && attachments.length === 0) || chatLoading) return;
+    const userMsg = { role: 'user', content: chatInput || '(attachment)', attachments: [...attachments] };
     setChatMessages(prev => [...prev, userMsg]);
     setChatInput('');
     setChatLoading(true);
@@ -46,19 +80,26 @@ export default function AiMentorPage() {
         'Content-Type': 'application/json',
         ...(token ? { 'Authorization': `Bearer ${token}` } : {})
       };
+      const bodyAttachments = attachments.map(a => ({
+        mime_type: a.mimeType,
+        data: a.base64,
+        file_name: a.name
+      }));
       const res = await fetch(`${BACKEND_URL}/api/mentor/chat`, {
         method: 'POST',
         headers,
         body: JSON.stringify({
-          message: chatInput,
+          message: chatInput || '(attachment)',
           chatHistory: chatMessages.slice(-10),
           resumeText: profile?.resumeText || '',
           profile: {
             targetRole: profile?.targetRole || '',
             skills: profile?.skills || ''
-          }
+          },
+          attachments: bodyAttachments
         })
       });
+      setAttachments([]);
       const data = await res.json();
       if (data.success) {
         setChatMessages(prev => [...prev, { role: 'assistant', content: data.reply }]);
@@ -154,6 +195,16 @@ export default function AiMentorPage() {
                     <span className="text-[10px] font-bold text-primary uppercase tracking-wider">AI Mentor</span>
                   </div>
                 )}
+                {msg.attachments?.map((att, j) => (
+                  att.isImage ? (
+                    <img key={j} src={att.dataUrl} alt={att.name} className="max-w-full rounded-lg mb-2 max-h-60 object-contain border border-outline-variant/20" />
+                  ) : (
+                    <div key={j} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container/60 border border-outline-variant/20 mb-2 text-xs font-semibold text-on-surface-variant">
+                      <span className="material-symbols-outlined text-base">description</span>
+                      <span className="truncate">{att.name}</span>
+                    </div>
+                  )
+                ))}
                 <p className="text-sm whitespace-pre-wrap leading-relaxed font-semibold">{msg.content}</p>
               </div>
             </div>
@@ -170,6 +221,28 @@ export default function AiMentorPage() {
           <div ref={chatEndRef} />
         </div>
 
+        {/* Attachment Previews */}
+        {attachments.length > 0 && (
+          <div className="flex gap-2 flex-wrap shrink-0 pb-1">
+            {attachments.map(att => (
+              <div key={att.id} className="relative group">
+                {att.isImage ? (
+                  <div className="relative w-16 h-16 rounded-lg border border-outline-variant/30 overflow-hidden">
+                    <img src={att.dataUrl} alt={att.name} className="w-full h-full object-cover" />
+                    <button onClick={() => removeAttachment(att.id)} className="absolute top-0.5 right-0.5 w-5 h-5 rounded-full bg-black/60 text-white flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity"><span className="material-symbols-outlined text-xs">close</span></button>
+                  </div>
+                ) : (
+                  <div className="relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-outline-variant/30 bg-surface-container/40 text-xs font-semibold max-w-[180px]">
+                    <span className="material-symbols-outlined text-base shrink-0">description</span>
+                    <span className="truncate">{att.name}</span>
+                    <button onClick={() => removeAttachment(att.id)} className="w-4 h-4 rounded-full bg-black/60 text-white flex items-center justify-center text-xs shrink-0 ml-1"><span className="material-symbols-outlined text-[10px]">close</span></button>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Chat Input */}
         <div className="border-t border-outline-variant/20 pt-4 flex gap-3 shrink-0">
           <input
@@ -180,8 +253,23 @@ export default function AiMentorPage() {
             className="flex-1 premium-input"
           />
           <button
+            onClick={() => fileInputRef.current?.click()}
+            className="px-3 py-3 rounded-lg border border-outline-variant/30 text-on-surface-variant hover:border-primary/40 hover:text-primary transition-all btn-hover flex items-center"
+            title="Attach file or image"
+          >
+            <span className="material-symbols-outlined text-sm">attach_file</span>
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*,.pdf,.doc,.docx,.txt,.csv,.md"
+            multiple
+            onChange={handleFileSelect}
+            className="hidden"
+          />
+          <button
             onClick={sendMessage}
-            disabled={chatLoading || !chatInput.trim()}
+            disabled={chatLoading || (!chatInput.trim() && attachments.length === 0)}
             className="px-5 py-3 bg-gradient-to-r from-primary to-secondary text-on-primary rounded-lg text-sm font-bold shadow-lg shadow-primary/20 btn-hover disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2"
           >
             <span className="material-symbols-outlined text-sm font-bold">send</span>

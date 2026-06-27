@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import LandingPage from './components/LandingPage';
 import AuthPage from './components/AuthPage';
-import Topbar from './components/Topbar';
+import Sidebar from './components/Sidebar';
 import DashboardPage from './components/DashboardPage';
 import JobMissionPage from './components/JobMissionPage';
 import CareerTwinPage from './components/CareerTwinPage';
@@ -12,6 +12,7 @@ import GoalTrackerPage from './components/GoalTrackerPage';
 import AiMentorPage from './components/AiMentorPage';
 import PipelinePage from './components/PipelinePage';
 import ProfilePage from './components/ProfilePage';
+import CareerConnectPage from './components/CareerConnectPage';
 
 // Auth wrapper - default export. Only holds auth state.
 export default function CareerCommandCenter() {
@@ -56,6 +57,8 @@ function MainApp({ authedEmail, handleLogout }) {
         return <AiMentorPage />;
       case 'interview':
         return <InterviewPrepPage />;
+      case 'connect':
+        return <CareerConnectPage onNavigate={setActivePage} />;
       case 'goals':
         return <GoalTrackerPage onNavigate={setActivePage} />;
       case 'pipeline':
@@ -68,13 +71,13 @@ function MainApp({ authedEmail, handleLogout }) {
   };
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden relative">
+    <div className="flex h-screen overflow-hidden relative">
       {/* Background Orbs */}
       <div className="ambient-orb-1" />
       <div className="ambient-orb-2" />
       <div className="ambient-orb-3" />
 
-      <Topbar
+      <Sidebar
         activePage={activePage}
         setActivePage={setActivePage}
         userEmail={authedEmail}
@@ -82,7 +85,7 @@ function MainApp({ authedEmail, handleLogout }) {
       />
 
       {/* Main Content */}
-      <main className="pt-[60px] w-full min-h-screen flex flex-col overflow-y-auto custom-scrollbar relative z-10">
+      <main className="ml-[240px] min-h-screen flex flex-col w-[calc(100%-240px)] overflow-y-auto custom-scrollbar relative z-10">
         {renderPage()}
       </main>
     </div>

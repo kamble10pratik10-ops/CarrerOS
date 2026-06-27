@@ -39,3 +39,6 @@ __pycache__/
 .pytest_cache/
 **/.pytest_cache/
 
+
+# Uploads
+backend/uploads/
