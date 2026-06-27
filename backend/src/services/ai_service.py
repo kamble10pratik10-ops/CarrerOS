@@ -1,5 +1,6 @@
 import os
 import json
+import base64
 from groq import Groq
 import google.generativeai as genai
 
@@ -85,7 +86,7 @@ def parse_file_with_gemini(file_bytes, mime_type, file_name):
     part = {
         "inline_data": {
             "mime_type": mime_type,
-            "data": file_bytes
+            "data": base64.b64encode(file_bytes).decode('utf-8')
         }
     }
     
