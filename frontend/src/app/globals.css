@@ -336,6 +336,21 @@ body {
   position: relative;
 }
 
+.active-nav-top {
+  position: relative;
+}
+.active-nav-top::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 20%;
+  width: 60%;
+  height: 2px;
+  background: var(--theme-primary);
+  border-radius: 99px;
+  box-shadow: 0 0 8px var(--theme-primary);
+}
+
 .active-nav-glow::before {
   content: '';
   position: absolute;

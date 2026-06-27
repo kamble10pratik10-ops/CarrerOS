@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import AuthPage from './components/AuthPage';
-import Sidebar from './components/Sidebar';
+import Topbar from './components/Topbar';
 import DashboardPage from './components/DashboardPage';
 import JobMissionPage from './components/JobMissionPage';
 import CareerTwinPage from './components/CareerTwinPage';
@@ -63,13 +63,13 @@ function MainApp({ authedEmail, handleLogout }) {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden relative">
+    <div className="flex flex-col h-screen overflow-hidden relative">
       {/* Background Orbs */}
       <div className="ambient-orb-1" />
       <div className="ambient-orb-2" />
       <div className="ambient-orb-3" />
 
-      <Sidebar
+      <Topbar
         activePage={activePage}
         setActivePage={setActivePage}
         userEmail={authedEmail}
@@ -77,7 +77,7 @@ function MainApp({ authedEmail, handleLogout }) {
       />
 
       {/* Main Content */}
-      <main className="ml-[240px] min-h-screen flex flex-col w-[calc(100%-240px)] overflow-y-auto custom-scrollbar relative z-10">
+      <main className="pt-[60px] w-full min-h-screen flex flex-col overflow-y-auto custom-scrollbar relative z-10">
         {renderPage()}
       </main>
     </div>
