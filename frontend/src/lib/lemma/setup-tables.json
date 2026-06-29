@@ -1,0 +1,57 @@
+[
+  {
+    "name": "applications",
+    "slug": "applications",
+    "schema": [
+      { "name": "company", "type": "text", "required": true },
+      { "name": "role", "type": "text", "required": true },
+      { "name": "status", "type": "select", "options": ["Applied", "Screening", "Interview", "Offer", "Rejected", "Accepted"], "default": "Applied" },
+      { "name": "dateApplied", "type": "datetime" },
+      { "name": "matchScore", "type": "number" },
+      { "name": "effort", "type": "select", "options": ["Easy", "Medium", "High"] },
+      { "name": "flag", "type": "select", "options": ["Green", "Yellow", "Red"] },
+      { "name": "flagReason", "type": "text" },
+      { "name": "jdText", "type": "text" },
+      { "name": "tailoredBullets", "type": "text" },
+      { "name": "outreachMessages", "type": "json" },
+      { "name": "interviewQuestions", "type": "json" },
+      { "name": "coverLetters", "type": "json" },
+      { "name": "interviewPrepPack", "type": "json" },
+      { "name": "resumeOptimization", "type": "json" },
+      { "name": "gaps", "type": "json" },
+      { "name": "learningResources", "type": "json" },
+      { "name": "nudge3Dismissed", "type": "boolean", "default": false },
+      { "name": "nudge7Dismissed", "type": "boolean", "default": false }
+    ]
+  },
+  {
+    "name": "profiles",
+    "slug": "profiles",
+    "schema": [
+      { "name": "name", "type": "text" },
+      { "name": "email", "type": "text" },
+      { "name": "targetRole", "type": "text" },
+      { "name": "resumeText", "type": "text" },
+      { "name": "resumeName", "type": "text" },
+      { "name": "skills", "type": "text" },
+      { "name": "location", "type": "text" },
+      { "name": "projects", "type": "text" },
+      { "name": "hackathons", "type": "text" },
+      { "name": "goals", "type": "text" },
+      { "name": "availability", "type": "text" },
+      { "name": "discoverable", "type": "boolean", "default": false },
+      { "name": "photoUrl", "type": "text" }
+    ]
+  },
+  {
+    "name": "chat_messages",
+    "slug": "chat_messages",
+    "schema": [
+      { "name": "sender", "type": "text", "required": true },
+      { "name": "receiver", "type": "text", "required": true },
+      { "name": "text", "type": "text" },
+      { "name": "mediaUrls", "type": "json" },
+      { "name": "timestamp", "type": "datetime" }
+    ]
+  }
+]

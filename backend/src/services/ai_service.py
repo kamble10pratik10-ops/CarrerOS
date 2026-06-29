@@ -1,4 +1,4 @@
-import os
+﻿import os
 import json
 import base64
 from groq import Groq
@@ -65,7 +65,7 @@ def parse_file_with_gemini(file_bytes, mime_type, file_name):
     
     # --- Old .doc format: try textract-like fallback ---
     if file_ext == "doc" or mime_type == "application/msword":
-        # .doc is a legacy binary format — try to decode as text, or advise to convert
+        # .doc is a legacy binary format ÔÇö try to decode as text, or advise to convert
         try:
             text = file_bytes.decode("utf-8", errors="ignore")
             # Strip binary noise
@@ -81,7 +81,7 @@ def parse_file_with_gemini(file_bytes, mime_type, file_name):
     if not gen_ai:
         raise ValueError("Gemini API key (GOOGLE_API_KEY) is not set in environment.")
         
-    model = gen_ai.GenerativeModel('models/gemini-2.5-flash')
+    model = gen_ai.GenerativeModel('gemini-1.5-flash')
     
     part = {
         "inline_data": {
@@ -466,14 +466,14 @@ Current Skills: {profile.get('skills', 'Not specified')}
 Resume Summary: {(resume_text[:300] + '...') if resume_text and len(resume_text) > 300 else resume_text or 'No resume uploaded'}
 
 Your areas of expertise:
-1. **Skill Recommendations** — Which skills to learn next based on market demand, the user's goals, and their current stack.
-2. **Company Suggestions** — Recommend companies hiring for their target role, considering culture, growth, and compensation.
-3. **Domain Switching** — Advice on pivoting to a new field (e.g., frontend → AI/ML, finance → tech) with realistic roadmaps.
-4. **Career Strategy** — Long-term career planning, promotion strategies, building a personal brand, networking.
-5. **Salary Guidance** — Negotiation tactics, compensation benchmarks, equity vs cash considerations, timing.
+1. **Skill Recommendations** ÔÇö Which skills to learn next based on market demand, the user's goals, and their current stack.
+2. **Company Suggestions** ÔÇö Recommend companies hiring for their target role, considering culture, growth, and compensation.
+3. **Domain Switching** ÔÇö Advice on pivoting to a new field (e.g., frontend ÔåÆ AI/ML, finance ÔåÆ tech) with realistic roadmaps.
+4. **Career Strategy** ÔÇö Long-term career planning, promotion strategies, building a personal brand, networking.
+5. **Salary Guidance** ÔÇö Negotiation tactics, compensation benchmarks, equity vs cash considerations, timing.
 
 Response guidelines:
-- Be direct, honest, and supportive — no fluff.
+- Be direct, honest, and supportive ÔÇö no fluff.
 - Use concrete examples, company names, technologies, and numbers where relevant.
 - Keep responses concise (2-4 paragraphs max) for chat UI.
 - Use bullet points for lists.

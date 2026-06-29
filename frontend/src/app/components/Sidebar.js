@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 export default function Sidebar({ activePage, setActivePage, userEmail, onLogout }) {
   const navItems = [

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState, useEffect, useRef } from 'react';
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
@@ -51,7 +51,7 @@ export default function CareerConnectPage({ onNavigate }) {
   );
 }
 
-// ─── PEERS TAB ────────────────────────────────────────
+// ÔöÇÔöÇÔöÇ PEERS TAB ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 function PeersTab({ onNavigate }) {
   const [matches, setMatches] = useState([]);
@@ -293,7 +293,7 @@ function PeersTab({ onNavigate }) {
   );
 }
 
-// ─── MESSAGES TAB ─────────────────────────────────────
+// ÔöÇÔöÇÔöÇ MESSAGES TAB ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 function MessagesTab() {
   const [conversations, setConversations] = useState([]);
@@ -471,7 +471,7 @@ function MessagesTab() {
   );
 }
 
-// ─── COMPANIES TAB ─────────────────────────────────────
+// ÔöÇÔöÇÔöÇ COMPANIES TAB ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 
 function CompaniesTab() {
   const [companies, setCompanies] = useState([]);
