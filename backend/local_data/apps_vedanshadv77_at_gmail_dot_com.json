@@ -1,0 +1,204 @@
+[
+  {
+    "id": "app_1782821632117",
+    "company": "Mock Company",
+    "role": "Mock Role",
+    "status": "Applied",
+    "dateApplied": "2026-06-30T17:43:52.117182Z",
+    "matchScore": 75,
+    "effort": "Medium",
+    "flag": "Green",
+    "flagReason": "This is a mock response because API keys are missing.",
+    "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n8 years of experience in software development.\n5 years of experience testing and launching software products, and 3 years of experience with software design and architecture.\n\nPreferred qualifications:\nMaster's degree or PhD in Computer Science, Machine Learning, or a related technical field.\n8 years of experience in data structures and algorithms.\n5 years of experience building and productionizing machine learning models, with experience in deep learning or reinforcement learning.\nExperience with machine learning frameworks like TensorFlow and JAX, production machine learning platforms such as TensorFlow Extended and AdBrain, and generative models and their applications.\nProficiency in designing, running, and analyzing large-scale online experiments (A/B tests).\nFamiliarity with online advertising systems, creative optimization, personalization, or recommender systems.\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google\u2019s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nWith your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.\n\nIn this role, you will focus on revolutionizing how ad creatives are composed, personalized, and optimized at scale using artificial intelligence/machine learning techniques. You will develop intelligent systems that enhance the relevance and performance of Ad creatives served to billions of YouTube users. Your work spans deep learning, reinforcement learning, generative artificial intelligence, and large-scale serving platforms to power the next generation of ad creative experiences.\n\nGoogle Ads is helping power the open internet with the best technology that connects and creates value for people, publishers, advertisers, and Google. We\u2019re made up of multiple teams, building Google\u2019s Advertising products including search, display, shopping, travel and video advertising, as well as analytics. Our teams create trusted experiences between people and businesses with useful ads. We help grow businesses of all sizes from small businesses, to large brands, to YouTube creators, with effective advertiser tools that deliver measurable results. We also enable Google to engage with customers at scale.\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $207000 - $301000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nLead the end-to-end development of novel machine learning models, incorporating techniques like deep learning, reinforcement learning, and generative artificial intelligence, from concept to production.\nBuild and scale end-to-end machine earning pipelines for model training, inference, and integration with high-throughput Ad serving systems.\nExplore, implement, and integrate with generative models for text, image, and video adaptations within Ads.\nApply deep learning and reinforcement learning to understand asset value and optimize creative composition while developing metrics and algorithms to ensure creative freshness and efficient exploration.\nContribute to the architecture of centralized services for unifying asset attributes and model-driven insights across different applications, collaborating with infrastructure and serving teams to power creative optimization",
+    "tailoredBullets": "[{\"original\": \"Original resume bullet point (mock)\", \"tailored\": \"Tailored resume bullet point (mock)\", \"reason\": \"Mock reason\"}]",
+    "outreachMessages": {
+      "confident": "Mock confident message.",
+      "curious": "Mock curious message.",
+      "concise": "Mock concise message."
+    },
+    "interviewQuestions": [],
+    "nudge3Dismissed": false,
+    "nudge7Dismissed": false,
+    "gaps": [
+      {
+        "type": "MISSING KEYWORD",
+        "text": "Mock keyword missing"
+      },
+      {
+        "type": "SKILL MISMATCH",
+        "text": "Mock skill mismatch"
+      },
+      {
+        "type": "OPPORTUNITY",
+        "text": "Mock opportunity"
+      }
+    ],
+    "learningResources": [
+      {
+        "platform": "YouTube",
+        "title": "Mock learning resource",
+        "link": "https://youtube.com",
+        "description": "Mock description"
+      }
+    ]
+  },
+  {
+    "id": "app_1782821634899",
+    "company": "Mock Company",
+    "role": "Mock Role",
+    "status": "Applied",
+    "dateApplied": "2026-06-30T17:43:54.899273Z",
+    "matchScore": 75,
+    "effort": "Medium",
+    "flag": "Green",
+    "flagReason": "This is a mock response because API keys are missing.",
+    "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n8 years of experience in software development.\n5 years of experience testing and launching software products, and 3 years of experience with software design and architecture.\n\nPreferred qualifications:\nMaster's degree or PhD in Computer Science, Machine Learning, or a related technical field.\n8 years of experience in data structures and algorithms.\n5 years of experience building and productionizing machine learning models, with experience in deep learning or reinforcement learning.\nExperience with machine learning frameworks like TensorFlow and JAX, production machine learning platforms such as TensorFlow Extended and AdBrain, and generative models and their applications.\nProficiency in designing, running, and analyzing large-scale online experiments (A/B tests).\nFamiliarity with online advertising systems, creative optimization, personalization, or recommender systems.\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google\u2019s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nWith your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.\n\nIn this role, you will focus on revolutionizing how ad creatives are composed, personalized, and optimized at scale using artificial intelligence/machine learning techniques. You will develop intelligent systems that enhance the relevance and performance of Ad creatives served to billions of YouTube users. Your work spans deep learning, reinforcement learning, generative artificial intelligence, and large-scale serving platforms to power the next generation of ad creative experiences.\n\nGoogle Ads is helping power the open internet with the best technology that connects and creates value for people, publishers, advertisers, and Google. We\u2019re made up of multiple teams, building Google\u2019s Advertising products including search, display, shopping, travel and video advertising, as well as analytics. Our teams create trusted experiences between people and businesses with useful ads. We help grow businesses of all sizes from small businesses, to large brands, to YouTube creators, with effective advertiser tools that deliver measurable results. We also enable Google to engage with customers at scale.\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $207000 - $301000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nLead the end-to-end development of novel machine learning models, incorporating techniques like deep learning, reinforcement learning, and generative artificial intelligence, from concept to production.\nBuild and scale end-to-end machine earning pipelines for model training, inference, and integration with high-throughput Ad serving systems.\nExplore, implement, and integrate with generative models for text, image, and video adaptations within Ads.\nApply deep learning and reinforcement learning to understand asset value and optimize creative composition while developing metrics and algorithms to ensure creative freshness and efficient exploration.\nContribute to the architecture of centralized services for unifying asset attributes and model-driven insights across different applications, collaborating with infrastructure and serving teams to power creative optimization",
+    "tailoredBullets": "[{\"original\": \"Original resume bullet point (mock)\", \"tailored\": \"Tailored resume bullet point (mock)\", \"reason\": \"Mock reason\"}]",
+    "outreachMessages": {
+      "confident": "Mock confident message.",
+      "curious": "Mock curious message.",
+      "concise": "Mock concise message."
+    },
+    "interviewQuestions": [],
+    "nudge3Dismissed": false,
+    "nudge7Dismissed": false,
+    "gaps": [
+      {
+        "type": "MISSING KEYWORD",
+        "text": "Mock keyword missing"
+      },
+      {
+        "type": "SKILL MISMATCH",
+        "text": "Mock skill mismatch"
+      },
+      {
+        "type": "OPPORTUNITY",
+        "text": "Mock opportunity"
+      }
+    ],
+    "learningResources": [
+      {
+        "platform": "YouTube",
+        "title": "Mock learning resource",
+        "link": "https://youtube.com",
+        "description": "Mock description"
+      }
+    ]
+  },
+  {
+    "id": "app_1782821635891",
+    "company": "Mock Company",
+    "role": "Mock Role",
+    "status": "Applied",
+    "dateApplied": "2026-06-30T17:43:55.891247Z",
+    "matchScore": 75,
+    "effort": "Medium",
+    "flag": "Green",
+    "flagReason": "This is a mock response because API keys are missing.",
+    "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n8 years of experience in software development.\n5 years of experience testing and launching software products, and 3 years of experience with software design and architecture.\n\nPreferred qualifications:\nMaster's degree or PhD in Computer Science, Machine Learning, or a related technical field.\n8 years of experience in data structures and algorithms.\n5 years of experience building and productionizing machine learning models, with experience in deep learning or reinforcement learning.\nExperience with machine learning frameworks like TensorFlow and JAX, production machine learning platforms such as TensorFlow Extended and AdBrain, and generative models and their applications.\nProficiency in designing, running, and analyzing large-scale online experiments (A/B tests).\nFamiliarity with online advertising systems, creative optimization, personalization, or recommender systems.\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google\u2019s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nWith your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.\n\nIn this role, you will focus on revolutionizing how ad creatives are composed, personalized, and optimized at scale using artificial intelligence/machine learning techniques. You will develop intelligent systems that enhance the relevance and performance of Ad creatives served to billions of YouTube users. Your work spans deep learning, reinforcement learning, generative artificial intelligence, and large-scale serving platforms to power the next generation of ad creative experiences.\n\nGoogle Ads is helping power the open internet with the best technology that connects and creates value for people, publishers, advertisers, and Google. We\u2019re made up of multiple teams, building Google\u2019s Advertising products including search, display, shopping, travel and video advertising, as well as analytics. Our teams create trusted experiences between people and businesses with useful ads. We help grow businesses of all sizes from small businesses, to large brands, to YouTube creators, with effective advertiser tools that deliver measurable results. We also enable Google to engage with customers at scale.\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $207000 - $301000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nLead the end-to-end development of novel machine learning models, incorporating techniques like deep learning, reinforcement learning, and generative artificial intelligence, from concept to production.\nBuild and scale end-to-end machine earning pipelines for model training, inference, and integration with high-throughput Ad serving systems.\nExplore, implement, and integrate with generative models for text, image, and video adaptations within Ads.\nApply deep learning and reinforcement learning to understand asset value and optimize creative composition while developing metrics and algorithms to ensure creative freshness and efficient exploration.\nContribute to the architecture of centralized services for unifying asset attributes and model-driven insights across different applications, collaborating with infrastructure and serving teams to power creative optimization",
+    "tailoredBullets": "[{\"original\": \"Original resume bullet point (mock)\", \"tailored\": \"Tailored resume bullet point (mock)\", \"reason\": \"Mock reason\"}]",
+    "outreachMessages": {
+      "confident": "Mock confident message.",
+      "curious": "Mock curious message.",
+      "concise": "Mock concise message."
+    },
+    "interviewQuestions": [],
+    "nudge3Dismissed": false,
+    "nudge7Dismissed": false,
+    "gaps": [
+      {
+        "type": "MISSING KEYWORD",
+        "text": "Mock keyword missing"
+      },
+      {
+        "type": "SKILL MISMATCH",
+        "text": "Mock skill mismatch"
+      },
+      {
+        "type": "OPPORTUNITY",
+        "text": "Mock opportunity"
+      }
+    ],
+    "learningResources": [
+      {
+        "platform": "YouTube",
+        "title": "Mock learning resource",
+        "link": "https://youtube.com",
+        "description": "Mock description"
+      }
+    ]
+  },
+  {
+    "id": "app_1782822625377",
+    "company": "Google",
+    "role": "Software Engineer",
+    "status": "Applied",
+    "dateApplied": "2026-06-30T18:00:25.377051Z",
+    "matchScore": 40,
+    "effort": "High",
+    "flag": "Yellow",
+    "flagReason": "The job description has a very high bar for qualifications and experience, indicating potentially unrealistic expectations.",
+    "jdText": "\n\nMinimum qualifications:\nBachelor's degree or equivalent practical experience.\n8 years of experience in software development.\n5 years of experience testing and launching software products, and 3 years of experience with software design and architecture.\n\nPreferred qualifications:\nMaster's degree or PhD in Computer Science, Machine Learning, or a related technical field.\n8 years of experience in data structures and algorithms.\n5 years of experience building and productionizing machine learning models, with experience in deep learning or reinforcement learning.\nExperience with machine learning frameworks like TensorFlow and JAX, production machine learning platforms such as TensorFlow Extended and AdBrain, and generative models and their applications.\nProficiency in designing, running, and analyzing large-scale online experiments (A/B tests).\nFamiliarity with online advertising systems, creative optimization, personalization, or recommender systems.\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google\u2019s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nWith your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.\n\nIn this role, you will focus on revolutionizing how ad creatives are composed, personalized, and optimized at scale using artificial intelligence/machine learning techniques. You will develop intelligent systems that enhance the relevance and performance of Ad creatives served to billions of YouTube users. Your work spans deep learning, reinforcement learning, generative artificial intelligence, and large-scale serving platforms to power the next generation of ad creative experiences.\n\nGoogle Ads is helping power the open internet with the best technology that connects and creates value for people, publishers, advertisers, and Google. We\u2019re made up of multiple teams, building Google\u2019s Advertising products including search, display, shopping, travel and video advertising, as well as analytics. Our teams create trusted experiences between people and businesses with useful ads. We help grow businesses of all sizes from small businesses, to large brands, to YouTube creators, with effective advertiser tools that deliver measurable results. We also enable Google to engage with customers at scale.\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $207000 - $301000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nLead the end-to-end development of novel machine learning models, incorporating techniques like deep learning, reinforcement learning, and generative artificial intelligence, from concept to production.\nBuild and scale end-to-end machine earning pipelines for model training, inference, and integration with high-throughput Ad serving systems.\nExplore, implement, and integrate with generative models for text, image, and video adaptations within Ads.\nApply deep learning and reinforcement learning to understand asset value and optimize creative composition while developing metrics and algorithms to ensure creative freshness and efficient exploration.\nContribute to the architecture of centralized services for unifying asset attributes and model-driven insights across different applications, collaborating with infrastructure and serving teams to power creative optimization\n",
+    "tailoredBullets": "[{\"original\": \"Utilized Python and LangChain to develop an automated knowledge assistant, demonstrating potential for applying similar automation principles to networking test engineering.\", \"tailored\": \"Developed and deployed AI-powered automation solutions using Python and LangChain, showcasing my ability to leverage machine learning for process optimization and efficiency improvements.\", \"reason\": \"Emphasized machine learning and automation skills to align with the job's requirements for AI/ML expertise.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Investigated the application of graph neural networks in fraud detection, achieving a high accuracy rate on a large-scale dataset and demonstrating my capabilities in machine learning research and development.\", \"reason\": \"Highlighted research experience and machine learning accomplishments to match the job's emphasis on AI/ML and data analysis.\"}, {\"original\": \"Designed and implemented scalable microservices using FastAPI, showcasing ability to work with large datasets and complex systems.\", \"tailored\": \"Architected and developed scalable, efficient microservices utilizing FastAPI, demonstrating my expertise in handling large datasets and complex system design, which can be applied to the development of advanced AI/ML systems.\", \"reason\": \"Focused on showcasing scalability, efficiency, and system design skills to align with the job's requirements for large-scale system development.\"}]",
+    "outreachMessages": {
+      "confident": "I am excited to apply for the Software Engineer position at Google, bringing my strong foundation in AI/ML and software development to drive innovation and growth in your team.",
+      "curious": "I've been following Google's advancements in AI and machine learning, and I'm intrigued by the opportunity to contribute my skills and experience to the development of cutting-edge technologies. Could we discuss how my background aligns with your team's current projects and challenges?",
+      "concise": "With a strong background in AI/ML and software development, I am excited about the opportunity to join Google's team and contribute to the development of innovative technologies."
+    },
+    "interviewQuestions": [],
+    "nudge3Dismissed": false,
+    "nudge7Dismissed": false,
+    "gaps": [
+      {
+        "type": "MISSING KEYWORD",
+        "text": "The candidate lacks direct experience with TensorFlow, JAX, and other specified machine learning frameworks."
+      },
+      {
+        "type": "SKILL MISMATCH",
+        "text": "The job requires 8 years of software development experience, but the candidate is a recent graduate with limited industry experience."
+      },
+      {
+        "type": "OPPORTUNITY",
+        "text": "The candidate has a strong foundation in AI/ML and can capitalize on the opportunity to learn and grow in this area with additional training and experience."
+      }
+    ],
+    "learningResources": [
+      {
+        "platform": "Coursera",
+        "title": "Machine Learning by Andrew Ng",
+        "link": "https://www.coursera.org/learn/machine-learning",
+        "description": "A foundational course in machine learning, covering key concepts and techniques essential for the role."
+      },
+      {
+        "platform": "freeCodeCamp",
+        "title": "Machine Learning with Python",
+        "link": "https://www.freecodecamp.org/learn/machine-learning-with-python",
+        "description": "A comprehensive curriculum covering machine learning with Python, including key libraries and frameworks."
+      },
+      {
+        "platform": "YouTube",
+        "title": "3Blue1Brown - Machine Learning",
+        "link": "https://www.youtube.com/playlist?list=PLZHQObOWTQDM7rX9njXeP4DAPo6RoQF14",
+        "description": "An animated explanation series covering key machine learning concepts, providing an engaging introduction to the field."
+      },
+      {
+        "platform": "edX",
+        "title": "Deep Learning",
+        "link": "https://www.edx.org/learn/deep-learning",
+        "description": "A course series focusing on deep learning techniques, including neural networks and reinforcement learning, essential for advancing in AI/ML."
+      },
+      {
+        "platform": "GeeksforGeeks",
+        "title": "Practice Problems - Machine Learning",
+        "link": "https://practice.geeksforgeeks.org/courses/machine-learning",
+        "description": "A collection of practice problems to help improve machine learning skills, including coding challenges and project ideas."
+      },
+      {
+        "platform": "LeetCode",
+        "title": "Machine Learning Problems",
+        "link": "https://leetcode.com/problemset/machine-learning/",
+        "description": "A set of problems focused on machine learning, providing a challenging environment to apply and improve AI/ML skills."
+      }
+    ]
+  }
+]

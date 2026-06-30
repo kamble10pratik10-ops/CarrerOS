@@ -1,0 +1,87 @@
+{
+  "user_data": {
+    "kamble10pratik.10@gmail.com": {
+      "applications": [
+        {
+          "id": "app_1782701228725",
+          "company": "Google",
+          "role": "Networking Test Engineer",
+          "status": "Applied",
+          "dateApplied": "2026-06-29T08:17:08.725919Z",
+          "matchScore": 40,
+          "effort": "High",
+          "flag": "Yellow",
+          "flagReason": "The job description demands highly specific networking experience and knowledge that is not strongly reflected in the candidate's resume.",
+          "jdText": "Minimum qualifications:\nBachelor\u2019s degree in Computer Science, Electrical Engineering, a related field, or equivalent practical experience.\n1 year of experience working with and testing multiple Level 2 and Level 3 networking protocols as well as troubleshooting automation.\nExperience with test methodologies, writing test plans and creating test cases.\n\nPreferred qualifications:\n1 year of experience in software development and testing.\nExperience with automation and debugging.\nAbout the job\nOur computational challenges are so big and unique we can't just buy our hardware, we've got to make it ourselves. Our Platforms Team designs and builds the hardware, software and networking technologies that power all of Google's services. As a Networking Test Engineer you make sure that our massive and growing network is operating at its peak potential. You have direct experience with complex networking equipment, a deep understanding of networking protocols, test design and implementation chops and a background in IP network design. It's your job to make sure Google's cutting-edge technology can perform at scale.\n\nGoogle is an engineering company at heart. We hire people with a broad set of technical skills who are ready to take on some of technology's greatest challenges and make an impact on users around the world. At Google, engineers not only revolutionize search, they routinely work on scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From Google Ads to Chrome, Android to YouTube, social to local, Google engineers are changing the world one technological achievement after another.",
+          "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Developed and deployed an AI-powered solution that significantly improved query resolution efficiency, demonstrating potential to scale and optimize complex systems.\", \"reason\": \"This bullet point is tailored to emphasize the candidate's ability to develop and deploy efficient solutions, which could be valuable in a networking test engineer role.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Conducted in-depth research on graph neural networks, showcasing a strong analytical mindset and ability to work with complex networks, skills that could be adapted to understanding and troubleshooting networking protocols.\", \"reason\": \"This bullet point is reframed to highlight the candidate's analytical capabilities and experience with complex networks, which could be relevant to understanding and working with networking technologies.\"}, {\"original\": \"Automated hyperparameter sweeps using Optuna, cutting experimentation cycles by 4\\u00d7.\", \"tailored\": \"Improved process efficiency by automating critical tasks, demonstrating an understanding of optimization and a proactive approach to streamlining complex workflows.\", \"reason\": \"This bullet point is rephrased to emphasize the candidate's ability to automate tasks and optimize workflows, which could be beneficial in a role that involves testing and troubleshooting networking equipment and protocols.\"}]",
+          "outreachMessages": {
+            "confident": "I am excited about the Networking Test Engineer role at Google, and I am confident that my strong foundation in software engineering and AI/ML, combined with my eagerness to learn and adapt, makes me a competitive candidate for this position.",
+            "curious": "I've been following Google's innovations in networking technologies and am impressed by the company's commitment to pushing the boundaries of what's possible. I'd love to discuss how my skills could contribute to the Platforms Team's mission.",
+            "concise": "With a background in software engineering and a passion for learning, I'm interested in the Networking Test Engineer role. I'd appreciate the opportunity to discuss my application and how I can grow with Google."
+          },
+          "interviewQuestions": [],
+          "nudge3Dismissed": false,
+          "nudge7Dismissed": false,
+          "gaps": [
+            {
+              "type": "MISSING KEYWORD",
+              "text": "The candidate lacks direct experience with Level 2 and Level 3 networking protocols, as well as test methodologies and troubleshooting automation specific to networking."
+            },
+            {
+              "type": "SKILL MISMATCH",
+              "text": "The candidate's resume highlights software development, machine learning, and AI, but does not directly address the deep understanding of networking protocols and IP network design required for the role."
+            },
+            {
+              "type": "OPPORTUNITY",
+              "text": "The candidate has a strong background in software engineering and AI/ML, which could be leveraged to learn and adapt to the networking domain with focused training and effort."
+            }
+          ],
+          "learningResources": [
+            {
+              "platform": " Coursera",
+              "title": "Computer Networking",
+              "link": "https://www.coursera.org/specializations/computer-networking",
+              "description": "This specialization provides a comprehensive introduction to computer networking, covering topics from the basics of network architectures to advanced concepts in networking."
+            },
+            {
+              "platform": "YouTube",
+              "title": "Networking Tutorials by Professor Nael Abu-Ghazaleh",
+              "link": "https://www.youtube.com/playlist?list=PL8BC7DDB533852CDC",
+              "description": "These video lectures offer in-depth explanations of networking fundamentals, protocols, and technologies, providing a solid foundation for understanding complex networking concepts."
+            },
+            {
+              "platform": "edX",
+              "title": "Introduction to Computer Networking",
+              "link": "https://www.edx.org/course/introduction-to-computer-networking",
+              "description": "This course introduces the fundamentals of computer networking, including network architectures, protocols, and performance metrics, offering a broad overview of networking principles and technologies."
+            },
+            {
+              "platform": "GeeksforGeeks",
+              "title": "Computer Network",
+              "link": "https://www.geeksforgeeks.org/computer-network-tutorials/",
+              "description": "This resource provides a wide range of tutorials, practice questions, and explanations on computer networking topics, serving as a valuable resource for both beginners and experienced professionals looking to review or deepen their understanding of networking concepts."
+            },
+            {
+              "platform": "freeCodeCamp",
+              "title": "Networking Certification",
+              "link": "https://www.freecodecamp.org/learn/networking",
+              "description": "This certification path covers the basics of networking, including network fundamentals, protocols, and security, offering a hands-on approach to learning networking skills through practical projects and exercises."
+            }
+          ]
+        }
+      ],
+      "profile": {
+        "name": "",
+        "targetRole": "software engineer",
+        "resumeName": "pratik_kamble_resume (3).docx",
+        "resumeText": "PRATIK KAMBLE\n+91 98765 43210  |  pratikk.ce22@mitaoe.ac.in  |  linkedin.com/in/pratik-kamble  |  github.com/pratikk-dev  |  Pune, MH\nEDUCATION\nMIT Academy of Engineering, Alandi (Pune)\tAug 2022 \u2013 May 2026\nB.E. Computer Engineering \u00b7 Savitribai Phule Pune University  CGPA: 8.05 / 10.0\nVidyalankar Junior College, Mumbai\t2020 \u2013 2022\nHSC (Science) \u00b7 Maharashtra State Board  \u00b7  87.4%\nTECHNICAL SKILLS\nLanguages: Python, JavaScript / TypeScript, C++, SQL, Bash    Frameworks: React, Next.js, FastAPI, Node.js, Tailwind CSS\nAI / ML: PyTorch, scikit-learn, LangChain, Groq API, Hugging Face, Llama 3    Databases: PostgreSQL, MongoDB, Supabase\nCloud & DevOps: AWS (EC2, S3, Lambda), Docker, Vercel, GitHub Actions    Tools: Git, Postman, Tableau, Figma, Linux\nEXPERIENCE\nSoftware Engineering Intern \u2014 NeuralBridge Technologies \u00b7 Pune (Hybrid)\tMay 2025 \u2013 Jul 2025\nBuilt a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\nDeveloped FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\nIntegrated Slack bot interface adopted by 120+ engineers across three product teams within one month of launch.\nMachine Learning Research Intern \u2014 IIT Bombay \u00b7 Synapse AI Lab (Remote)\tDec 2024 \u2013 Feb 2025\nResearched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\nCo-authored workshop paper submitted to ICLR 2025 (FinML Workshop) on heterogeneous graph sampling strategies.\nAutomated hyperparameter sweeps using Optuna, cutting experimentation cycles by 4\u00d7.\nPROJECTS\nAI Job Application Command Centre \u2014 Next.js \u00b7 Groq / Llama-3.3-70b \u00b7 Lemma SDK \u00b7 Supabase\tJun 2026\nEnd-to-end platform for students managing multi-platform job searches \u2014 JD parser, 'Signal Score' fit scorer, resume tailor, recruiter message drafter, Kanban pipeline tracker, and AI interview prep generator.\nIntegrated Lemma SDK for agent orchestration; Groq API (llama-3.3-70b) for sub-second inference; Clerk auth + Supabase Postgres with row-level security. Deployed on Vercel.\nTradeMind \u2014 Explainable AI Investment Profiler \u2014 React / TypeScript \u00b7 FastAPI \u00b7 Groq API\tMar 2026\nConversational AI that profiles investor risk appetite and generates explainable portfolio recommendations with SHAP-style reasoning narratives.\nImplemented multi-asset backtesting engine (equities, ETFs, crypto) with visual equity curves rendered using Recharts.\nIndian Startup Ecosystem \u2014 Tableau Analytics Dashboard \u2014 Tableau \u00b7 Python \u00b7 Pandas\tJan 2026\nDesigned a two-dashboard Tableau Story ('Ecosystem Overview' + 'Geography & Players') over 10-year funding data across 6,000+ rounds with nine analytical problem statements.\nHACKATHONS & ACHIEVEMENTS\nHackSphere 2026 \u2014 National Level Hackathon  \u00b7  Runner-Up (240 teams)\tFeb 2026\nReal-time disaster response coordination platform using multi-agent LLMs and satellite imagery analysis. Team of 4 \u00b7 36 hrs.\nLemma SDK Launch Hackathon 2026  \u00b7  Finalist \u2014 Top 10 globally (800+ submissions)\tJun 2026\nSmart India Hackathon 2025  \u00b7  Institute Winner\tAug 2025\nNLP-powered grievance classification system routing 92% of municipal complaints to correct departments automatically.\nCERTIFICATIONS & ACTIVITIES\n\u2022 AWS Certified Solutions Architect \u2013 Associate (2025)\t\u2022 Tech Lead, MITAOE Developer Club (2024\u201325)\n\u2022 Google Data Analytics Professional Certificate\t\u2022 Core Member, E-Cell MITAOE\n\u2022 Supervised ML: Regression & Classification \u00b7 Coursera\t\u2022 400+ LeetCode problems \u00b7 Rating: 1,742",
+        "location": "",
+        "projects": "",
+        "hackathons": "",
+        "goals": "",
+        "availability": "",
+        "discoverable": true
+      }
+    }
+  }
+}
