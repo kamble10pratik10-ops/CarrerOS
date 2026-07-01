@@ -3,7 +3,8 @@ import json
 import base64
 from groq import Groq
 import google.generativeai as genai
-from src.services.lemma_orchestrator import run_mentor_workflow, run_resume_analysis_workflow
+from src.services.lemma_orchestrator import run_mentor_workflow
+from src.services.resume_analysis_service import run_resume_analysis
 
 def get_groq_client():
     api_key = os.environ.get("GROQ_API_KEY")
@@ -110,7 +111,7 @@ async def generate_application_analysis(payload):
     
     groq_client = get_groq_client()
     
-    return await run_resume_analysis_workflow(
+    return await run_resume_analysis(
         jd_text=jd_text,
         resume_text=resume_text,
         company_name=company_name,

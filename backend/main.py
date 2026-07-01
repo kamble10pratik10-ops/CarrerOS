@@ -920,3 +920,20 @@ if __name__ == "__main__":
     import uvicorn
     # Use port 3001 to match Next.js frontend expectance
     uvicorn.run("main:app", host="127.0.0.1", port=3001, reload=False)
+
+
+# ------------------------------------------------------------------
+# Code Lab External API Routes
+# ------------------------------------------------------------------
+from src.services.leetcode_service import leetcode_service
+
+@app.get('/api/codelab/questions')
+def get_codelab_questions(difficulty: str = 'All', topic: str = 'All'):
+    try:
+        questions = leetcode_service.get_questions(difficulty, topic, limit=10)
+        return {'success': True, 'questions': questions}
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=str(e))
+

@@ -1,0 +1,81 @@
+{
+  "name": "resumeanalysis",
+  "description": "Resume analysis workflow",
+  "visibility": "POD",
+  "start": {
+    "type": "MANUAL"
+  },
+  "nodes": [
+    {
+      "id": "input",
+      "type": "FORM",
+      "label": "Resume Input",
+      "config": {
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "resume_text": {
+              "type": "string"
+            },
+            "jd_text": {
+              "type": "string"
+            },
+            "company_name": {
+              "type": "string"
+            },
+            "role_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "resume_text",
+            "jd_text"
+          ]
+        }
+      }
+    },
+    {
+      "id": "analysis",
+      "type": "AGENT",
+      "label": "Analyze Resume",
+      "config": {
+        "agent_name": "resumeanalyst",
+        "input_mapping": {
+          "resume_text": {
+            "type": "expression",
+            "value": "input.resume_text"
+          },
+          "jd_text": {
+            "type": "expression",
+            "value": "input.jd_text"
+          },
+          "company_name": {
+            "type": "expression",
+            "value": "input.company_name"
+          },
+          "role_name": {
+            "type": "expression",
+            "value": "input.role_name"
+          }
+        }
+      }
+    },
+    {
+      "id": "end",
+      "type": "END",
+      "label": "Done"
+    }
+  ],
+  "edges": [
+    {
+      "id": "1",
+      "source": "input",
+      "target": "analysis"
+    },
+    {
+      "id": "2",
+      "source": "analysis",
+      "target": "end"
+    }
+  ]
+}
