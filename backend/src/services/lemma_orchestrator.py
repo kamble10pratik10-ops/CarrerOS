@@ -1,6 +1,8 @@
 import json
+import os
 import asyncio
 import traceback
+import time
 from typing import Dict, Any, List
 
 # Attempt to import real Lemma SDK
@@ -22,6 +24,76 @@ except Exception as e:
     print(e)
 
 from src.services.ats_scorer import calculate_ats_score
+
+# ==========================================
+# AUTO-REFRESH LOGIC
+# ==========================================
+def refresh_lemma_token():
+    print("[lemma_orchestrator] Token expired! Attempting to refresh...")
+    refresh_token = os.getenv("LEMMA_REFRESH_TOKEN")
+    
+    # If not in env (e.g. local dev), try to load from CLI config
+    if not refresh_token:
+        try:
+            import json
+            from pathlib import Path
+            config_path = Path.home() / ".lemma" / "config.json"
+            if config_path.exists():
+                with open(config_path, "r") as f:
+                    config = json.load(f)
+                    active_server = config.get("active_server", "cloud")
+                    server_config = config.get("servers", {}).get(active_server, {})
+                    refresh_token = server_config.get("refresh_token")
+        except Exception as e:
+            print(f"[lemma_orchestrator] Failed to read CLI config for refresh token: {e}")
+
+    if not refresh_token:
+        raise Exception("No LEMMA_REFRESH_TOKEN found in environment or local CLI config.")
+
+    base_url = os.getenv("LEMMA_BASE_URL", "https://api.lemma.work")
+    import requests
+    response = requests.post(
+        f"{base_url.rstrip('/')}/auth/cli/refresh",
+        json={"refresh_token": refresh_token},
+        headers={"Accept": "application/json"}
+    )
+    
+    if response.status_code >= 400:
+        raise Exception(f"Failed to refresh token: {response.text}")
+        
+    data = response.json()
+    new_token = data.get("access_token") or data.get("token")
+    new_refresh = data.get("refresh_token")
+    
+    if new_token:
+        os.environ["LEMMA_TOKEN"] = new_token
+    if new_refresh:
+        os.environ["LEMMA_REFRESH_TOKEN"] = new_refresh
+        
+    # Persist back to local CLI config if it exists
+    try:
+        from pathlib import Path
+        import json
+        config_path = Path.home() / ".lemma" / "config.json"
+        if config_path.exists() and new_token:
+            with open(config_path, "r") as f:
+                config = json.load(f)
+            active = config.get("active_server", "cloud")
+            if active in config.get("servers", {}):
+                config["servers"][active]["token"] = new_token
+                if "auth" in config["servers"][active]:
+                    config["servers"][active]["auth"]["access_token"] = new_token
+                if new_refresh:
+                    config["servers"][active]["refresh_token"] = new_refresh
+                    if "auth" in config["servers"][active]:
+                        config["servers"][active]["auth"]["refresh_token"] = new_refresh
+                with open(config_path, "w") as f:
+                    json.dump(config, f, indent=2)
+    except Exception:
+        pass
+
+    print("[lemma_orchestrator] Successfully refreshed Lemma token!")
+
 
 # ==========================================
 # LOCAL FALLBACK EXECUTORS
@@ -178,7 +250,15 @@ async def run_mentor_workflow(profile: dict, resume_text: str, chat_history: lis
     """
     if has_lemma:
         try:
+            from lemma_sdk.errors import LemmaAPIError
+        except ImportError:
+            LemmaAPIError = Exception
+            
+        def _execute_lemma():
             print("🚀 USING LEMMA SDK")
+            print("=" * 60)
+            print("LEMMA_TOKEN =", os.getenv("LEMMA_TOKEN"))
+            print("=" * 60)
             pod = Pod.from_env()
             print("[lemma_orchestrator] Delegating to genuine Lemma Agent: careermentor")
             
@@ -226,32 +306,57 @@ async def run_mentor_workflow(profile: dict, resume_text: str, chat_history: lis
             print("=" * 60)
             print("LEMMA AGENT CALLED")
             print("Conversation ID:", conversation.id)
-            print("Conversation Output:", conversation.output)
+            # Wait for Lemma to finish generating
+            time.sleep(2)
+
+            messages = pod.conversations.messages(str(conversation.id))
+
             print("=" * 60)
+            print("LEMMA AGENT CALLED")
+            print("Conversation ID:", conversation.id)
+            print("=" * 60)
+
+            final_answer = None
+
+            for msg in reversed(messages.items):
+                if (
+                    msg.role == "assistant"
+                    and msg.kind.value == "TEXT"
+                ):
+                    final_answer = msg.text
+                    break
+
+            print("FINAL ANSWER:")
+            print(final_answer)
+            print("=" * 60)
+
+            if final_answer:
+                return final_answer
+
+            raise Exception("Lemma returned no assistant response.")
             
-            # The agent responds asynchronously. We check if output is populated.
-            # In lemma-sdk, unset fields use a special UNSET object.
-            # To get the final reply if it takes a while, one would normally poll:
-            # pod.conversations.messages(str(conversation.id))
-            # from lemma_sdk.types import UNSET
-            # if conversation.output and conversation.output is not UNSET:
-            #     return conversation.output
-            # else:
-            #     return "Agent started processing. Reply is asynchronous."
-                
+        try:
+            return _execute_lemma()
+        except LemmaAPIError as e:
+            if getattr(e, "status_code", None) == 401 or "401" in str(e):
+                print("[lemma_orchestrator] Caught 401 Unauthorized. Attempting token refresh...")
+                try:
+                    refresh_lemma_token()
+                    return _execute_lemma()
+                except Exception as refresh_err:
+                    print(f"[lemma_orchestrator] Token refresh failed: {refresh_err}")
+            
+            print("=" * 60)
+            print("LEMMA FAILED!")
+            print(e)
+            print("=" * 60)
+            return await local_mentor_workflow(profile, resume_text, chat_history, message, groq_client)
         except Exception as e:
             print("=" * 60)
             print("LEMMA FAILED!")
             print(e)
             print("=" * 60)
-
-            return await local_mentor_workflow(
-                profile,
-                resume_text,
-                chat_history,
-                message,
-                groq_client
-            )
+            return await local_mentor_workflow(profile, resume_text, chat_history, message, groq_client)
 
 
     # Fallback to direct local execution
@@ -265,6 +370,14 @@ async def run_resume_analysis_workflow(jd_text: str, resume_text: str, company_n
     """
     if has_lemma:
         try:
+            from lemma_sdk.errors import LemmaAPIError
+        except ImportError:
+            LemmaAPIError = Exception
+            
+        def _execute_lemma():
+            print("=" * 60)
+            print("LEMMA_TOKEN =", os.getenv("LEMMA_TOKEN"))
+            print("=" * 60)
             pod = Pod.from_env()
             print("[lemma_orchestrator] Delegating to genuine Lemma Workflow: ResumeAnalysis")
             
@@ -288,7 +401,25 @@ async def run_resume_analysis_workflow(jd_text: str, resume_text: str, company_n
                 # Retrieve the final workflow context output
                 if final_response.execution_context:
                     return final_response.execution_context.to_dict()
+            return None
                     
+        try:
+            result = _execute_lemma()
+            if result:
+                return result
+        except LemmaAPIError as e:
+            if getattr(e, "status_code", None) == 401 or "401" in str(e):
+                print("[lemma_orchestrator] Caught 401 Unauthorized. Attempting token refresh...")
+                try:
+                    refresh_lemma_token()
+                    result = _execute_lemma()
+                    if result:
+                        return result
+                except Exception as refresh_err:
+                    print(f"[lemma_orchestrator] Token refresh failed: {refresh_err}")
+                    
+            print(f"[lemma_orchestrator] Authentic Lemma SDK execution failed: {e}")
+            print("[lemma_orchestrator] Falling back to local Groq engine.")
         except Exception as e:
             print(f"[lemma_orchestrator] Authentic Lemma SDK execution failed: {e}")
             print("[lemma_orchestrator] Falling back to local Groq engine.")
