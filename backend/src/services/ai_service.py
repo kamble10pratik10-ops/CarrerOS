@@ -3,6 +3,7 @@ import json
 import base64
 from groq import Groq
 import google.generativeai as genai
+from src.services.lemma_orchestrator import run_mentor_workflow, run_resume_analysis_workflow
 
 def get_groq_client():
     api_key = os.environ.get("GROQ_API_KEY")
@@ -107,94 +108,15 @@ async def generate_application_analysis(payload):
     company_name = payload.get("companyName")
     role_name = payload.get("roleName")
     
-    prompt = f"""
-You are Career Command, an elite AI Agent that helps students optimize their job applications.
-Analyze the following Job Description and the Candidate's Resume.
-
----
-JOB DESCRIPTION:
-{jd_text}
----
-CANDIDATE'S RESUME:
-{resume_text}
----
-
-Perform these tasks and return a structured JSON response matching the specifications:
-1. Identify the Company Name and Job Role. If not provided or unclear, extract them from the Job Description text.
-2. Compute the "Signal Score":
-   - "fitScore": A brutally honest, strictly calculated score from 0-100 indicating skills and experience overlap. CRITICAL: Do NOT default to generic 60-70 scores. If the candidate lacks the required degree, years of experience, or core tech stack mentioned in the JD, penalize heavily (e.g., 10-30). If they perfectly match the JD's requirements with strong projects/experience, score high (80-90+). Be extremely critical of the candidate's actual projects, skills, and knowledge claims vs what is strictly demanded in the JD.
-   - "effort": A rating of "Easy", "Medium", or "High" indicating how much tailoring work is needed vs. the candidate's realistic shot.
-   - "flag": "Green", "Yellow", or "Red" flag based on JD quality (e.g. Red for unrealistic qualifications, ghost posting indicators, or extremely vague JDs).
-   - "flagReason": A brief 1-sentence reason justifying the flag.
-3. List 3 key "gaps" between the resume and the JD. Use categories: "MISSING KEYWORD", "SKILL MISMATCH", or "OPPORTUNITY".
-4. Tailor 3 bullet points from the Candidate's Resume to match the Job Description. The tailored bullet points must show original resume bullets rewritten for high-impact framing WITHOUT fabricating any experience or credentials.
-5. Draft 3 Recruiter Outreach messages in different tones:
-   - "confident": Bold and assertive.
-   - "curious": Eager, research-oriented, showing interest in the company's recent achievements.
-   - "concise": Under 4 sentences, quick and sweet.
-6. Generate an "Interview Prep Pack" containing 5 to 7 high-quality, trusted FREE learning resources tailored to the skills needed for this role.
-   - Include a mix of top-tier free courses (e.g., freeCodeCamp, Coursera free tier, edX), official documentation/guides (e.g., MDN), highly rated YouTube channels or playlists, and practice sites (e.g., GeeksforGeeks, LeetCode).
-   Provide a brief description of what the user will learn from each resource and why it is highly recommended.
-
-Return ONLY a valid JSON object matching the exact structure below. Do not include markdown code block syntax (like ```json) or any wrapping text.
-
-Expected JSON format:
-{{
-  "company": "Company Name",
-  "role": "Job Role",
-  "signalScore": {{
-    "fitScore": 85,
-    "effort": "Medium",
-    "flag": "Green",
-    "flagReason": "Reason for the flag"
-  }},
-  "gaps": [
-    {{"type": "MISSING KEYWORD", "text": "Description of gap"}},
-    {{"type": "SKILL MISMATCH", "text": "Description of mismatch"}},
-    {{"type": "OPPORTUNITY", "text": "Description of opportunity"}}
-  ],
-  "tailoredBullets": [
-    {{
-      "original": "Original resume bullet point",
-      "tailored": "Tailored resume bullet point",
-      "reason": "AI optimization explanation"
-    }}
-  ],
-  "outreachMessages": {{
-    "confident": "Confident message draft",
-    "curious": "Curious message draft",
-    "concise": "Concise message draft"
-  }},
-  "learningResources": [
-    {{
-      "platform": "YouTube",
-      "title": "Title of the video or topic",
-      "link": "Search query or URL",
-      "description": "Why it's useful for this role"
-    }}
-  ]
-}}
-"""
-
     groq_client = get_groq_client()
-    gemini_client = get_gemini_client()
     
-    if groq_client:
-        try:
-            print("[ai_service] Using Groq API (llama-3.3-70b) for analysis...")
-            completion = groq_client.chat.completions.create(
-                messages=[{"role": "user", "content": prompt}],
-                model="llama-3.3-70b-versatile",
-                response_format={"type": "json_object"}
-            )
-            resp_text = completion.choices[0].message.content
-            return json.loads(clean_json_string(resp_text))
-        except Exception as e:
-            print(f"[ai_service] Groq API Error, falling back to Gemini: {e}")
-            return await generate_analysis_with_gemini(prompt, gemini_client)
-    else:
-        print("[ai_service] Groq API key not set or invalid, using Gemini API...")
-        return await generate_analysis_with_gemini(prompt, gemini_client)
+    return await run_resume_analysis_workflow(
+        jd_text=jd_text,
+        resume_text=resume_text,
+        company_name=company_name,
+        role_name=role_name,
+        groq_client=groq_client
+    )
 
 async def generate_analysis_with_gemini(prompt, gemini_client):
     if not gemini_client:
@@ -562,53 +484,17 @@ async def chat_with_mentor(payload):
     if attachment_context:
         message = f"The user has attached the following files. Please use their content to inform your response.\n{attachment_context}\n\nUser message: {message}"
 
-    system_prompt = f"""
-You are an elite AI Career Mentor with deep expertise across all industries, roles, and career stages. Your purpose is to provide personalized, actionable career guidance.
-
-USER PROFILE:
-Target Role: {profile.get('targetRole', 'Not set')}
-Current Skills: {profile.get('skills', 'Not specified')}
-Resume Summary: {(resume_text[:300] + '...') if resume_text and len(resume_text) > 300 else resume_text or 'No resume uploaded'}
-
-Your areas of expertise:
-1. **Skill Recommendations** ÔÇö Which skills to learn next based on market demand, the user's goals, and their current stack.
-2. **Company Suggestions** ÔÇö Recommend companies hiring for their target role, considering culture, growth, and compensation.
-3. **Domain Switching** ÔÇö Advice on pivoting to a new field (e.g., frontend ÔåÆ AI/ML, finance ÔåÆ tech) with realistic roadmaps.
-4. **Career Strategy** ÔÇö Long-term career planning, promotion strategies, building a personal brand, networking.
-5. **Salary Guidance** ÔÇö Negotiation tactics, compensation benchmarks, equity vs cash considerations, timing.
-
-Response guidelines:
-- Be direct, honest, and supportive ÔÇö no fluff.
-- Use concrete examples, company names, technologies, and numbers where relevant.
-- Keep responses concise (2-4 paragraphs max) for chat UI.
-- Use bullet points for lists.
-- When recommending skills, suggest specific technologies/frameworks and explain WHY.
-- When recommending companies, consider company stage (startup vs FAANG vs mid-market).
-- For salary questions, cite realistic ranges based on role/experience/location.
-- NEVER fabricate data. If unsure, say so and suggest research directions.
-"""
     groq_client = get_groq_client()
     gemini_client = get_gemini_client()
 
-    messages = [{"role": "system", "content": system_prompt}]
-    for h in chat_history:
-        messages.append({"role": h.get("role"), "content": h.get("content")})
-    messages.append({"role": "user", "content": message})
-
-    if groq_client:
-        try:
-            print("[ai_service] Using Groq API for mentor chat...")
-            completion = groq_client.chat.completions.create(
-                messages=messages,
-                model="llama-3.3-70b-versatile"
-            )
-            return completion.choices[0].message.content
-        except Exception as e:
-            print(f"[ai_service] Groq Mentor Error, falling back to Gemini: {e}")
-            return await chat_with_gemini(messages, gemini_client)
-    else:
-        print("[ai_service] Using Gemini API for mentor chat...")
-        return await chat_with_gemini(messages, gemini_client)
+    return await run_mentor_workflow(
+        profile=profile,
+        resume_text=resume_text,
+        chat_history=chat_history,
+        message=message,
+        groq_client=groq_client,
+        gemini_client=gemini_client
+    )
 async def chat_with_gemini(messages, gemini_client):
     if not gemini_client:
         print("[ai_service] WARNING: No LLM client is available. Set GROQ_API_KEY or GOOGLE_API_KEY.")

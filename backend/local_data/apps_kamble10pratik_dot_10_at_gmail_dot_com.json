@@ -1,0 +1,179 @@
+[
+  {
+    "id": "app_1782827733873",
+    "company": "Google",
+    "role": "Software Engineer",
+    "status": "Applied",
+    "dateApplied": "2026-06-30T19:25:33.873625Z",
+    "matchScore": 40,
+    "effort": "High",
+    "flag": "Yellow",
+    "flagReason": "Lack of direct experience with machine learning frameworks and high-level requirements",
+    "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n8 years of experience in software development.\n5 years of experience testing and launching software products, and 3 years of experience with software design and architecture.\n\nPreferred qualifications:\nMaster's degree or PhD in Computer Science, Machine Learning, or a related technical field.\n8 years of experience in data structures and algorithms.\n5 years of experience building and productionizing machine learning models, with experience in deep learning or reinforcement learning.\nExperience with machine learning frameworks like TensorFlow and JAX, production machine learning platforms such as TensorFlow Extended and AdBrain, and generative models and their applications.\nProficiency in designing, running, and analyzing large-scale online experiments (A/B tests).\nFamiliarity with online advertising systems, creative optimization, personalization, or recommender systems.\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google\u2019s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nWith your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.\n\nIn this role, you will focus on revolutionizing how ad creatives are composed, personalized, and optimized at scale using artificial intelligence/machine learning techniques. You will develop intelligent systems that enhance the relevance and performance of Ad creatives served to billions of YouTube users. Your work spans deep learning, reinforcement learning, generative artificial intelligence, and large-scale serving platforms to power the next generation of ad creative experiences.\n\nGoogle Ads is helping power the open internet with the best technology that connects and creates value for people, publishers, advertisers, and Google. We\u2019re made up of multiple teams, building Google\u2019s Advertising products including search, display, shopping, travel and video advertising, as well as analytics. Our teams create trusted experiences between people and businesses with useful ads. We help grow businesses of all sizes from small businesses, to large brands, to YouTube creators, with effective advertiser tools that deliver measurable results. We also enable Google to engage with customers at scale.\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $207000 - $301000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nLead the end-to-end development of novel machine learning models, incorporating techniques like deep learning, reinforcement learning, and generative artificial intelligence, from concept to production.\nBuild and scale end-to-end machine earning pipelines for model training, inference, and integration with high-throughput Ad serving systems.\nExplore, implement, and integrate with generative models for text, image, and video adaptations within Ads.\nApply deep learning and reinforcement learning to understand asset value and optimize creative composition while developing metrics and algorithms to ensure creative freshness and efficient exploration.\nContribute to the architecture of centralized services for unifying asset attributes and model-driven insights across different applications, collaborating with infrastructure and serving teams to power creative optimization",
+    "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%\", \"tailored\": \"Enhanced organizational efficiency with AI-driven knowledge management solutions, reducing query resolution time by 38%\", \"reason\": \"Framed to highlight efficiency and AI application relevance\"}, {\"original\": \"Developed FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding\", \"tailored\": \"Designed and implemented scalable document processing pipelines using FastAPI, leveraging chunking and vector embedding for efficient data handling\", \"reason\": \"Focused on scalability, efficiency, and technical skills\"}, {\"original\": \"Conversational AI that profiles investor risk appetite and generates explainable portfolio recommendations with SHAP-style reasoning narratives\", \"tailored\": \"Developed an AI-powered conversational system for personalized investment profiling and portfolio optimization, utilizing explainable AI techniques\", \"reason\": \"Emphasized AI application, personalization, and explainability\"}]",
+    "outreachMessages": {
+      "confident": "I am excited to apply for the Software Engineer role at Google, bringing my expertise in AI, machine learning, and software development to drive innovation in ad creative experiences. My projects and experience have prepared me to contribute significantly to your team.",
+      "curious": "I've been following Google's advancements in AI and machine learning, particularly in ad technology. I'm intrigued by the opportunity to join the team and contribute my skills to enhance ad creative experiences. Can we discuss how my background aligns with your current projects?",
+      "concise": "Excited about the Software Engineer role at Google, leveraging my AI and machine learning experience to drive ad tech innovation. Looking forward to discussing my application and how I can contribute to the team."
+    },
+    "interviewQuestions": [],
+    "nudge3Dismissed": false,
+    "nudge7Dismissed": false,
+    "gaps": [
+      {
+        "type": "MISSING KEYWORD",
+        "text": "No direct mention of TensorFlow, JAX, or experience with production machine learning platforms like TensorFlow Extended and AdBrain"
+      },
+      {
+        "type": "SKILL MISMATCH",
+        "text": "Candidate has experience with PyTorch but the job description emphasizes TensorFlow and JAX"
+      },
+      {
+        "type": "OPPORTUNITY",
+        "text": "Developing expertise in deep learning, reinforcement learning, and large-scale serving platforms to enhance ad creative experiences"
+      }
+    ],
+    "learningResources": [
+      {
+        "platform": "Coursera",
+        "title": "Machine Learning by Andrew Ng",
+        "link": "https://www.coursera.org/learn/machine-learning",
+        "description": "Comprehensive introduction to machine learning, covering the basics and advanced topics relevant to the role"
+      },
+      {
+        "platform": "YouTube",
+        "title": "TensorFlow Tutorials",
+        "link": "https://www.youtube.com/c/TensorFlow",
+        "description": "Official TensorFlow tutorials and explanations to get started with the framework"
+      },
+      {
+        "platform": "freeCodeCamp",
+        "title": "Deep Learning with Python",
+        "link": "https://www.freecodecamp.org/learn/deep-learning-with-python",
+        "description": "Practical deep learning course with Python, covering key concepts and techniques"
+      },
+      {
+        "platform": "edX",
+        "title": "Introduction to Computer Science in Python",
+        "link": "https://www.edx.org/course/introduction-to-computer-science-in-python",
+        "description": "Fundamentals of computer science and programming with Python, essential for any software engineering role"
+      },
+      {
+        "platform": "GeeksforGeeks",
+        "title": "Data Structures and Algorithms",
+        "link": "https://www.geeksforgeeks.org/data-structures/",
+        "description": "Extensive resource for practicing and understanding data structures and algorithms, crucial for software engineering"
+      },
+      {
+        "platform": "MDN Web Docs",
+        "title": "JavaScript Documentation",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+        "description": "Comprehensive JavaScript documentation for reference and learning, essential for web-related development"
+      },
+      {
+        "platform": "LeetCode",
+        "title": "Practice Problems",
+        "link": "https://leetcode.com/",
+        "description": "Extensive platform for practicing coding challenges and interview problems, beneficial for preparing for technical interviews"
+      }
+    ]
+  },
+  {
+    "id": "app_1782862784705",
+    "company": "Google",
+    "role": "Software Engineer",
+    "status": "Applied",
+    "dateApplied": "2026-07-01T05:09:44.705922Z",
+    "matchScore": 85,
+    "effort": "Medium",
+    "flag": "Green",
+    "flagReason": "ATS Score derived from 6 deterministic factors (JD match, action verbs, quantified metrics).",
+    "jdText": "Minimum qualifications:\nBachelor's degree or equivalent practical experience.\n8 years of experience in software development.\n5 years of experience testing and launching software products, and 3 years of experience with software design and architecture.\n\nPreferred qualifications:\nMaster's degree or PhD in Computer Science, Machine Learning, or a related technical field.\n8 years of experience in data structures and algorithms.\n5 years of experience building and productionizing machine learning models, with experience in deep learning or reinforcement learning.\nExperience with machine learning frameworks like TensorFlow and JAX, production machine learning platforms such as TensorFlow Extended and AdBrain, and generative models and their applications.\nProficiency in designing, running, and analyzing large-scale online experiments (A/B tests).\nFamiliarity with online advertising systems, creative optimization, personalization, or recommender systems.\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google\u2019s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nWith your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.\n\nIn this role, you will focus on revolutionizing how ad creatives are composed, personalized, and optimized at scale using artificial intelligence/machine learning techniques. You will develop intelligent systems that enhance the relevance and performance of Ad creatives served to billions of YouTube users. Your work spans deep learning, reinforcement learning, generative artificial intelligence, and large-scale serving platforms to power the next generation of ad creative experiences.\n\nGoogle Ads is helping power the open internet with the best technology that connects and creates value for people, publishers, advertisers, and Google. We\u2019re made up of multiple teams, building Google\u2019s Advertising products including search, display, shopping, travel and video advertising, as well as analytics. Our teams create trusted experiences between people and businesses with useful ads. We help grow businesses of all sizes from small businesses, to large brands, to YouTube creators, with effective advertiser tools that deliver measurable results. We also enable Google to engage with customers at scale.\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $207000 - $301000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nLead the end-to-end development of novel machine learning models, incorporating techniques like deep learning, reinforcement learning, and generative artificial intelligence, from concept to production.\nBuild and scale end-to-end machine earning pipelines for model training, inference, and integration with high-throughput Ad serving systems.\nExplore, implement, and integrate with generative models for text, image, and video adaptations within Ads.\nApply deep learning and reinforcement learning to understand asset value and optimize creative composition while developing metrics and algorithms to ensure creative freshness and efficient exploration.\nContribute to the architecture of centralized services for unifying asset attributes and model-driven insights across different applications, collaborating with infrastructure and serving teams to power creative optimization",
+    "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Developed and deployed an AI-powered internal knowledge assistant leveraging LangChain and Llama 3, resulting in a 38% reduction in employee query resolution time and demonstrating expertise in natural language processing and machine learning.\", \"reason\": \"This rewritten bullet highlights the use of AI and machine learning, which aligns with the job description's focus on artificial intelligence and machine learning techniques.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Conducted research on graph neural networks for fraud detection, achieving a 93.2% F1 score on a large-scale transaction network benchmark, and showcasing ability to apply deep learning techniques to complex problems.\", \"reason\": \"This revised bullet emphasizes the application of deep learning techniques, which is a preferred qualification for the job.\"}, {\"original\": \"Integrated Slack bot interface adopted by 120+ engineers across three product teams within one month of launch.\", \"tailored\": \"Designed and integrated a scalable Slack bot interface, which was adopted by over 120 engineers across three product teams within a month, demonstrating ability to develop and deploy software solutions that drive adoption and improve workflows.\", \"reason\": \"This rewritten bullet highlights the ability to design, develop, and deploy software solutions, which is a key responsibility of the job.\"}]",
+    "outreachMessages": {
+      "confident": "I'm excited to explore opportunities that match my skills and experience. Let's connect to discuss how I can contribute to a new role.",
+      "curious": "I'm intrigued by the prospect of joining a new team and learning about the company culture. Can we schedule a call to discuss the possibilities?",
+      "concise": "Looking for a new challenge. Interested in discussing potential opportunities."
+    },
+    "interviewQuestions": [],
+    "nudge3Dismissed": false,
+    "nudge7Dismissed": false,
+    "gaps": [
+      {
+        "type": "SKILL MISMATCH",
+        "text": "The job description requires experience with TensorFlow and JAX, but the resume only mentions PyTorch, scikit-learn, LangChain, and Groq API, indicating a mismatch in machine learning framework skills"
+      },
+      {
+        "type": "MISSING KEYWORD",
+        "text": "The job description emphasizes the importance of experience with large-scale online experiments, A/B tests, and production machine learning platforms, which are not explicitly mentioned in the resume"
+      },
+      {
+        "type": "OPPORTUNITY",
+        "text": "The job description requires 8 years of experience in software development, but the resume only shows internship and project experience, indicating an opportunity for the candidate to highlight transferable skills and potential for growth"
+      }
+    ],
+    "learningResources": [
+      {
+        "platform": "Coursera",
+        "title": "Career Development Specialization",
+        "link": "https://www.coursera.org/specializations/career-development",
+        "description": "This course helps individuals develop skills to navigate their career and identify opportunities for growth."
+      },
+      {
+        "platform": "YouTube",
+        "title": "Job Search Strategy",
+        "link": "https://www.youtube.com/results?search_query=job+search+strategy",
+        "description": "This channel provides tips and advice on how to effectively search for a job and improve your chances of getting hired."
+      }
+    ]
+  },
+  {
+    "id": "app_1782862881464",
+    "company": "Not specified",
+    "role": "Chief Operations Officer (COO)",
+    "status": "Applied",
+    "dateApplied": "2026-07-01T05:11:21.464597Z",
+    "matchScore": 75,
+    "effort": "Medium",
+    "flag": "Green",
+    "flagReason": "ATS Score derived from 6 deterministic factors (JD match, action verbs, quantified metrics).",
+    "jdText": "# Job Description\n\n## Chief Operations Officer (COO)\n\n**Location:** Mumbai, India\n**Employment Type:** Full-Time\n**Experience Required:** 12+ Years\n\n### About the Role\n\nWe are seeking an experienced and visionary **Chief Operations Officer (COO)** to oversee and optimize the organization's daily operations while driving strategic growth. The ideal candidate is a proven leader with exceptional business acumen, the ability to inspire high-performing teams, and a track record of executing organizational objectives.\n\nThis role is primarily focused on leadership, business strategy, operational excellence, and stakeholder management. Technical or software development experience is **not required**.\n\n---\n\n## Key Responsibilities\n\n* Develop and execute long-term operational strategies aligned with company objectives.\n* Lead and mentor department heads across Operations, Human Resources, Finance, Sales, and Customer Success.\n* Establish performance metrics and ensure organizational goals are consistently achieved.\n* Drive cross-functional collaboration and foster a culture of accountability and continuous improvement.\n* Identify operational risks and implement effective mitigation strategies.\n* Manage organizational budgets and allocate resources efficiently.\n* Build and maintain relationships with executive leadership, board members, investors, and strategic partners.\n* Lead organizational transformation initiatives and change management efforts.\n* Ensure compliance with legal, regulatory, and corporate governance standards.\n* Represent the company at executive meetings, conferences, and industry events.\n\n---\n\n## Required Qualifications\n\n* Bachelor's degree in Business Administration, Management, Economics, or a related field.\n* MBA or equivalent postgraduate qualification preferred.\n* 12+ years of progressive leadership experience.\n* Minimum 5 years in a senior executive or director-level role.\n* Demonstrated success leading large, cross-functional teams.\n* Excellent strategic planning and decision-making abilities.\n* Outstanding communication, negotiation, and presentation skills.\n* Strong financial and operational management experience.\n* Experience managing organizational change and scaling business operations.\n\n---\n\n## Preferred Skills\n\n* Executive Leadership\n* Strategic Planning\n* Business Operations\n* Organizational Development\n* Financial Oversight\n* Team Leadership\n* Change Management\n* Stakeholder Management\n* Risk Management\n* Conflict Resolution\n* Performance Management\n* Budget Planning\n* Business Growth Strategy\n* Corporate Governance\n* Public Speaking\n* Decision Making\n* Problem Solving\n* Negotiation\n* Relationship Building\n* Emotional Intelligence\n\n---\n\n## Nice to Have\n\n* Experience working with multinational organizations.\n* Experience leading mergers, acquisitions, or business expansion initiatives.\n* Certification in Executive Leadership, Project Management, or Change Management.\n* Experience interacting with boards of directors or investors.\n\n---\n\n## Success Metrics\n\nWithin the first 12 months, the successful candidate should:\n\n* Improve operational efficiency across departments.\n* Increase employee engagement and leadership effectiveness.\n* Successfully execute strategic business initiatives.\n* Improve cross-department collaboration.\n* Meet financial and operational performance targets.\n* Strengthen relationships with key stakeholders and partners.\n\n---\n\n## Compensation & Benefits\n\n* Competitive Executive Compensation Package\n* Annual Performance Bonus\n* Long-Term Incentive Plan\n* Health & Wellness Benefits\n* Executive Leadership Development Programs\n* Flexible Work Arrangements\n* Paid Executive Retreats\n* Company-Sponsored Professional Development\n* Comprehensive Retirement Benefits\n* Generous Paid Time Off\n\n---\n\n### Ideal Candidate Profile\n\nThe ideal candidate is a confident, ethical, and inspiring leader capable of guiding a complex organization through growth and transformation. They excel at motivating teams, making strategic decisions under pressure, managing diverse stakeholders, and delivering measurable business outcomes. While comfortable using modern workplace software, the role does not require programming, engineering, or advanced technical expertise.\n",
+    "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Improved operational efficiency by designing and deploying a RAG-based internal knowledge assistant, resulting in a 38% reduction in employee query resolution time and enhancing overall team productivity.\", \"reason\": \"Rewritten to emphasize the improvement in operational efficiency, a key success metric for the COO role.\"}, {\"original\": \"Developed FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\", \"tailored\": \"Streamlined document processing by developing and implementing scalable FastAPI microservices, capable of handling large volumes of data and significantly enhancing the organization's ability to manage and analyze complex document workflows.\", \"reason\": \"Rephrased to focus on the strategic impact of the project, such as streamlining document processing and enhancing organizational capabilities, which aligns with the COO's role in driving operational excellence.\"}, {\"original\": \"Integrated Slack bot interface adopted by 120+ engineers across three product teams within one month of launch.\", \"tailored\": \"Fostered cross-functional collaboration and drove user adoption by integrating a Slack bot interface, which was successfully adopted by over 120 engineers across multiple product teams, demonstrating the ability to lead change management and technological integration efforts.\", \"reason\": \"Rewritten to highlight the ability to drive user adoption, lead change management, and promote cross-functional collaboration, all of which are essential skills for a COO in managing and transforming organizations.\"}]",
+    "outreachMessages": {
+      "confident": "I'm excited to explore opportunities for a highly skilled professional like yourself, and I'd love to discuss how your skills align with our current needs.",
+      "curious": "I came across your profile and was impressed with your experience. Can we schedule a time to talk about your career goals and see if there's a potential fit for you?",
+      "concise": "Let's connect and discuss potential job opportunities that match your skills and interests."
+    },
+    "interviewQuestions": [],
+    "nudge3Dismissed": false,
+    "nudge7Dismissed": false,
+    "gaps": [
+      {
+        "type": "MISSING KEYWORD",
+        "text": "The resume lacks experience in executive leadership, strategic planning, and business operations, which are essential for the Chief Operations Officer role."
+      },
+      {
+        "type": "SKILL MISMATCH",
+        "text": "The candidate's technical skills and experience are not aligned with the requirements of the COO role, which focuses on business strategy, operational excellence, and stakeholder management."
+      },
+      {
+        "type": "OPPORTUNITY",
+        "text": "The candidate has potential for growth and development in areas like financial and operational management, stakeholder management, and change management, which could be addressed through training, mentorship, or further education."
+      }
+    ],
+    "learningResources": [
+      {
+        "platform": "Coursera",
+        "title": "Career Development Specialization",
+        "link": "https://www.coursera.org/specializations/career-development",
+        "description": "This specialization helps individuals develop skills to succeed in their careers, including resume building, interviewing, and networking."
+      },
+      {
+        "platform": "YouTube",
+        "title": "Job Search Strategies",
+        "link": "https://www.youtube.com/channel/UCXKkH4g5K5zV4fH4EJLnYPw",
+        "description": "This YouTube channel provides tips and strategies for job searching, including how to tailor your resume, prepare for interviews, and negotiate salary."
+      }
+    ]
+  }
+]
