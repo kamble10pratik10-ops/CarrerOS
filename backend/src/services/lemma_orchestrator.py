@@ -1,83 +1,45 @@
 import json
 import asyncio
+import traceback
 from typing import Dict, Any, List
 
-# Attempt to import real Lemma SDK, fallback to shim if Python 3.10 is used
+# Attempt to import real Lemma SDK
+# try:
+#     from lemma_sdk import Pod
+#     has_lemma = True
+# except ImportError:
+#     has_lemma = False
+#     print("[lemma_orchestrator] WARNING: lemma-sdk is not installed or requires Python >= 3.11.")
+#     print("[lemma_orchestrator] Authentic Lemma orchestration disabled. Falling back to local Groq execution.")
 try:
-    from lemma_sdk import LemmaClient, Task, Workflow
+    from lemma_sdk import Pod
     has_lemma = True
-except ImportError:
+    print("✅ Lemma SDK imported successfully")
+except Exception as e:
     has_lemma = False
-    print("[lemma_orchestrator] WARNING: lemma-sdk is not installed or requires Python >= 3.11. Using orchestration polyfill.")
-    
-    class LemmaClient:
-        pass
-        
-    class Task:
-        def __init__(self, name: str, executor: callable, context: dict = None):
-            self.name = name
-            self.executor = executor
-            self.context = context or {}
-            
-        async def run(self, shared_state: dict):
-            print(f"[Lemma SDK] Executing Task: {self.name}...")
-            if asyncio.iscoroutinefunction(self.executor):
-                return await self.executor(shared_state, self.context)
-            else:
-                return self.executor(shared_state, self.context)
-                
-    class Workflow:
-        def __init__(self, name: str, client: Any):
-            self.name = name
-            self.client = client
-            self.tasks = []
-            
-        def add_task(self, task: Task):
-            self.tasks.append(task)
-            
-        async def run(self, initial_state: dict = None):
-            state = initial_state or {}
-            print(f"[Lemma SDK] Starting Workflow: {self.name}...")
-            for task in self.tasks:
-                result = await task.run(state)
-                state[task.name] = result
-            print(f"[Lemma SDK] Workflow {self.name} Completed.")
-            return state
+    print("❌ Lemma SDK import failed")
+    print(type(e))
+    print(e)
 
 from src.services.ats_scorer import calculate_ats_score
 
-def get_lemma_client():
-    return LemmaClient() if has_lemma else LemmaClient()
-
 # ==========================================
-# MENTOR WORKFLOW EXECUTORS
+# LOCAL FALLBACK EXECUTORS
 # ==========================================
+# These execute locally using Groq when the authentic Lemma SDK cannot be reached.
 
-async def build_career_context_task(state: dict, context: dict):
-    profile = context.get('profile', {})
-    resume = context.get('resume', '')
-    history = context.get('chat_history', [])
-    
+async def local_mentor_workflow(profile: dict, resume_text: str, chat_history: list, message: str, groq_client) -> str:
     unified_context = f"""
     USER PROFILE:
     Target Role: {profile.get('targetRole', 'Not set')}
     Skills: {profile.get('skills', 'Not specified')}
-    Resume Summary: {resume[:1000] if resume else 'No resume uploaded'}
+    Resume Summary: {resume_text[:1000] if resume_text else 'No resume uploaded'}
     """
-    return {
-        "unified_context": unified_context,
-        "history": history,
-        "message": context.get('message', '')
-    }
-
-async def generate_mentor_response_task(state: dict, context: dict):
-    groq_client = context.get("groq_client")
-    built_context = state.get("BuildCareerContext", {})
     
     system_prompt = f"""
-    You are an elite AI Career Mentor orchestrated by Lemma.
+    You are an elite AI Career Mentor.
     
-    {built_context.get('unified_context', '')}
+    {unified_context}
     
     Instructions:
     1. Provide actionable, concise advice (2-4 paragraphs).
@@ -86,9 +48,9 @@ async def generate_mentor_response_task(state: dict, context: dict):
     """
     
     messages = [{"role": "system", "content": system_prompt}]
-    for h in built_context.get('history', []):
+    for h in chat_history:
         messages.append({"role": h.get("role"), "content": h.get("content")})
-    messages.append({"role": "user", "content": built_context.get('message', '')})
+    messages.append({"role": "user", "content": message})
     
     if groq_client:
         completion = groq_client.chat.completions.create(
@@ -98,48 +60,15 @@ async def generate_mentor_response_task(state: dict, context: dict):
         return completion.choices[0].message.content
     return "API Client not provided."
 
-async def run_mentor_workflow(profile: dict, resume_text: str, chat_history: list, message: str, groq_client, gemini_client) -> str:
-    """
-    Orchestrates the AI Career Mentor using a Lemma Workflow.
-    """
-    client = get_lemma_client()
-    workflow = Workflow(name="CareerMentor", client=client)
-    
-    workflow.add_task(Task(
-        name="BuildCareerContext", 
-        executor=build_career_context_task, 
-        context={"profile": profile, "resume": resume_text, "chat_history": chat_history, "message": message}
-    ))
-    
-    workflow.add_task(Task(
-        name="GenerateMentorResponse", 
-        executor=generate_mentor_response_task, 
-        context={"groq_client": groq_client}
-    ))
-    
-    results = await workflow.run()
-    return results.get("GenerateMentorResponse", "Error generating response.")
 
+async def local_resume_workflow(jd_text: str, resume_text: str, company_name: str, role_name: str, groq_client) -> Dict[str, Any]:
+    print(f"[lemma_orchestrator] Starting local fallback Resume Analysis Pipeline for {role_name} at {company_name}...")
 
-# ==========================================
-# RESUME ANALYSIS WORKFLOW EXECUTORS
-# ==========================================
-
-async def extract_and_score_resume_task(state: dict, context: dict):
-    jd_text = context.get('jd_text', '')
-    resume_text = context.get('resume_text', '')
+    # Step 1: ATS Scoring Engine
     ats_score, ats_factors = calculate_ats_score(resume_text, jd_text)
-    return {
-        "score": ats_score,
-        "factors": ats_factors
-    }
-
-async def identify_gaps_task(state: dict, context: dict):
-    groq_client = context.get("groq_client")
-    jd_text = context.get("jd_text")
-    resume_text = context.get("resume_text")
     
-    prompt = f"""
+    # Step 2: Identify Gaps
+    gap_prompt = f"""
     Analyze the Job Description and the Resume.
     JOB DESCRIPTION: {jd_text}
     RESUME: {resume_text}
@@ -154,19 +83,15 @@ async def identify_gaps_task(state: dict, context: dict):
       ]
     }}
     """
-    completion = groq_client.chat.completions.create(
-        messages=[{"role": "user", "content": prompt}],
+    gap_completion = groq_client.chat.completions.create(
+        messages=[{"role": "user", "content": gap_prompt}],
         model="llama-3.3-70b-versatile",
         response_format={"type": "json_object"}
     )
-    return json.loads(completion.choices[0].message.content)
-
-async def suggest_improvements_task(state: dict, context: dict):
-    groq_client = context.get("groq_client")
-    jd_text = context.get("jd_text")
-    resume_text = context.get("resume_text")
+    gaps_data = json.loads(gap_completion.choices[0].message.content)
     
-    prompt = f"""
+    # Step 3: Suggest Improvements
+    imp_prompt = f"""
     Based on this resume and job description, rewrite 3 bullet points to better match the JD and highlight achievements.
     Do not fabricate experience.
     
@@ -184,19 +109,15 @@ async def suggest_improvements_task(state: dict, context: dict):
       ]
     }}
     """
-    completion = groq_client.chat.completions.create(
-        messages=[{"role": "user", "content": prompt}],
+    imp_completion = groq_client.chat.completions.create(
+        messages=[{"role": "user", "content": imp_prompt}],
         model="llama-3.3-70b-versatile",
         response_format={"type": "json_object"}
     )
-    return json.loads(completion.choices[0].message.content)
-
-async def generate_outreach_task(state: dict, context: dict):
-    groq_client = context.get("groq_client")
-    company_name = context.get("company_name", "")
-    role_name = context.get("role_name", "")
+    improvements_data = json.loads(imp_completion.choices[0].message.content)
     
-    prompt = f"""
+    # Step 4: Generate Outreach
+    out_prompt = f"""
     Draft 3 short recruiter outreach messages for this role:
     Company: {company_name}
     Role: {role_name}
@@ -220,27 +141,17 @@ async def generate_outreach_task(state: dict, context: dict):
       ]
     }}
     """
-    completion = groq_client.chat.completions.create(
-        messages=[{"role": "user", "content": prompt}],
+    out_completion = groq_client.chat.completions.create(
+        messages=[{"role": "user", "content": out_prompt}],
         model="llama-3.3-70b-versatile",
         response_format={"type": "json_object"}
     )
-    return json.loads(completion.choices[0].message.content)
-
-async def aggregate_resume_results_task(state: dict, context: dict):
-    # Retrieve outputs from previous tasks
-    score_data = state.get("CalculateATSScore", {})
-    gaps_data = state.get("IdentifyGaps", {})
-    improvements_data = state.get("SuggestImprovements", {})
-    outreach_data = state.get("GenerateOutreach", {})
+    outreach_data = json.loads(out_completion.choices[0].message.content)
     
-    ats_score = score_data.get("score", 50)
-    ats_factors = score_data.get("factors", {})
-    
-    # Construct final payload adhering to frontend JSON contract
+    # Step 5: Aggregate results
     final_output = {
-        "company": context.get("company_name", "Extracted Company"),
-        "role": context.get("role_name", "Extracted Role"),
+        "company": company_name or "Extracted Company",
+        "role": role_name or "Extracted Role",
         "signalScore": {
             "fitScore": ats_score,
             "effort": "Medium" if ats_score > 60 else "High",
@@ -255,48 +166,132 @@ async def aggregate_resume_results_task(state: dict, context: dict):
     return final_output
 
 
+# ==========================================
+# AUTHENTIC LEMMA SDK ORCHESTRATION 
+# ==========================================
+
+async def run_mentor_workflow(profile: dict, resume_text: str, chat_history: list, message: str, groq_client, gemini_client) -> str:
+    print("🔥 run_mentor_workflow() CALLED")
+    """
+    Orchestrates the AI Career Mentor. Uses authentic Lemma SDK if available,
+    otherwise falls back to local Groq execution.
+    """
+    if has_lemma:
+        try:
+            print("🚀 USING LEMMA SDK")
+            pod = Pod.from_env()
+            print("[lemma_orchestrator] Delegating to genuine Lemma Agent: careermentor")
+            
+            # Send message to the agent hosted on Lemma
+            # We pass profile, resume, and chat_history as metadata so the remote agent has context
+            metadata = {
+                "profile": profile,
+                "resume_summary": resume_text[:1000] if resume_text else "",
+                "chat_history": chat_history
+            }
+            
+            # Actual integration of lemma_sdk.agents.run
+            # conversation = pod.agents.run(
+            #     "CareerMentor", 
+            #     message=message,
+            #     metadata=metadata
+            # )
+            context = f"""
+            ## USER PROFILE
+
+            Target Role:
+            {profile.get("targetRole", "Not specified")}
+
+            Skills:
+            {profile.get("skills", "Not specified")}
+
+            Education:
+            {profile.get("education", "Not specified")}
+
+            Resume:
+            {resume_text[:2500] if resume_text else "No resume uploaded"}
+
+            Conversation History:
+            {json.dumps(chat_history, indent=2)}
+
+            ## USER QUESTION
+
+            {message}
+            """
+
+            conversation = pod.agents.run(
+                "careermentor",
+                message=context
+            )
+            print("=" * 60)
+            print("LEMMA AGENT CALLED")
+            print("Conversation ID:", conversation.id)
+            print("Conversation Output:", conversation.output)
+            print("=" * 60)
+            
+            # The agent responds asynchronously. We check if output is populated.
+            # In lemma-sdk, unset fields use a special UNSET object.
+            # To get the final reply if it takes a while, one would normally poll:
+            # pod.conversations.messages(str(conversation.id))
+            # from lemma_sdk.types import UNSET
+            # if conversation.output and conversation.output is not UNSET:
+            #     return conversation.output
+            # else:
+            #     return "Agent started processing. Reply is asynchronous."
+                
+        except Exception as e:
+            print("=" * 60)
+            print("LEMMA FAILED!")
+            print(e)
+            print("=" * 60)
+
+            return await local_mentor_workflow(
+                profile,
+                resume_text,
+                chat_history,
+                message,
+                groq_client
+            )
+
+
+    # Fallback to direct local execution
+    return await local_mentor_workflow(profile, resume_text, chat_history, message, groq_client)
+
+
 async def run_resume_analysis_workflow(jd_text: str, resume_text: str, company_name: str, role_name: str, groq_client) -> Dict[str, Any]:
     """
-    Modular Resume Analysis Workflow orchestrated by Lemma.
-    Executes multiple independent tasks and aggregates their outputs.
+    Orchestrates the Resume Analysis Pipeline. Uses authentic Lemma SDK if available,
+    otherwise falls back to local Groq execution.
     """
-    client = get_lemma_client()
-    workflow = Workflow(name="ResumeAnalysis", client=client)
-    
-    # Task 1: ATS Scoring Engine
-    workflow.add_task(Task(
-        name="CalculateATSScore",
-        executor=extract_and_score_resume_task,
-        context={"jd_text": jd_text, "resume_text": resume_text}
-    ))
-    
-    # Task 2: Identify Gaps
-    workflow.add_task(Task(
-        name="IdentifyGaps",
-        executor=identify_gaps_task,
-        context={"groq_client": groq_client, "jd_text": jd_text, "resume_text": resume_text}
-    ))
-    
-    # Task 3: Improve Bullets
-    workflow.add_task(Task(
-        name="SuggestImprovements",
-        executor=suggest_improvements_task,
-        context={"groq_client": groq_client, "jd_text": jd_text, "resume_text": resume_text}
-    ))
-    
-    # Task 4: Outreach Messages
-    workflow.add_task(Task(
-        name="GenerateOutreach",
-        executor=generate_outreach_task,
-        context={"groq_client": groq_client, "company_name": company_name, "role_name": role_name}
-    ))
-    
-    # Task 5: Aggregate results
-    workflow.add_task(Task(
-        name="AggregateResults",
-        executor=aggregate_resume_results_task,
-        context={"company_name": company_name, "role_name": role_name}
-    ))
-    
-    results = await workflow.run()
-    return results.get("AggregateResults", {})
+    if has_lemma:
+        try:
+            pod = Pod.from_env()
+            print("[lemma_orchestrator] Delegating to genuine Lemma Workflow: ResumeAnalysis")
+            
+            # Actual integration of lemma_sdk.workflows.run
+            run_response = pod.workflows.run("ResumeAnalysis")
+            
+            # Submit the form with the resume and JD inputs if the workflow expects form inputs
+            if run_response.active_wait and run_response.active_wait.node_id:
+                inputs = {
+                    "jd_text": jd_text,
+                    "resume_text": resume_text,
+                    "company_name": company_name,
+                    "role_name": role_name
+                }
+                final_response = pod.workflows.submit_form(
+                    str(run_response.id), 
+                    node_id=run_response.active_wait.node_id, 
+                    inputs=inputs
+                )
+                
+                # Retrieve the final workflow context output
+                if final_response.execution_context:
+                    return final_response.execution_context.to_dict()
+                    
+        except Exception as e:
+            print(f"[lemma_orchestrator] Authentic Lemma SDK execution failed: {e}")
+            print("[lemma_orchestrator] Falling back to local Groq engine.")
+
+    # Fallback to direct local execution
+    return await local_resume_workflow(jd_text, resume_text, company_name, role_name, groq_client)

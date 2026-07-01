@@ -1,0 +1,11 @@
+{
+  "name": "CareerMentor",
+  "description": "AI mentor for CareerOS users providing personalized career guidance.",
+  "instruction": {
+    "$file": "instruction.md"
+  },
+  "toolsets": [
+    "POD"
+  ],
+  "visibility": "POD"
+}
