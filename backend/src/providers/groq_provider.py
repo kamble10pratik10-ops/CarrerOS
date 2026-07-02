@@ -8,15 +8,17 @@ async def analyze_resume(jd_text: str, resume_text: str, company_name: str, role
     # Step 1: ATS Scoring Engine
     ats_score, ats_factors = calculate_ats_score(resume_text, jd_text)
     
-    # Step 2: Identify Gaps
+    # Step 2: Identify Gaps and Extract Info
     gap_prompt = f"""
     Analyze the Job Description and the Resume.
     JOB DESCRIPTION: {jd_text}
     RESUME: {resume_text}
     
-    Task: Identify exactly 3 gaps between the resume and JD.
+    Task: Identify exactly 3 gaps between the resume and JD. Also extract the company name and role name from the Job Description.
     Return ONLY valid JSON:
     {{
+      "company": "Extracted Company Name (or Unknown if not found)",
+      "role": "Extracted Role Name (or Unknown if not found)",
       "gaps": [
         {{"type": "MISSING KEYWORD", "text": "gap description"}},
         {{"type": "SKILL MISMATCH", "text": "mismatch description"}},
@@ -30,6 +32,9 @@ async def analyze_resume(jd_text: str, resume_text: str, company_name: str, role
         response_format={"type": "json_object"}
     )
     gaps_data = json.loads(gap_completion.choices[0].message.content)
+    
+    company_name = company_name or gaps_data.get("company", "Extracted Company")
+    role_name = role_name or gaps_data.get("role", "Extracted Role")
     
     # Step 3: Suggest Improvements
     imp_prompt = f"""

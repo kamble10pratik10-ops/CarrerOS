@@ -224,5 +224,152 @@
         "description": "Provides tips and guidance on technical interviews and resume building."
       }
     ]
+  },
+  {
+    "id": "app_1782954834380",
+    "company": "Extracted Company",
+    "role": "Extracted Role",
+    "status": "Applied",
+    "dateApplied": "2026-07-02T06:43:54.380061Z",
+    "matchScore": 83,
+    "effort": "Medium",
+    "flag": "Green",
+    "flagReason": "ATS Score derived from 6 deterministic factors.",
+    "jdText": "Minimum qualifications:\nBachelor\u2019s degree or equivalent practical experience.\n5 years of experience with software development in one or more programming languages.\n3 years of experience testing, maintaining, or launching software products, and 1 year of experience with software design and architecture.\n\nPreferred qualifications:\nMaster's degree or PhD in Computer Science or related technical field.\n5 years of experience with data structures and algorithms.\n1 year of experience in a technical leadership role.\nExperience developing accessible technologies.\nExperience using Google Cloud Platform (GCP) or other Cloud services.\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google\u2019s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nThe Enterprise AI team is responsible for applying AL/ML techniques to Google's own enterprise challenges in the most responsible manner. The team works closely with research as well as enterprise teams to identify opportunities for AI incorporation and application.\n\nIn this role, you will be instrumental in designing, developing, and deploying advanced AI and agentic solutions for Google's enterprise functions such as Legal, POps, Finance and beyond. You will also be expected to look for opportunities to factor out reusable AI primitives and contribute towards foundational building blocks to help accelerate the work of other ML engineers in Corporate Engineering.\n\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $174000 - $253000 (USD) + 15% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nDesign and implement scalable AI solutions for Google's enterprise functions leveraging our enterprise AI best practices and foundational building blocks.\nCollaborate with ML engineers and leads on developing reusable enterprise AI primitives.\nDrive innovation in AI and agentic solutions that help transform Google's business functions.\nBe a strong partner with Product Management/UX in defining product roadmap and new feature scope.\nMentor engineers and contribute to the overall technical direction of the team. Lead by example.",
+    "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Designed and developed a scalable AI-powered knowledge assistant using LangChain and Llama 3, resulting in a 38% reduction in employee query resolution time and demonstrating expertise in applying AI/ML techniques to drive business efficiency.\", \"reason\": \"This rewritten bullet point highlights the candidate's ability to design and develop scalable AI solutions, which is a key responsibility in the job description.\"}, {\"original\": \"Developed FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\", \"tailored\": \" ARCHITECTED and developed a high-performance document ingestion pipeline using FastAPI microservices, leveraging chunking and Pinecone vector embedding to efficiently process over 5,000 PDF pages, showcasing expertise in software design and architecture.\", \"reason\": \"This rewritten bullet point emphasizes the candidate's experience with software design and architecture, as well as their ability to handle large-scale data processing, which is relevant to the job description.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Investigated and applied graph neural networks to detect fraud in transaction networks, achieving a high F1 score of 93.2% on a large-scale 2M-node benchmark, demonstrating ability to drive innovation in AI and agentic solutions.\", \"reason\": \"This rewritten bullet point highlights the candidate's research experience and ability to drive innovation in AI and agentic solutions, which is a key responsibility in the job description.\"}]",
+    "outreachMessages": {
+      "confident": "I'm excited to explore new opportunities and believe my skills make me a strong fit for a challenging role.",
+      "curious": "I'm looking to learn more about potential openings and how my skills might align with your team's needs.",
+      "concise": "Looking for a new challenge, open to discussing potential opportunities."
+    },
+    "interviewQuestions": [],
+    "nudge3Dismissed": false,
+    "nudge7Dismissed": false,
+    "gaps": [
+      {
+        "type": "MISSING EXPERIENCE",
+        "text": "The job description requires a minimum of 5 years of experience with software development in one or more programming languages, but the resume only shows experience as an intern and in hackathons and projects."
+      },
+      {
+        "type": "SKILL MISMATCH",
+        "text": "The job description mentions experience with Google Cloud Platform (GCP) or other Cloud services as a preferred qualification, but the resume only mentions experience with AWS, which may not be directly transferable."
+      },
+      {
+        "type": "LEADERSHIP GAP",
+        "text": "The job description requires experience in a technical leadership role, but the resume only mentions experience as a tech lead in a developer club and does not demonstrate significant leadership experience in the industry."
+      }
+    ],
+    "learningResources": [
+      {
+        "platform": "Coursera",
+        "title": "Career Development Essentials",
+        "link": "https://www.coursera.org/specializations/career-development",
+        "description": "Helps develop essential skills for career growth and exploration."
+      },
+      {
+        "platform": "YouTube",
+        "title": "Job Search Strategies",
+        "link": "https://www.youtube.com/results?search_query=job+search+strategies",
+        "description": "Provides tips and strategies for an effective job search."
+      }
+    ]
+  },
+  {
+    "id": "app_1782955437312",
+    "company": "Google",
+    "role": "Software Engineer",
+    "status": "Applied",
+    "dateApplied": "2026-07-02T06:53:57.312456Z",
+    "matchScore": 87,
+    "effort": "Medium",
+    "flag": "Green",
+    "flagReason": "ATS Score derived from 6 deterministic factors.",
+    "jdText": "Minimum qualifications:\nBachelor\u2019s degree or equivalent practical experience.\n5 years of experience with software development in one or more programming languages.\n3 years of experience testing, maintaining, or launching software products, and 1 year of experience with software design and architecture.\n\nPreferred qualifications:\nMaster's degree or PhD in Computer Science or related technical field.\n5 years of experience with data structures and algorithms.\n1 year of experience in a technical leadership role.\nExperience developing accessible technologies.\nExperience using Google Cloud Platform (GCP) or other Cloud services.\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google\u2019s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nThe Enterprise AI team is responsible for applying AL/ML techniques to Google's own enterprise challenges in the most responsible manner. The team works closely with research as well as enterprise teams to identify opportunities for AI incorporation and application.\n\nIn this role, you will be instrumental in designing, developing, and deploying advanced AI and agentic solutions for Google's enterprise functions such as Legal, POps, Finance and beyond. You will also be expected to look for opportunities to factor out reusable AI primitives and contribute towards foundational building blocks to help accelerate the work of other ML engineers in Corporate Engineering.\n\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $174000 - $253000 (USD) + 15% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nDesign and implement scalable AI solutions for Google's enterprise functions leveraging our enterprise AI best practices and foundational building blocks.\nCollaborate with ML engineers and leads on developing reusable enterprise AI primitives.\nDrive innovation in AI and agentic solutions that help transform Google's business functions.\nBe a strong partner with Product Management/UX in defining product roadmap and new feature scope.\nMentor engineers and contribute to the overall technical direction of the team. Lead by example.",
+    "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Designed and developed a scalable AI-powered knowledge assistant using LangChain and Llama 3, resulting in a 38% reduction in employee query resolution time and demonstrating expertise in applying AI/ML techniques to real-world problems.\", \"reason\": \"This bullet point is rewritten to better match the job description by highlighting the design and development of a scalable AI solution, and emphasizing the impact of the project on the organization.\"}, {\"original\": \"Developed FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\", \"tailored\": \"Architected and implemented a highly efficient document ingestion pipeline using FastAPI microservices, capable of handling over 5,000 PDF pages with chunking and Pinecone vector embedding, showcasing skills in software design and architecture.\", \"reason\": \"This bullet point is rewritten to focus on the architecture and implementation of the pipeline, highlighting the technical skills and expertise in software design and architecture.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Investigated the application of graph neural networks to fraud detection in transaction networks, achieving a high accuracy of 93.2% F1 on a large-scale benchmark, and demonstrating ability to drive innovation in AI and agentic solutions.\", \"reason\": \"This bullet point is rewritten to emphasize the research and investigation aspects, and to highlight the achievement of high accuracy in a complex problem domain, which aligns with the job description's emphasis on driving innovation in AI and agentic solutions.\"}]",
+    "outreachMessages": {
+      "confident": "I'm excited to apply for the Software Engineer role at Google, with a strong background in computer science and a passion for innovation.",
+      "curious": "I'm interested in learning more about the Software Engineer position at Google and how my skills align with the company's vision.",
+      "concise": "Hi, I'm applying for the Software Engineer role at Google."
+    },
+    "interviewQuestions": [],
+    "nudge3Dismissed": false,
+    "nudge7Dismissed": false,
+    "gaps": [
+      {
+        "type": "SKILL MISMATCH",
+        "text": "Limited experience with Google Cloud Platform (GCP) or other Cloud services, the resume highlights experience with AWS"
+      },
+      {
+        "type": "MISSING KEYWORD",
+        "text": "No mention of experience in a technical leadership role in the resume"
+      },
+      {
+        "type": "OPPORTUNITY",
+        "text": "Lack of direct experience with designing and implementing scalable AI solutions for enterprise functions, although the resume shows potential with AI/ML projects"
+      }
+    ],
+    "learningResources": [
+      {
+        "platform": "Coursera",
+        "title": "Computer Science Specialization",
+        "link": "https://www.coursera.org/specializations/computer-science",
+        "description": "This specialization helps fill gaps in computer science fundamentals, including data structures, algorithms, and software engineering."
+      },
+      {
+        "platform": "YouTube",
+        "title": "Google Developers",
+        "link": "https://www.youtube.com/user/GoogleDevelopers",
+        "description": "This channel provides tutorials, explanations, and insights into Google's technology and development practices, helping to improve skills relevant to the Software Engineer role."
+      }
+    ]
+  },
+  {
+    "id": "app_1782955701182",
+    "company": "Google",
+    "role": "Software Engineer",
+    "status": "Applied",
+    "dateApplied": "2026-07-02T06:58:21.182062Z",
+    "matchScore": 87,
+    "effort": "Medium",
+    "flag": "Green",
+    "flagReason": "ATS Score derived from 6 deterministic factors.",
+    "jdText": "Minimum qualifications:\nBachelor\u2019s degree or equivalent practical experience.\n5 years of experience with software development in one or more programming languages.\n3 years of experience testing, maintaining, or launching software products, and 1 year of experience with software design and architecture.\n\nPreferred qualifications:\nMaster's degree or PhD in Computer Science or related technical field.\n5 years of experience with data structures and algorithms.\n1 year of experience in a technical leadership role.\nExperience developing accessible technologies.\nExperience using Google Cloud Platform (GCP) or other Cloud services.\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google\u2019s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nThe Enterprise AI team is responsible for applying AL/ML techniques to Google's own enterprise challenges in the most responsible manner. The team works closely with research as well as enterprise teams to identify opportunities for AI incorporation and application.\n\nIn this role, you will be instrumental in designing, developing, and deploying advanced AI and agentic solutions for Google's enterprise functions such as Legal, POps, Finance and beyond. You will also be expected to look for opportunities to factor out reusable AI primitives and contribute towards foundational building blocks to help accelerate the work of other ML engineers in Corporate Engineering.\n\n\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $174000 - $253000 (USD) + 15% bonus target + equity + benefits\n\nLearn more about benefits at Google.\nResponsibilities\nDesign and implement scalable AI solutions for Google's enterprise functions leveraging our enterprise AI best practices and foundational building blocks.\nCollaborate with ML engineers and leads on developing reusable enterprise AI primitives.\nDrive innovation in AI and agentic solutions that help transform Google's business functions.\nBe a strong partner with Product Management/UX in defining product roadmap and new feature scope.\nMentor engineers and contribute to the overall technical direction of the team. Lead by example.",
+    "tailoredBullets": "[{\"original\": \"Built a RAG-based internal knowledge assistant using LangChain + Llama 3, reducing employee query resolution time by 38%.\", \"tailored\": \"Designed and developed an AI-powered internal knowledge assistant using LangChain and Llama 3, resulting in a 38% reduction in employee query resolution time and showcasing expertise in applying AI/ML techniques to real-world problems.\", \"reason\": \"This rewritten bullet point highlights the application of AI/ML techniques, which aligns with the job description's requirements for experience in AI and ML.\"}, {\"original\": \"Developed FastAPI microservices for document ingestion pipeline, handling 5,000+ PDF pages with chunking and Pinecone vector embedding.\", \"tailored\": \"Architected and implemented scalable FastAPI microservices for a document ingestion pipeline, leveraging chunking and Pinecone vector embedding to efficiently process over 5,000 PDF pages, demonstrating proficiency in software design and architecture.\", \"reason\": \"This rewritten bullet point emphasizes the design and implementation of scalable software, which matches the job description's requirements for experience in software design and architecture.\"}, {\"original\": \"Researched graph neural networks for fraud detection on transaction networks; achieved 93.2% F1 on a 2M-node benchmark.\", \"tailored\": \"Investigated and applied graph neural networks for fraud detection in transaction networks, achieving a high F1 score of 93.2% on a large-scale 2M-node benchmark, and demonstrating ability to drive innovation in AI solutions.\", \"reason\": \"This rewritten bullet point highlights the application of AI techniques to drive innovation, which aligns with the job description's requirements for driving innovation in AI and agentic solutions.\"}]",
+    "outreachMessages": {
+      "confident": "I'm excited to apply for the Software Engineer role at Google, with a strong background in coding and a passion for innovation, I'm confident I can make a valuable contribution to the team.",
+      "curious": "I came across the Software Engineer position at Google and I'm intrigued by the opportunity to work with cutting-edge technology, could you tell me more about the role and what you're looking for in a candidate?",
+      "concise": "Hi, I'm interested in the Software Engineer role at Google, can we schedule a time to discuss my qualifications?"
+    },
+    "interviewQuestions": [],
+    "nudge3Dismissed": false,
+    "nudge7Dismissed": false,
+    "gaps": [
+      {
+        "type": "MISSING KEYWORD",
+        "text": "Lack of experience with Google Cloud Platform (GCP) or other Cloud services, although experience with AWS is mentioned"
+      },
+      {
+        "type": "SKILL MISMATCH",
+        "text": "No direct experience in a technical leadership role, although there are mentions of leadership roles in extracurricular activities"
+      },
+      {
+        "type": "OPPORTUNITY",
+        "text": "Insufficient information about experience in designing, developing, and deploying advanced AI and agentic solutions for enterprise functions, which could be an opportunity to demonstrate skills and abilities"
+      }
+    ],
+    "learningResources": [
+      {
+        "platform": "Coursera",
+        "title": "Google Cloud Platform Fundamentals",
+        "link": "https://www.coursera.org/specializations/google-cloud-platform-fundamentals",
+        "description": "This course helps develop skills in cloud computing, which is a crucial aspect of Google's technology stack."
+      },
+      {
+        "platform": "YouTube",
+        "title": "Google Software Engineering Interview Tips",
+        "link": "https://www.youtube.com/watch?v=4t7SN--Gpsi",
+        "description": "This video provides valuable insights and tips for acing a software engineering interview at Google, covering common interview questions and best practices."
+      }
+    ]
   }
 ]
